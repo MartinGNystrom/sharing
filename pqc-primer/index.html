@@ -1,0 +1,813 @@
+<title>Quantum &amp; PQC: A Field CTO's Briefing</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  :root{
+    --ink:#17181d;
+    --paper:#f5f2ea;
+    --surface:#ffffff;
+    --surface-2:#ece8dc;
+    --muted:#66605a;
+    --line:#ddd6c4;
+    --accent:#b96a1f;
+    --accent-ink:#ffffff;
+    --accent-2:#276e68;
+    --accent-2-ink:#ffffff;
+    --good:#2f7a4f;
+    --bad:#a8412f;
+    --shadow: 0 1px 2px rgba(23,24,29,.06), 0 8px 24px -12px rgba(23,24,29,.18);
+    --radius: 3px;
+    --serif: ui-serif, Iowan Old Style, Palatino Linotype, Palatino, Georgia, "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --ink:#eee9dd;
+      --paper:#14151b;
+      --surface:#1b1c24;
+      --surface-2:#23242e;
+      --muted:#9b9689;
+      --line:#33343f;
+      --accent:#e0983f;
+      --accent-ink:#1a1200;
+      --accent-2:#59bdb2;
+      --accent-2-ink:#052421;
+      --good:#63c98a;
+      --bad:#e0806e;
+      --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 28px -12px rgba(0,0,0,.6);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ink:#eee9dd; --paper:#14151b; --surface:#1b1c24; --surface-2:#23242e;
+    --muted:#9b9689; --line:#33343f; --accent:#e0983f; --accent-ink:#1a1200;
+    --accent-2:#59bdb2; --accent-2-ink:#052421; --good:#63c98a; --bad:#e0806e;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 28px -12px rgba(0,0,0,.6);
+  }
+  :root[data-theme="light"]{
+    --ink:#17181d; --paper:#f5f2ea; --surface:#ffffff; --surface-2:#ece8dc;
+    --muted:#66605a; --line:#ddd6c4; --accent:#b96a1f; --accent-ink:#ffffff;
+    --accent-2:#276e68; --accent-2-ink:#ffffff; --good:#2f7a4f; --bad:#a8412f;
+    --shadow: 0 1px 2px rgba(23,24,29,.06), 0 8px 24px -12px rgba(23,24,29,.18);
+  }
+
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper); color:var(--ink); font-family:var(--sans);
+    -webkit-font-smoothing:antialiased; line-height:1.55;
+  }
+  a{color:var(--accent-2)}
+  ::selection{ background: color-mix(in srgb, var(--accent) 35%, transparent); }
+
+  .skip-link{position:absolute;left:-999px;top:0}
+  .skip-link:focus{left:8px;top:8px;z-index:999;background:var(--surface);padding:.5em 1em;border-radius:var(--radius)}
+
+  /* ---------- Header ---------- */
+  .masthead{
+    position:relative; overflow:hidden; background:var(--ink); color:var(--paper);
+    border-bottom: 1px solid var(--line);
+  }
+  :root[data-theme="light"] .masthead, .masthead{ }
+  @media (prefers-color-scheme: light){ }
+  .masthead-inner{
+    position:relative; z-index:2; max-width:1180px; margin:0 auto;
+    padding: 38px 28px 30px;
+  }
+  .masthead canvas{ position:absolute; inset:0; width:100%; height:100%; opacity:.55; }
+  .masthead::after{
+    content:""; position:absolute; inset:0; z-index:1;
+    background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,.35) 60%, rgba(0,0,0,.65) 100%);
+  }
+  .eyebrow{
+    font-family:var(--mono); font-size:11.5px; letter-spacing:.14em; text-transform:uppercase;
+    color: color-mix(in srgb, var(--accent) 70%, white 15%);
+    display:flex; gap:10px; align-items:center; flex-wrap:wrap;
+  }
+  .eyebrow .dot{width:5px;height:5px;border-radius:50%;background:currentColor;opacity:.6}
+  h1.title{
+    font-family:var(--serif); font-weight:600; font-size: clamp(28px, 4.2vw, 44px);
+    margin:.4em 0 .2em; text-wrap:balance; letter-spacing:-.01em; color:#fdfbf5;
+  }
+  .subtitle{ max-width:60ch; color:#d8d3c4; font-size:15.5px; margin:0 0 18px;}
+  .meta-row{ display:flex; gap:22px; flex-wrap:wrap; font-family:var(--mono); font-size:12px; color:#c9c3b2; }
+  .meta-row b{ color:#fdfbf5; font-weight:600; }
+
+  /* overall progress lattice, in header */
+  .lattice-progress{ display:flex; align-items:center; gap:6px; margin-top:22px; }
+  .lattice-progress .node-wrap{ display:flex; flex-direction:column; align-items:center; gap:6px; }
+  .lattice-progress button{
+    all:unset; cursor:pointer; width:15px; height:15px; border-radius:50%;
+    border:1.5px solid #7c7768; background:transparent; transition: all .15s ease;
+  }
+  .lattice-progress button:hover{ border-color: var(--accent); }
+  .lattice-progress button:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; }
+  .lattice-progress button.done{ background:var(--accent); border-color:var(--accent); }
+  .lattice-progress button.current{ box-shadow:0 0 0 3px color-mix(in srgb, var(--accent-2) 55%, transparent); border-color:var(--accent-2); }
+  .lattice-progress .lbl{ font-family:var(--mono); font-size:10px; color:#a49e8d; }
+  .lattice-progress .seg{ height:1.5px; width:22px; background:#4c4738; }
+  @media (max-width:720px){ .lattice-progress .seg{ width:9px; } }
+
+  /* ---------- Layout ---------- */
+  .layout{ max-width:1180px; margin:0 auto; display:grid; grid-template-columns: 250px minmax(0,1fr); gap:0; align-items:start; }
+  @media (max-width: 880px){ .layout{ grid-template-columns: 1fr; } }
+
+  nav.daynav{
+    position:sticky; top:0; align-self:start; padding:22px 14px 40px 28px; border-right:1px solid var(--line);
+    max-height:100vh; overflow-y:auto;
+  }
+  @media (max-width:880px){
+    nav.daynav{ position:static; border-right:none; border-bottom:1px solid var(--line); padding:16px 20px; }
+    nav.daynav ol{ display:flex; overflow-x:auto; gap:8px; padding-bottom:6px; }
+    nav.daynav li{ flex: 0 0 auto; }
+  }
+  nav.daynav h2{ font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin:0 0 12px 4px;}
+  nav.daynav ol{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:3px; }
+  nav.daynav li button{
+    all:unset; cursor:pointer; display:flex; align-items:center; gap:10px; width:100%;
+    padding:9px 10px; border-radius:var(--radius); font-size:13.5px; color:var(--ink);
+  }
+  nav.daynav li button:hover{ background:var(--surface-2); }
+  nav.daynav li button:focus-visible{ outline:2px solid var(--accent-2); outline-offset:-2px; }
+  nav.daynav li[data-active="true"] button{ background:var(--surface); box-shadow:var(--shadow); }
+  nav.daynav .num{
+    font-family:var(--mono); font-size:11px; width:20px; height:20px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center; border:1.5px solid var(--line); flex:none;
+  }
+  nav.daynav li[data-done="true"] .num{ background:var(--good); border-color:var(--good); color:#fff; }
+  nav.daynav li[data-active="true"] .num{ border-color:var(--accent-2); }
+  nav.daynav .dlabel{ display:flex; flex-direction:column; gap:1px; text-align:left; }
+  nav.daynav .dlabel .t{ font-weight:600; line-height:1.25; }
+  nav.daynav .dlabel .m{ font-family:var(--mono); font-size:10.5px; color:var(--muted); }
+  nav.daynav .reset{ margin-top:20px; font-family:var(--mono); font-size:11px; color:var(--muted); background:none; border:none; cursor:pointer; text-decoration:underline; padding:4px; }
+
+  main{ padding: 30px 30px 90px; min-width:0; }
+  @media (max-width:600px){ main{ padding: 22px 16px 70px; } }
+
+  .day{ display:none; max-width:760px; }
+  .day.active{ display:block; animation: fade .35s ease; }
+  @media (prefers-reduced-motion: reduce){ .day.active{ animation:none; } }
+  @keyframes fade{ from{opacity:0; transform:translateY(4px);} to{opacity:1; transform:none;} }
+
+  .day-head{ border-bottom:1px solid var(--line); padding-bottom:16px; margin-bottom:26px; }
+  .day-eyebrow{ font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--accent); display:flex; gap:10px; align-items:center;}
+  .day-eyebrow span.sep{ color:var(--muted); }
+  h2.day-title{ font-family:var(--serif); font-size: clamp(22px,3vw,30px); margin:.35em 0 .3em; text-wrap:balance; }
+  .day-dek{ color:var(--muted); font-size:14.5px; max-width:58ch; }
+
+  .prose h3{ font-family:var(--serif); font-size:18px; margin:1.6em 0 .5em; }
+  .prose p{ font-size:15.5px; max-width:64ch; }
+  .prose ul, .prose ol{ font-size:15.5px; max-width:64ch; padding-left:1.2em; }
+  .prose li{ margin:.35em 0; }
+  .prose strong{ color:var(--ink); }
+  code, .kbd{ font-family:var(--mono); font-size:.9em; background:var(--surface-2); padding:.12em .4em; border-radius:3px; }
+
+  .callout{
+    border-left:3px solid var(--accent); background:var(--surface); box-shadow:var(--shadow);
+    padding:14px 18px; border-radius: 0 var(--radius) var(--radius) 0; margin:22px 0; max-width:64ch;
+  }
+  .callout .ctitle{ font-family:var(--mono); font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--accent); margin-bottom:6px; }
+  .callout p{ margin:0; font-size:14.5px; }
+
+  .source-note{ font-family:var(--mono); font-size:11px; color:var(--muted); margin-top:8px; }
+
+  /* ---------- timeline ---------- */
+  .timeline{ margin:26px 0 30px; max-width:720px; overflow-x:auto; padding-bottom:6px;}
+  .timeline-track{ position:relative; min-width:560px; height:6px; background:var(--line); border-radius:3px; margin: 46px 10px 0;}
+  .timeline-fill{ position:absolute; inset:0; background:linear-gradient(90deg, var(--accent-2), var(--accent)); border-radius:3px; }
+  .tl-marks{ position:relative; min-width:560px; }
+  .tl-mark{ position:absolute; top:-40px; transform:translateX(-50%); text-align:center; width:150px; }
+  .tl-mark .yr{ font-family:var(--mono); font-weight:700; font-size:15px; }
+  .tl-mark .lbl{ font-size:11.5px; color:var(--muted); line-height:1.3; }
+  .tl-mark .pin{ width:9px;height:9px;border-radius:50%; background:var(--accent); margin:6px auto 0; border:2px solid var(--surface); box-shadow:0 0 0 1.5px var(--accent); }
+  .tl-mark[data-tone="cool"] .pin{ background:var(--accent-2); box-shadow:0 0 0 1.5px var(--accent-2); }
+  .tl-mark[data-tone="cool"] .yr{ color:var(--accent-2); }
+  .tl-mark[data-tone="warm"] .yr{ color:var(--accent); }
+
+  /* ---------- flip cards ---------- */
+  .cards{ display:grid; grid-template-columns:repeat(auto-fill,minmax(190px,1fr)); gap:14px; margin:20px 0 30px; }
+  .flip{ perspective:1200px; height:150px; }
+  .flip-inner{ position:relative; width:100%; height:100%; text-align:left; transition:transform .5s; transform-style:preserve-3d; cursor:pointer; background:none; border:none; padding:0; font:inherit; color:inherit; }
+  .flip.is-flipped .flip-inner{ transform:rotateY(180deg); }
+  .flip-face{ position:absolute; inset:0; backface-visibility:hidden; border-radius:var(--radius); padding:14px; box-shadow:var(--shadow); background:var(--surface); border:1px solid var(--line); display:flex; flex-direction:column; }
+  .flip-face.back{ transform:rotateY(180deg); background:var(--surface-2); }
+  .flip-face .k{ font-family:var(--mono); font-weight:700; font-size:14px; color:var(--accent-2); }
+  .flip-face .k2{ font-family:var(--mono); font-size:10.5px; color:var(--muted); margin-top:2px;}
+  .flip-face .body{ font-size:12.5px; margin-top:8px; overflow:auto; }
+  .flip-face .hint{ margin-top:auto; font-family:var(--mono); font-size:9.5px; color:var(--muted); letter-spacing:.06em; text-transform:uppercase; }
+  @media (prefers-reduced-motion: reduce){ .flip-inner{ transition:none; } }
+
+  /* ---------- comparison table ---------- */
+  .tbl-wrap{ overflow-x:auto; margin:20px 0 30px; border:1px solid var(--line); border-radius:var(--radius); }
+  table.cmp{ border-collapse:collapse; width:100%; min-width:520px; font-size:13.5px; }
+  table.cmp th, table.cmp td{ padding:10px 14px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+  table.cmp thead th{ font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); background:var(--surface-2); }
+  table.cmp tbody tr:last-child td{ border-bottom:none; }
+  table.cmp td.tag{ font-family:var(--mono); font-weight:700; color:var(--accent-2); white-space:nowrap; }
+
+  /* ---------- maturity ladder ---------- */
+  .ladder{ display:flex; flex-direction:column; gap:10px; margin:20px 0 30px; }
+  .rung{ display:grid; grid-template-columns: 30px 130px 1fr; gap:14px; align-items:start; padding:12px 14px; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface); }
+  .rung .n{ font-family:var(--mono); font-weight:700; color:var(--accent); }
+  .rung .name{ font-weight:700; font-size:13.5px; }
+  .rung .desc{ font-size:13px; color:var(--muted); }
+  @media (max-width:560px){ .rung{ grid-template-columns:24px 1fr; } .rung .desc{ grid-column:1/-1; } }
+
+  /* ---------- quiz ---------- */
+  .quiz{ margin-top:34px; border-top:1px dashed var(--line); padding-top:24px; }
+  .quiz-head{ display:flex; justify-content:space-between; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:14px;}
+  .quiz-head h3{ font-family:var(--mono); font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin:0; }
+  .quiz-score{ font-family:var(--mono); font-size:11.5px; color:var(--accent-2); }
+  .qcard{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:16px 18px; margin-bottom:14px; box-shadow:var(--shadow); }
+  .qcard .qtext{ font-size:14.5px; font-weight:600; margin-bottom:10px; }
+  .opts{ display:flex; flex-direction:column; gap:7px; }
+  .opt{
+    all:unset; cursor:pointer; border:1px solid var(--line); border-radius:var(--radius); padding:9px 12px; font-size:13.5px;
+    display:flex; gap:10px; align-items:flex-start;
+  }
+  .opt:hover{ border-color:var(--accent-2); }
+  .opt:focus-visible{ outline:2px solid var(--accent-2); outline-offset:1px; }
+  .opt .mark{ font-family:var(--mono); font-size:11px; border:1px solid var(--line); border-radius:50%; width:18px; height:18px; display:flex; align-items:center; justify-content:center; flex:none; margin-top:1px;}
+  .opt.correct{ border-color:var(--good); background: color-mix(in srgb, var(--good) 12%, var(--surface)); }
+  .opt.correct .mark{ background:var(--good); border-color:var(--good); color:#fff; }
+  .opt.incorrect{ border-color:var(--bad); background: color-mix(in srgb, var(--bad) 10%, var(--surface)); }
+  .opt.incorrect .mark{ background:var(--bad); border-color:var(--bad); color:#fff; }
+  .qcard[data-answered="true"] .opt:not(.correct):not(.incorrect){ opacity:.55; }
+  .explain{ margin-top:10px; font-size:13px; color:var(--muted); background:var(--surface-2); padding:10px 12px; border-radius:var(--radius); display:none; }
+  .qcard[data-answered="true"] .explain{ display:block; }
+
+  .day-foot{ display:flex; justify-content:space-between; align-items:center; margin-top:36px; padding-top:20px; border-top:1px solid var(--line); gap:12px; flex-wrap:wrap; }
+  .btn{ all:unset; cursor:pointer; font-family:var(--mono); font-size:12px; letter-spacing:.04em; padding:10px 16px; border-radius:var(--radius); }
+  .btn.primary{ background:var(--accent); color:var(--accent-ink); }
+  .btn.primary:hover{ filter:brightness(1.06); }
+  .btn.ghost{ border:1px solid var(--line); color:var(--ink); }
+  .btn.ghost:hover{ border-color:var(--accent-2); }
+  .btn[disabled]{ opacity:.45; cursor:default; }
+  .btn:focus-visible{ outline:2px solid var(--accent-2); outline-offset:2px; }
+  .nav-pair{ display:flex; gap:10px; }
+
+  .summary-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin:22px 0 30px; }
+  .stat{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:14px; }
+  .stat .big{ font-family:var(--mono); font-weight:700; font-size:22px; color:var(--accent); }
+  .stat .lbl{ font-size:11.5px; color:var(--muted); margin-top:2px; }
+
+  footer.site{ max-width:1180px; margin:0 auto; padding:20px 30px 60px; font-family:var(--mono); font-size:11px; color:var(--muted); border-top:1px solid var(--line); }
+</style>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <canvas id="lattice" aria-hidden="true"></canvas>
+  <div class="masthead-inner">
+    <div class="eyebrow"><span>WWT Global Cyber Practice</span><span class="dot"></span><span>Field CTO Self-Study</span><span class="dot"></span><span>Internal Briefing Series</span></div>
+    <h1 class="title">Quantum Computing &amp; Post-Quantum Cryptography</h1>
+    <p class="subtitle">A seven-day, fifteen-minutes-a-day primer built from WWT Research, the June 2026 Boyd SME briefing, and this week's Security VT meeting — so you can speak to Q-Day, NIST's new cipher suites and WWT's quantum stack with confidence.</p>
+    <div class="meta-row">
+      <span><b>7 sessions</b> · ~15 min each</span>
+      <span><b>Updated</b> Jul 8, 2026</span>
+      <span><b>Prepared for</b> Martin Nystrom</span>
+    </div>
+    <div class="lattice-progress" id="latticeProgress" role="group" aria-label="Overall progress"></div>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="daynav" aria-label="Day selector">
+    <h2>Study Plan</h2>
+    <ol id="dayList"></ol>
+    <button class="reset" id="resetBtn" type="button">Reset all progress</button>
+  </nav>
+
+  <main id="main"></main>
+</div>
+
+<footer class="site">
+  Sources synthesized from: WWT Research — "Post-Quantum Cryptography Support in the Campus LAN" (Jul 2, 2026); Ricky Boyd &amp; Karen Andersen SME transcript, "Post-Quantum Cryptography" (Jun 15, 2026); Security VT Monthly Meeting notes (Jul 7, 2026); 2026 Gartner Repository briefings on postquantum cryptography; NIST FIPS 203/204/205 and NISTIR 8547 (draft); public reporting on Executive Order 14412 and Google Quantum AI factoring research. Progress is stored only in this browser (localStorage) — nothing is sent anywhere.
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ============ DATA ============ */
+  var DAYS = [
+  {
+    id:1, minutes:15,
+    title:"Why the Clock Started",
+    dek:"Superposition, Shor's algorithm, and the argument that Q-Day is closer than the government's own planning horizon.",
+    body: ''
+      + '<div class="prose">'
+      + '<p>Start with the machine, not the math. A classical bit is a 0 or a 1. A <strong>qubit</strong> holds both at once — a probability spread between them — and when you link qubits through <strong>entanglement</strong>, the system can explore an enormous number of possible states in parallel. Ricky Boyd, the WWT technical solutions architect who has briefed this material to military, intelligence and global-banking audiences, puts it plainly: with only 50 well-behaved qubits, you can represent more logical states than any supercomputer running today.</p>'
+      + '<p>That matters because of how the state space grows. Classical compute follows Moore\'s Law — a doubling roughly every 18 to 24 months. Add one qubit to a quantum system, though, and the addressable state space doubles (2 raised to the number of qubits) in a single step. Quantum hardware roadmaps have been adding qubits at a pace classical scaling has never had to match, which is why practitioners describe the compute curve as outrunning Moore\'s Law rather than following it.</p>'
+      + '<h3>The algorithm that changes everything</h3>'
+      + '<p>Public-key cryptography — RSA, Diffie-Hellman, elliptic-curve (ECC) — is secure today because certain math problems are, for a classical computer, practically unsolvable: factoring the product of two huge primes, or solving a discrete logarithm. <strong>Shor\'s algorithm</strong>, running on a sufficiently large and stable quantum computer, solves both efficiently. Boyd\'s framing: "hiding a secret by factorization is no longer a valid security model" once that machine exists.</p>'
+      + '<p>Symmetric cryptography (AES) and hashing are not broken the same way. <strong>Grover\'s algorithm</strong> gives a quantum computer a quadratic speed-up against brute-force search, which effectively halves the <em>effective</em> strength of a symmetric key — AES-128 starts behaving like AES-64. The fix is comparatively easy: use longer keys (AES-256 is considered quantum-safe). The real emergency is on the asymmetric side, because that is what secures TLS, VPNs, code signing, and every certificate-based trust relationship on your network.</p>'
+      + '<h3>What actually has to exist for this to matter</h3>'
+      + '<p>The industry shorthand is <strong>CRQC</strong> — a <em>cryptographically relevant quantum computer</em>: one with enough stable, error-corrected qubits to run Shor\'s algorithm against real-world key sizes (RSA-2048, for example). No CRQC exists today. The entire debate is about when one will.</p>'
+      + '<div class="callout"><div class="ctitle">Why "Q-Day" is a contested date, not a fact</div>'
+      + '<p>The U.S. government\'s official planning horizon has been 2035. WWT\'s internal assessment — reflected in Boyd\'s briefing and in WWT Research\'s campus-LAN note — puts a CRQC as early as <strong>2029</strong>, citing Google Quantum AI research that cut the estimated qubits needed to break RSA-2048 by roughly an order of magnitude. A separate 2025 paper from Google\'s Craig Gidney went further: fewer than one million noisy physical qubits could factor a 2048-bit RSA key in under a week, and a related whitepaper showed the elliptic-curve cryptography protecting Bitcoin and Ethereum could fall to under 500,000 physical qubits in minutes. Microsoft and Google have each since pulled their own <em>internal</em> PQC migration targets in to 2029 — not because a CRQC exists yet, but because the runway to migrate everything is shorter than the runway to build the machine.</p></div>'
+      + '<h3>The number that should scare you more than "Q-Day"</h3>'
+      + '<p>Adversaries do not need a CRQC today to hurt you later. In a <strong>harvest-now, decrypt-later (HNDL)</strong> attack, they record encrypted traffic now and simply wait. If your data needs to stay confidential for seven, ten, or twenty years — financial records, health data, classified material, source code — treat the threat as active <em>today</em>, regardless of which Q-Day estimate you believe. We\'ll spend all of Day 3 on this.</p>'
+      + '</div>',
+    timeline:{
+      caption:"Whose Q-Day estimate are you planning against?",
+      marks:[
+        {pos:6, yr:"2027", lbl:"WWT-recommended PQC-ready target", tone:"warm"},
+        {pos:38, yr:"2029", lbl:"WWT / Google / Microsoft CRQC & migration target", tone:"warm"},
+        {pos:68, yr:"2030", lbl:"Gartner: asymmetric crypto “unsafe”", tone:"cool"},
+        {pos:96, yr:"2035", lbl:"U.S. government CRQC planning horizon", tone:"cool"}
+      ]
+    },
+    quiz:[
+      {q:"What does Shor's algorithm actually break?", opts:["Symmetric ciphers like AES","Hash functions such as SHA-256","Asymmetric cryptography — RSA and ECC — via fast factoring and discrete log","Quantum random number generators"], correct:2, explain:"Shor's algorithm efficiently solves factoring and discrete-log problems, which is exactly what RSA and ECC rely on for security. AES and hashing face a different, smaller threat from Grover's algorithm."},
+      {q:"Grover's algorithm's effect on AES is best described as:", opts:["A complete break — AES is no longer usable","Roughly halving the effective key strength, addressed by using longer keys","No effect at all on symmetric cryptography","Making AES faster to compute"], correct:1, explain:"Grover gives a quadratic speed-up on brute-force search, so AES-128 behaves like AES-64 against a quantum attacker. AES-256 is generally considered quantum-safe as a result."},
+      {q:"Why might planning around the government's 2035 estimate be risky?", opts:["2035 is actually too late, not too early — nothing to worry about","WWT and industry (Google, Microsoft) now target 2029 internally, and harvest-now-decrypt-later means today's captured data is at risk regardless of the exact date","2035 only applies to symmetric encryption","The government estimate has no bearing on private industry"], correct:1, explain:"WWT's internal assessment and public moves by Google and Microsoft point to 2029. And HNDL means the relevant date for long-lived data is effectively now — traffic captured today can be decrypted whenever a CRQC arrives."},
+      {q:"A quantum computer's addressable state space grows with each added qubit roughly as:", opts:["Linearly, like adding one more classical bit","On the same 18–24 month cadence as Moore's Law","Exponentially (2^N) — a much steeper curve than classical scaling","It doesn't grow — qubits only add speed, not capacity"], correct:2, explain:"Each additional qubit doubles the state space outright. That's why hardware roadmaps that add qubits quickly compound so much faster than classical Moore's Law doublings."}
+    ]
+  },
+  {
+    id:2, minutes:15,
+    title:"The New Cipher Suites",
+    dek:"NIST's answer: ML-KEM, ML-DSA, SLH-DSA and HQC — what each one is for, and why bigger keys are the price of admission.",
+    body: ''
+      + '<div class="prose">'
+      + '<p>NIST didn\'t pick one replacement algorithm — it picked a small family, deliberately built on <strong>different hard-math problems</strong> so that a future weakness in one family doesn\'t take down everything at once. Most of the new suite rests on <strong>lattice problems</strong> (the shortest-vector and learning-with-errors problems); the rest is <strong>hash-based</strong>, which is conservative and well-understood but slower and bulkier.</p>'
+      + '<h3>The four you need to know cold</h3>'
+      + '<p><strong>ML-KEM</strong> (FIPS 203, finalized August 2024) is the key-encapsulation mechanism — it replaces Diffie-Hellman/ECDH for establishing a shared secret. It comes in two enterprise-relevant strengths: <code>ML-KEM-768</code> (the practical baseline for most deployments) and <code>ML-KEM-1024</code> (a higher security margin at roughly 50% more bytes on the wire). <strong>ML-DSA</strong> (FIPS 204) and <strong>SLH-DSA</strong> (FIPS 205, better known by its pre-standardization name <strong>SPHINCS+</strong>) are the two ratified signature algorithms — ML-DSA is lattice-based and fast; SLH-DSA is hash-based and deliberately more conservative, functioning as a structural hedge. <strong>HQC</strong> was selected as a backup key-encapsulation mechanism built on a different math family (code-based) than ML-KEM, in case lattice cryptography is ever weakened. <strong>Falcon</strong> (renamed FN-DSA) — a compact lattice signature scheme — is expected to be ratified, and <strong>SQIsign</strong>, an isogeny-based signature candidate with dramatically smaller keys, is still working through evaluation.</p>'
+      + '<div class="callout"><div class="ctitle">Why bother with a backup for the backup?</div><p>NIST\'s own reasoning is "mathematical diversity": lattice math is the newest of the bunch to receive this much scrutiny. Pairing a lattice signature (ML-DSA) with a hash-based one (SLH-DSA), and giving ML-KEM a structurally different backup (HQC), means no single cryptanalytic breakthrough can compromise everything at once.</p></div>'
+      + '<h3>The catch: everything gets bigger</h3>'
+      + '<p>PQC key and signature sizes run roughly <strong>10 to 20 times larger</strong> than their RSA/ECC equivalents — and for signatures specifically, an ML-DSA signature (3–5 KB) can be 30 to 70 times the size of a comparable ECDSA signature (64–96 bytes). That is not a compute problem so much as a <em>bytes-on-the-wire</em> problem: bigger TLS handshakes, certificates that can push an authentication exchange past a single network frame, and legacy hardware that may not have budgeted the memory or buffer space for it. We\'ll come back to this directly in Day 6\'s network case study.</p>'
+      + '</div>',
+    cards:{
+      caption:"Flip each card to check yourself.",
+      items:[
+        {k:"ML-KEM", k2:"FIPS 203 · finalized", body:"Key-encapsulation mechanism. Lattice-based. Replaces ECDH/Diffie-Hellman for establishing shared secrets. Deployed as ML-KEM-768 (baseline) or ML-KEM-1024 (higher margin)."},
+        {k:"ML-DSA", k2:"FIPS 204 · finalized", body:"Primary digital signature algorithm. Lattice-based, fast. Signatures run 3–5 KB — far larger than ECDSA."},
+        {k:"SLH-DSA (SPHINCS+)", k2:"FIPS 205 · finalized", body:"Backup digital signature. Hash-based rather than lattice-based — a conservative hedge against a future lattice-math break."},
+        {k:"HQC", k2:"Selected 2025", body:"Backup key-encapsulation mechanism. Code-based math — structurally different from ML-KEM, in case lattice problems are ever weakened."},
+        {k:"Falcon / FN-DSA", k2:"Pending ratification", body:"Compact lattice-based signature scheme. Smaller than ML-DSA; expected to be formally ratified."},
+        {k:"SQIsign", k2:"Emerging candidate", body:"Isogeny-based signature scheme still in evaluation. Offers dramatically smaller keys than the ratified options — one to watch."}
+      ]
+    },
+    quiz:[
+      {q:"Which algorithm establishes a shared secret (replacing ECDH), rather than signing something?", opts:["ML-DSA","ML-KEM","SLH-DSA","Falcon"], correct:1, explain:"ML-KEM (FIPS 203) is the key-encapsulation mechanism. ML-DSA, SLH-DSA and Falcon are all signature schemes."},
+      {q:"Why did NIST ratify both a lattice-based signature (ML-DSA) and a hash-based one (SLH-DSA)?", opts:["Hash-based is always faster so it's the default","Mathematical diversity — a hedge in case lattice-based math is ever broken","SLH-DSA is only for symmetric encryption","Regulatory requirement unrelated to security"], correct:1, explain:"NIST's own stated rationale is diversity: not putting all trust in one class of hard math problem."},
+      {q:"The main practical cost of PQC's larger keys and signatures is:", opts:["Slower CPUs across the board","More bytes on the wire — bigger handshakes, possible fragmentation, and hardware headroom","No real-world cost — it's purely theoretical","Higher electricity usage in data centers"], correct:1, explain:"ML-KEM adds microseconds, not meaningful compute load. The real cost is size: bigger handshakes and signatures that can strain legacy hardware and protocols not built for the extra bytes."}
+    ]
+  },
+  {
+    id:3, minutes:15,
+    title:"Two Threats, Not One",
+    dek:"Harvest-now/decrypt-later steals your past. Trust-now/forge-later — the framing that came up in this week's Security VT meeting — steals your future.",
+    body: ''
+      + '<div class="prose">'
+      + '<p>Most PQC conversations stop at one threat model. There are really two, and they attack different properties of your systems.</p>'
+      + '<h3>Threat 1 — Harvest-now, decrypt-later (HNDL)</h3>'
+      + '<p>An adversary records encrypted traffic and handshakes today, stores it, and decrypts it once a CRQC exists. This attacks <strong>confidentiality</strong>. It is why "my data will still be sensitive in 10 years" is the single most important question in any PQC prioritization exercise — long data-retention sectors (healthcare, government, financial services) are the most exposed, because the gap between "captured" and "decrypted" doesn\'t need to close before the damage is locked in.</p>'
+      + '<h3>Threat 2 — Trust-now, forge-later</h3>'
+      + '<p>This is the framing that surfaced explicitly in WWT\'s <strong>July 7, 2026 Security VT Monthly Meeting</strong>: once digital signatures can be forged, an attacker doesn\'t need to decrypt anything old — they can forge <em>new</em> certificates, code-signing signatures, and authentication assertions to impersonate trusted systems going forward. This attacks <strong>integrity and authentication</strong>, not confidentiality. It collapses the assumptions behind PKI, device identity, network access control, and software/firmware signing — everything your zero-trust architecture assumes is verifiable.</p>'
+      + '<div class="callout"><div class="ctitle">From the Security VT meeting</div><p>The group\'s discussion centered on readiness and operational impact rather than any single technical decision: shortened certificate lifetimes, hybrid certificates, crypto agility, automation, and cryptographic inventory were all raised as consequences of this dual threat model. Detailed discussion of NSPM-12 was deferred to the next meeting, with Madison Horn and Rob Joyce invited to brief the group — worth tracking.</p></div>'
+      + '<h3>A concrete example: your own campus network</h3>'
+      + '<p>MACsec-secured Ethernet (802.1AE) uses AES to encrypt frames at line rate — and AES, as you learned Day 1, is essentially fine against Grover\'s algorithm. But the AES session keys are derived from an <strong>802.1X/EAP-TLS handshake</strong> secured by RSA or ECC certificates. Break that layer, and both threats land at once: a harvested handshake retroactively reveals old session keys (HNDL), while a forged device certificate lets a rogue device sail through 802.1X authentication and gain trusted network access <em>going forward</em> (trust-now, forge-later). Same network, same certificates, two different failure modes. We\'ll dig into WWT\'s own lab validation of the fix on Day 6.</p>'
+      + '</div>',
+    table:{
+      caption:"Two threat models, side by side",
+      headers:["", "Harvest-now, decrypt-later", "Trust-now, forge-later"],
+      rows:[
+        ["Property attacked","Confidentiality","Integrity / authentication"],
+        ["Attacker's data source","Encrypted traffic captured today","A CRQC capable of forging signatures"],
+        ["When damage occurs","Retroactively, once a CRQC exists","Prospectively, from the moment forgery is possible"],
+        ["Most exposed today","Long-retention data: health, finance, government, IP","PKI, code signing, device identity, NAC, zero trust"],
+        ["Mitigation focus","Encrypt with PQC before capture happens","Migrate signing infrastructure before forgery is possible"]
+      ]
+    },
+    quiz:[
+      {q:"Harvest-now, decrypt-later primarily threatens:", opts:["Confidentiality of data captured today","The integrity of future certificates","Physical access controls","Nothing until a CRQC exists — no risk today"], correct:0, explain:"HNDL is about confidentiality: encrypted data captured now, decrypted whenever a CRQC becomes available later."},
+      {q:"\"Trust-now, forge-later\" — the framing raised in the July 7 Security VT meeting — primarily threatens:", opts:["Bandwidth availability","Integrity and authentication — signatures, certificates, code signing","Only symmetric encryption","Physical datacenter security"], correct:1, explain:"Forged signatures let an attacker impersonate trusted systems going forward — that's an integrity/authentication attack, distinct from HNDL's confidentiality attack."},
+      {q:"In a MACsec-secured campus LAN, which layer is actually quantum-vulnerable?", opts:["The AES data plane that encrypts frames","The 802.1X/EAP-TLS handshake and its RSA/ECC certificates","Neither — MACsec is fully quantum-safe already","Both equally, with no distinction"], correct:1, explain:"MACsec's AES encryption is fine. The vulnerability lives in the classical key exchange during 802.1X/EAP-TLS authentication, which derives the session keys."},
+      {q:"What did the Security VT meeting decide about NSPM-12?", opts:["Adopt it immediately across all business units","Defer detailed discussion to the next meeting and bring in outside briefers (Madison Horn, Rob Joyce)","Reject it as not applicable to WWT","No mention of NSPM-12 occurred"], correct:1, explain:"The group deferred interpreting NSPM-12 without the right expertise in the room, and agreed to invite Madison Horn and Rob Joyce to brief at the next meeting."}
+    ]
+  },
+  {
+    id:4, minutes:15,
+    title:"The Deadlines That Actually Bind",
+    dek:"CNSA 2.0, Executive Order 14412, and the Gartner numbers your clients are already reading — laid out on one ladder.",
+    body: ''
+      + '<div class="prose">'
+      + '<p>Every framework has slightly different dates, but they compound into one practical rule: <strong>2026 is the year you inventory and start piloting, not the year you start planning.</strong></p>'
+      + '<h3>The compliance clocks</h3>'
+      + '<p><strong>CNSA 2.0</strong> — the NSA's Commercial National Security Algorithm Suite 2.0 — sets the clearest binding schedule for National Security Systems: new acquisitions must comply starting <strong>January 1, 2027</strong>; networking equipment must use CNSA 2.0 <strong>exclusively by 2030</strong>; full transition is targeted for <strong>2035</strong>. In June 2026, <strong>Executive Order 14412</strong>, "Securing the Nation Against Advanced Cryptographic Attacks," accelerated the picture further, mandating a government-wide PQC migration with binding deadlines for high-value federal assets. NIST's own draft transition plan, <strong>NISTIR 8547</strong>, calls for deprecating and ultimately removing quantum-vulnerable algorithms from its standards entirely by 2035, with high-risk systems expected to move much sooner.</p>'
+      + '<h3>What the analysts are telling your clients</h3>'
+      + '<p>The 2026 Gartner briefings circulating internally this week are blunt: asymmetric cryptography will be <strong>unsafe by 2030</strong>, and security leaders who treat PQC as "a few years away" are systematically under-resourcing it. Gartner\'s framing for CIOs is explicit — start now, or accept a permanently weaker competitive position relative to organizations that migrated on time.</p>'
+      + '<h3>Industry is quietly moving its own goalposts</h3>'
+      + '<p>The most telling signal isn\'t a regulation — it\'s that Microsoft and Google, who have no regulator forcing their hand, have each pulled their own <em>internal</em> PQC migration targets in to <strong>2029</strong>, citing the same Google Quantum AI research on reduced qubit requirements that WWT has been using internally. When vendors with the deepest visibility into the hardware roadmap start moving faster than regulation requires, that tells you where the real risk assessment landed.</p>'
+      + '<div class="callout"><div class="ctitle">WWT\'s own number</div><p>Ricky Boyd\'s guidance to clients, echoed in WWT\'s published campus-LAN research: target a <strong>PQC-ready environment by 2027</strong>, to leave a real migration runway ahead of a Q-Day risk window that WWT assesses could open as early as 2029.</p></div>'
+      + '</div>',
+    timeline:{
+      caption:"The deadline ladder",
+      marks:[
+        {pos:6, yr:"2027", lbl:"CNSA 2.0: new NSS acquisitions · WWT-recommended PQC-ready target", tone:"warm"},
+        {pos:38, yr:"2029", lbl:"WWT / Google / Microsoft CRQC & self-imposed migration target", tone:"warm"},
+        {pos:68, yr:"2030", lbl:"CNSA 2.0: networking equipment exclusive · Gartner “unsafe” date", tone:"cool"},
+        {pos:96, yr:"2035", lbl:"CNSA 2.0 full transition · NIST algorithm deprecation (NISTIR 8547)", tone:"cool"}
+      ]
+    },
+    quiz:[
+      {q:"Under CNSA 2.0, when must new National Security System acquisitions comply?", opts:["Immediately, no grace period","January 1, 2027","2030","2035"], correct:1, explain:"CNSA 2.0 sets January 1, 2027 as the compliance date for new acquisitions; 2030 is when networking equipment must use it exclusively, and 2035 is the full-transition target."},
+      {q:"Which is earlier — WWT's internal Q-Day estimate, or the U.S. government's official planning horizon?", opts:["They're the same year","WWT's estimate (2029) is earlier than the government's (2035)","The government's estimate is earlier","Neither organization has published an estimate"], correct:1, explain:"WWT assesses a CRQC could arrive as early as 2029 — six years ahead of the government's 2035 planning horizon."},
+      {q:"What prompted Microsoft and Google to move their own PQC deadlines up to 2029?", opts:["A new law required it","Google Quantum AI research lowering the estimated qubit requirements to break RSA-2048 and common ECC","Customer complaints about slow websites","It was a marketing decision unrelated to technical risk"], correct:1, explain:"Both companies cited the same research (including Gidney's factoring paper) that reduced the estimated hardware bar for a cryptographically relevant quantum computer."}
+    ]
+  },
+  {
+    id:5, minutes:15,
+    title:"The Migration Minefield",
+    dek:"Crypto inventories, four key types, and the four-stage maturity model that tells you exactly where you stand.",
+    body: ''
+      + '<div class="prose">'
+      + '<p>Boyd calls the operational reality of PQC migration "the minefield," and the name fits. It is not a single upgrade — it is a coordinated program across inventory, compliance, entropy sources, application compatibility, and certificate lifecycle management, all at once: a full crypto asset inventory; compliance with <strong>NIST SP 800-208</strong> for firmware and software signing; verified entropy sources for quantum-derived random number generation; accounting for PQC\'s larger key sizes in every application that touches cryptography; and matching encryption strength to the actual risk, application, and technology involved rather than applying one blanket policy everywhere.</p>'
+      + '<h3>Four key types — know where each one lives</h3>'
+      + '<p>Every system you touch during migration will sit in one of four states:</p>'
+      + '</div>',
+    table:{
+      caption:"The four PQC key types",
+      headers:["Type","What it is","Status"],
+      rows:[
+        ["Legacy","Classical keys only (RSA/ECDH)","Quantum-unsafe — flag in inventory for migration"],
+        ["Hybrid","Two independent keys, classical + PQC, negotiated together (e.g. X25519MLKEM768)","Recommended near-term enterprise approach"],
+        ["Composite","A single key object combining classical + PQC math","Transitional — both halves must be broken to compromise it"],
+        ["Pure PQC","Post-quantum keys only, no classical component","Target end-state — needs full ecosystem readiness"]
+      ]
+    },
+    body2: ''
+      + '<div class="prose">'
+      + '<h3>The four-stage maturity model</h3>'
+      + '<p>Whether you\'re assessing a switch, a server, or an entire environment, the same ladder applies:</p>'
+      + '</div>',
+    ladder:[
+      {n:1, name:"PQC-Capable", desc:"Hardware and software support PQC algorithms — but that capability sits unused. Without explicit configuration, the device still runs classical crypto by default. “Capable” is a spec sheet, not a security posture."},
+      {n:2, name:"PQC-Ready", desc:"Configured to negotiate PQC opportunistically with peers that support it, falling back to classical when they don't. This is where real deployment begins, without a hard cutover."},
+      {n:3, name:"PQC-Safe", desc:"PQC is preferred by default via hybrid handshakes; classical fallback remains as a monitored safety net. Most enterprises will live here for years — that's expected, not a failure."},
+      {n:4, name:"PQC-Protected", desc:"PQC-only, enforced by policy, zero classical fallback. Non-compliant devices are denied outright. Requires 100% ecosystem readiness — PKI is almost always the bottleneck, not the network hardware."}
+    ],
+    body3: ''
+      + '<div class="prose">'
+      + '<div class="callout"><div class="ctitle">Two numbers worth memorizing</div><p>TLS certificate lifetimes are compressing toward <strong>47 days by 2029</strong> — a deliberate push that forces certificate lifecycle automation, since no human process can rotate certs that often by hand. And hardware readiness is an underappreciated blocker: legacy infrastructure may lack the compute or buffer headroom PQC\'s larger keys demand — the exact same "is your infrastructure ready" question WWT already asks clients about AI.</p></div>'
+      + '</div>',
+    quiz:[
+      {q:"Which key type is the recommended near-term enterprise approach?", opts:["Legacy","Hybrid","Composite","Pure PQC"], correct:1, explain:"Hybrid — negotiating classical and PQC keys together — introduces quantum resistance without breaking compatibility with devices that haven't upgraded yet."},
+      {q:"When enterprises try to reach PQC-Protected (Level 4), the usual bottleneck is:", opts:["Switch and router hardware","PKI infrastructure — CA rotation, OCSP/CRL, certificate lifecycle tooling","End-user training","Internet bandwidth"], correct:1, explain:"PKI modernization is frequently a multi-year program in its own right, and typically lags behind network hardware readiness."},
+      {q:"'PQC-Capable' (Level 1) differs from 'PQC-Ready' (Level 2) because:", opts:["They're the same thing", "Capable means the support exists but isn't configured on; Ready means it's actively negotiating PQC with supporting peers", "Ready is a lower maturity level than Capable", "Capable means PQC is already enforced everywhere"], correct:1, explain:"A PQC-Capable device can still be running entirely classical crypto until someone turns the feature on and configures it — that's the jump to PQC-Ready."},
+      {q:"Why are TLS certificate lifetimes shrinking toward 47 days by 2029?", opts:["To reduce server costs", "To force certificate lifecycle automation and shrink the exposure window of any single certificate", "It's an arbitrary NIST requirement with no operational purpose", "Because longer certificates are technically impossible with PQC"], correct:1, explain:"Shorter lifetimes are a deliberate crypto-agility push — they make manual certificate management infeasible and reduce how long a compromised cert stays valid."}
+    ]
+  },
+  {
+    id:6, minutes:15,
+    title:"Case Study: PQC in the Campus LAN",
+    dek:"How WWT's Advanced Technology Center actually validated hybrid PQC on Cisco 8000 Series switches — and what broke along the way.",
+    body: ''
+      + '<div class="prose">'
+      + '<p>This is the clearest real-world proof point in WWT\'s current PQC work, and it\'s worth knowing in enough detail to repeat it to a client. MACsec (IEEE 802.1AE) delivers line-rate Layer 2 encryption and integrity for Ethernet frames, bootstrapped by <strong>802.1X</strong> port-based authentication and managed by <strong>MKA</strong> (MACsec Key Agreement) for deriving and rotating session keys.</p>'
+      + '<h3>Where PQC actually plugs in</h3>'
+      + '<p>The AES session keys MACsec uses are derived from the <strong>EAP-TLS</strong> authentication phase — which, classically, relies on RSA or ECC certificates. That handshake is the entire quantum risk surface. The fix doesn\'t touch MACsec or AES at all: it upgrades EAP-TLS to <strong>TLS 1.3 with ML-KEM</strong>. Two modes exist. <strong>Hybrid mode</strong> negotiates a classical key (e.g. X25519) and a PQC key (ML-KEM-768) simultaneously, combining them into one composite key (<code>X25519MLKEM768</code>) — it tries PQC first and falls back to classical only if the peer can\'t do PQC. <strong>PQC-only mode</strong> accepts no fallback at all.</p>'
+      + '<h3>The overhead is bandwidth, not compute</h3>'
+      + '<p>ML-KEM itself adds only microseconds per handshake — the real cost is bytes on the wire: roughly 2 KB for ML-KEM-768, 3 KB for ML-KEM-1024. The bigger factor arrives once device identities move to ML-DSA signatures, which run 3–5 KB — 30 to 70 times the size of a comparable ECDSA signature. That inflation can push the Certificate and CertificateVerify messages in an EAP-TLS exchange past a single frame, forcing fragmentation and extra round trips. The lesson: test handshake completion with <em>realistic certificate chains</em>, not just the key exchange in isolation.</p>'
+      + '<div class="callout"><div class="ctitle">What WWT actually validated</div><p>Engineers in WWT\'s Advanced Technology Center confirmed hybrid EAP-TLS 1.3 with ML-KEM running on Cisco 8000 Series switches, with graceful fallback to TLS 1.2 for devices that don\'t yet support PQC. Migration proceeded device-by-device without disrupting live operations — proof that the four-phase path (inventory, pilot, expand, enforce) works outside a slide deck.</p></div>'
+      + '<h3>A design principle worth repeating to clients</h3>'
+      + '<p>Fallback in this architecture is a deliberate, monitored risk-management tool for incremental migration — not a silent failure mode. And failures are designed to fail <em>closed</em>, not silently downgrade: a misconfiguration or non-compliant endpoint produces a clear "Link Secure Failure" event rather than an undetected cryptographic regression. If a session ever drops to TLS 1.2 or non-PQC algorithms, the logs will say so.</p>'
+      + '</div>',
+    quiz:[
+      {q:"Does migrating a campus LAN to PQC require replacing the MACsec/AES data plane?", opts:["Yes, MACsec must be entirely rebuilt", "No — the fix is entirely in the 802.1X/EAP-TLS control-plane handshake; MACsec/AES is unchanged", "Only on switches older than five years", "MACsec cannot support PQC under any circumstances"], correct:1, explain:"MACsec's AES data plane is already fine against quantum attacks (Grover only halves effective strength). The upgrade happens in EAP-TLS, which secures the handshake and key derivation."},
+      {q:"What did WWT's Advanced Technology Center trial specifically validate?", opts:["A brand-new encryption standard invented by WWT", "Hybrid EAP-TLS 1.3 with ML-KEM running on Cisco 8000 Series switches, with graceful fallback to TLS 1.2", "That PQC is not yet feasible on any hardware", "A pure-PQC, fallback-free deployment"], correct:1, explain:"The trial proved hybrid mode works in practice on real Cisco hardware, migrating device-by-device without breaking live traffic."},
+      {q:"Why can PQC certificates push an EAP-TLS exchange past a single network frame?", opts:["ML-KEM ciphertext is enormous", "ML-DSA signatures (3–5 KB) are 30–70x larger than ECDSA signatures, inflating the Certificate/CertificateVerify messages", "TLS 1.3 doesn't support fragmentation at all", "Cisco switches cap frame size intentionally to block PQC"], correct:1, explain:"The signature size increase — not the key exchange — is what typically forces fragmentation and extra round trips in the handshake."},
+      {q:"How should 'fallback' be framed to a client evaluating this migration?", opts:["As an embarrassing bug to hide", "As a deliberate, monitored risk-management tool for incremental rollout, with failures designed to fail closed and log clearly", "As something that should never be allowed under any circumstances", "As irrelevant to security posture"], correct:1, explain:"Fallback, used deliberately and monitored, is what makes a brownfield migration operationally safe — the key is visibility into when and why it happens."}
+    ]
+  },
+  {
+    id:7, minutes:15,
+    title:"WWT's Quantum Stack & Your Talk Track",
+    dek:"Partners, proof points, open threads to watch, and a full-week review.",
+    body: ''
+      + '<div class="prose">'
+      + '<p>You now have the concepts. Here\'s where WWT actually stands, so you can speak to clients from the inside rather than from a vendor deck.</p>'
+      + '<h3>The stack in production today</h3>'
+      + '<p>WWT\'s PKI and crypto-agility tooling is built around <strong>Thales, Keyfactor, and Entrust</strong>, with active engineering collaboration alongside <strong>Cisco</strong> and <strong>Palo Alto Networks</strong> to get PQC-ready cipher suites embedded directly into their product roadmaps. Under evaluation against that stack: <strong>Quantum X Change</strong> and <strong>HEQA</strong> — the working assessment is that Quantum X Change is more network-focused, notable mainly for generating PQC-enabled cryptography on demand without a traditional crypto-discovery process, while the broader question for both is whether they close a real gap or sit mostly adjacent to what WWT already runs.</p>'
+      + '<h3>Hands-on quantum access</h3>'
+      + '<p>WWT has an approved cadre of roughly ten to twelve people with visit access to <strong>IBM (Poughkeepsie)</strong> and <strong>Google (Santa Barbara)</strong>, an active <strong>Quantinuum</strong> engagement, and ongoing dialogue with cross-modality software layers like <strong>Classiq</strong> that abstract quantum programming across different hardware backends.</p>'
+      + '<h3>Proof points you can cite</h3>'
+      + '<p>A live PQC proof-of-concept was built for <strong>Morgan Stanley</strong> via Keyfactor, and is migrating into a new WWT-owned encryption lab. On the network side, the Cisco ATC trial from Day 6 is published and citable. Client-facing motions available today include the <strong>PQC Readiness Workshop</strong> (a half-day executive engagement), crypto asset inventory assessments, and a growing WWT Research library — the campus-LAN note, "Quantum Systems: Clusters, Hybrid Quantum/AI Workflows," and "Accelerate Your Migration to Quantum-Safe Cryptography" among them.</p>'
+      + '<h3>Which deadline to lead with, by audience</h3>'
+      + '<p>Defense and national security clients respond to <strong>CNSA 2.0</strong>. Federal civilian agencies respond to <strong>Executive Order 14412</strong>. Regulated commercial industries (FIPS, CMMC, HIPAA) respond to the framing WWT Research already uses: migration is not optional — the only open question is sequencing and timing.</p>'
+      + '<div class="callout"><div class="ctitle">Open thread to watch</div><p>The July 7 Security VT meeting deferred a detailed read of <strong>NSPM-12</strong> to its next session, with Madison Horn and Rob Joyce invited to brief the group. Worth following up on directly — it will likely reshape parts of Day 3 and Day 4\'s deadline picture once it lands.</p></div>'
+      + '</div>',
+    stats:[
+      {big:"2027", lbl:"WWT PQC-ready target"},
+      {big:"2029", lbl:"WWT / Google / MSFT CRQC estimate"},
+      {big:"4", lbl:"NIST-ratified algorithms"},
+      {big:"4", lbl:"PQC maturity levels"},
+      {big:"2", lbl:"Threat models: HNDL &amp; forge-later"},
+      {big:"47d", lbl:"TLS cert lifetime target by 2029"}
+    ],
+    quiz:[
+      {q:"WWT's PKI and crypto-agility stack is centered on which vendors?", opts:["AWS, Azure, GCP", "Thales, Keyfactor, and Entrust", "Okta, Ping, ForgeRock", "Splunk and CrowdStrike"], correct:1, explain:"Thales, Keyfactor and Entrust form the core of WWT's current quantum/PQC stack, alongside engineering collaboration with Cisco and Palo Alto Networks."},
+      {q:"What is the working assessment of Quantum X Change and HEQA?", opts:["Both are being fully adopted immediately as WWT's primary stack", "They're being evaluated for whether they close a real gap or sit mostly adjacent to WWT's existing stack", "Both have been rejected outright", "They are hardware vendors, not software"], correct:1, explain:"The internal evaluation is still open — the question is whether either offering fills a genuine gap versus overlapping with Thales/Keyfactor/Entrust."},
+      {q:"Which client-facing engagement is a half-day executive session on PQC?", opts:["The PQC Readiness Workshop", "The Cisco ATC trial", "The Boyd SME transcript", "The Morgan Stanley proof-of-concept"], correct:0, explain:"The PQC Readiness Workshop is WWT's half-day executive engagement format for introducing PQC strategy to leadership."},
+      {q:"For defense and national-security clients, which deadline framework should you lead with?", opts:["Executive Order 14412", "CNSA 2.0", "HIPAA", "The 47-day certificate target"], correct:1, explain:"CNSA 2.0 is the NSA framework specifically governing National Security Systems, making it the most relevant lead for defense clients."},
+      {q:"What is still an open thread from the July 7 Security VT meeting?", opts:["The full NSPM-12 briefing, deferred to the next meeting with Madison Horn and Rob Joyce", "WWT's choice of PQC vendor, which was finalized", "The 2029 Q-Day estimate, which was disputed and reversed", "Nothing — all quantum topics were fully resolved"], correct:0, explain:"NSPM-12 discussion was explicitly deferred, with outside briefers invited for the next session — a good thing to check back on."}
+    ]
+  }
+  ];
+
+  /* ============ STATE ============ */
+  var STORE_KEY = "wwt-pqc-primer-v1";
+  var state = load();
+  function load(){
+    try{
+      var raw = localStorage.getItem(STORE_KEY);
+      if(raw) return JSON.parse(raw);
+    }catch(e){}
+    return { completed:{}, current:1, answers:{} };
+  }
+  function save(){
+    try{ localStorage.setItem(STORE_KEY, JSON.stringify(state)); }catch(e){}
+  }
+
+  /* ============ RENDER: NAV ============ */
+  var dayListEl = document.getElementById("dayList");
+  var latticeProgressEl = document.getElementById("latticeProgress");
+
+  function renderNav(){
+    dayListEl.innerHTML = "";
+    DAYS.forEach(function(d, i){
+      var li = document.createElement("li");
+      li.setAttribute("data-active", state.current === d.id ? "true":"false");
+      li.setAttribute("data-done", state.completed[d.id] ? "true":"false");
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.setAttribute("aria-current", state.current === d.id ? "true": "false");
+      btn.innerHTML = '<span class="num">'+ (state.completed[d.id] ? "&#10003;" : d.id) +'</span>'
+        + '<span class="dlabel"><span class="t">'+ d.title +'</span><span class="m">DAY '+ d.id +' &middot; '+ d.minutes +' MIN</span></span>';
+      btn.addEventListener("click", function(){ goTo(d.id); });
+      li.appendChild(btn);
+      dayListEl.appendChild(li);
+    });
+
+    latticeProgressEl.innerHTML = "";
+    DAYS.forEach(function(d, i){
+      if(i>0){
+        var seg = document.createElement("div");
+        seg.className = "seg";
+        latticeProgressEl.appendChild(seg);
+      }
+      var wrap = document.createElement("div");
+      wrap.className = "node-wrap";
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = (state.completed[d.id] ? "done ":"") + (state.current === d.id ? "current":"");
+      b.setAttribute("aria-label", "Go to Day "+d.id+ (state.completed[d.id] ? " (completed)":""));
+      b.addEventListener("click", function(){ goTo(d.id); });
+      var lbl = document.createElement("div");
+      lbl.className = "lbl";
+      lbl.textContent = "D"+d.id;
+      wrap.appendChild(b);
+      wrap.appendChild(lbl);
+      latticeProgressEl.appendChild(wrap);
+    });
+  }
+
+  /* ============ RENDER: DAY CONTENT ============ */
+  var mainEl = document.getElementById("main");
+
+  function renderTimeline(tl){
+    var marksHtml = tl.marks.map(function(m){
+      return '<div class="tl-mark" data-tone="'+m.tone+'" style="left:'+m.pos+'%"><div class="yr">'+m.yr+'</div><div class="pin"></div><div class="lbl">'+m.lbl+'</div></div>';
+    }).join("");
+    return '<div class="timeline"><div class="tl-marks">'+marksHtml+'<div class="timeline-track"><div class="timeline-fill"></div></div></div></div>';
+  }
+
+  function renderCards(cardsData, dayId){
+    var items = cardsData.items.map(function(c, idx){
+      return '<div class="flip" tabindex="0" role="button" aria-label="Flip card: '+ c.k +'" data-day="'+dayId+'" data-idx="'+idx+'">'
+        + '<div class="flip-inner">'
+        + '<div class="flip-face front"><div class="k">'+c.k+'</div><div class="k2">'+c.k2+'</div><div class="hint">Tap to reveal &rarr;</div></div>'
+        + '<div class="flip-face back"><div class="body">'+c.body+'</div></div>'
+        + '</div></div>';
+    }).join("");
+    return '<p class="source-note" style="margin-top:0">'+cardsData.caption+'</p><div class="cards">'+items+'</div>';
+  }
+
+  function renderTable(t){
+    var head = t.headers.map(function(h){ return '<th>'+h+'</th>'; }).join("");
+    var rows = t.rows.map(function(r){
+      return '<tr>' + r.map(function(cell, i){ return i===0 ? '<td class="tag">'+cell+'</td>' : '<td>'+cell+'</td>'; }).join("") + '</tr>';
+    }).join("");
+    return '<p class="source-note" style="margin-top:0">'+t.caption+'</p><div class="tbl-wrap"><table class="cmp"><thead><tr>'+head+'</tr></thead><tbody>'+rows+'</tbody></table></div>';
+  }
+
+  function renderLadder(items){
+    var rungs = items.map(function(r){
+      return '<div class="rung"><div class="n">L'+r.n+'</div><div class="name">'+r.name+'</div><div class="desc">'+r.desc+'</div></div>';
+    }).join("");
+    return '<div class="ladder">'+rungs+'</div>';
+  }
+
+  function renderStats(stats){
+    var items = stats.map(function(s){
+      return '<div class="stat"><div class="big">'+s.big+'</div><div class="lbl">'+s.lbl+'</div></div>';
+    }).join("");
+    return '<div class="summary-grid">'+items+'</div>';
+  }
+
+  function renderQuiz(quiz, dayId){
+    var qs = quiz.map(function(q, qi){
+      var savedAns = state.answers[dayId] && (state.answers[dayId][qi] !== undefined) ? state.answers[dayId][qi] : null;
+      var opts = q.opts.map(function(o, oi){
+        var cls = "opt";
+        if(savedAns !== null){
+          if(oi === q.correct) cls += " correct";
+          else if(oi === savedAns) cls += " incorrect";
+        }
+        return '<button type="button" class="'+cls+'" data-day="'+dayId+'" data-qi="'+qi+'" data-oi="'+oi+'">'
+          + '<span class="mark">'+ String.fromCharCode(65+oi) +'</span><span>'+o+'</span></button>';
+      }).join("");
+      return '<div class="qcard" data-day="'+dayId+'" data-qi="'+qi+'" data-answered="'+(savedAns!==null ? "true":"false")+'">'
+        + '<div class="qtext">'+(qi+1)+'. '+q.q+'</div>'
+        + '<div class="opts">'+opts+'</div>'
+        + '<div class="explain">'+q.explain+'</div>'
+        + '</div>';
+    }).join("");
+    return '<div class="quiz"><div class="quiz-head"><h3>Field Check</h3><span class="quiz-score" data-scorefor="'+dayId+'"></span></div>'+qs+'</div>';
+  }
+
+  function scoreText(dayId){
+    var quiz = DAYS.filter(function(d){return d.id===dayId;})[0].quiz;
+    var ans = state.answers[dayId] || {};
+    var answered = Object.keys(ans).length;
+    var correct = 0;
+    quiz.forEach(function(q, qi){ if(ans[qi] === q.correct) correct++; });
+    if(answered === 0) return "0 of "+quiz.length+" answered";
+    return correct+" of "+quiz.length+" correct ("+answered+"/"+quiz.length+" answered)";
+  }
+
+  function renderDay(d){
+    var idx = DAYS.findIndex(function(x){return x.id===d.id;});
+    var prev = DAYS[idx-1], next = DAYS[idx+1];
+
+    var html = '<article class="day active" aria-labelledby="day-title-'+d.id+'">';
+    html += '<div class="day-head"><div class="day-eyebrow">Day '+d.id+' of 7<span class="sep">&middot;</span>~'+d.minutes+' min<span class="sep">&middot;</span>WWT Internal Briefing</div>';
+    html += '<h2 class="day-title" id="day-title-'+d.id+'">'+d.title+'</h2>';
+    html += '<p class="day-dek">'+d.dek+'</p></div>';
+
+    html += d.body;
+    if(d.timeline) html += renderTimeline(d.timeline);
+    if(d.cards) html += renderCards(d.cards, d.id);
+    if(d.table) html += renderTable(d.table);
+    if(d.body2) html += d.body2;
+    if(d.ladder) html += renderLadder(d.ladder);
+    if(d.body3) html += d.body3;
+    if(d.stats) html += renderStats(d.stats);
+
+    html += renderQuiz(d.quiz, d.id);
+
+    html += '<div class="day-foot">';
+    html += '<div class="nav-pair">';
+    html += '<button class="btn ghost" data-nav="prev" '+(prev ? "" : "disabled")+'>&larr; Previous</button>';
+    html += '<button class="btn ghost" data-nav="next" '+(next ? "" : "disabled")+'>Next &rarr;</button>';
+    html += '</div>';
+    html += '<button class="btn primary" data-complete="'+d.id+'">'+(state.completed[d.id] ? "Marked complete ✓" : "Mark Day "+d.id+" complete")+'</button>';
+    html += '</div>';
+    html += '</article>';
+
+    mainEl.innerHTML = html;
+    document.querySelector('[data-scorefor="'+d.id+'"]').textContent = scoreText(d.id);
+
+    // wire quiz
+    mainEl.querySelectorAll(".opt").forEach(function(btn){
+      btn.addEventListener("click", function(){
+        var day = parseInt(btn.getAttribute("data-day"),10);
+        var qi = parseInt(btn.getAttribute("data-qi"),10);
+        var oi = parseInt(btn.getAttribute("data-oi"),10);
+        if(!state.answers[day]) state.answers[day] = {};
+        if(state.answers[day][qi] !== undefined) return;
+        state.answers[day][qi] = oi;
+        save();
+        renderDay(DAYS.filter(function(x){return x.id===day;})[0]);
+      });
+    });
+
+    // wire flip cards
+    mainEl.querySelectorAll(".flip").forEach(function(card){
+      function toggle(){ card.classList.toggle("is-flipped"); }
+      card.addEventListener("click", toggle);
+      card.addEventListener("keydown", function(e){ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); toggle(); } });
+    });
+
+    // wire nav
+    var prevBtn = mainEl.querySelector('[data-nav="prev"]');
+    var nextBtn = mainEl.querySelector('[data-nav="next"]');
+    if(prevBtn && prev) prevBtn.addEventListener("click", function(){ goTo(prev.id); });
+    if(nextBtn && next) nextBtn.addEventListener("click", function(){ goTo(next.id); });
+
+    // wire complete
+    mainEl.querySelector('[data-complete]').addEventListener("click", function(){
+      state.completed[d.id] = !state.completed[d.id];
+      save();
+      renderNav();
+      renderDay(d);
+    });
+
+    window.scrollTo({top:0, behavior: (window.matchMedia('(prefers-reduced-motion: reduce)').matches ? "auto":"smooth")});
+  }
+
+  function goTo(id){
+    state.current = id;
+    save();
+    renderNav();
+    renderDay(DAYS.filter(function(x){return x.id===id;})[0]);
+    history.replaceState(null, "", "#day-"+id);
+  }
+
+  document.getElementById("resetBtn").addEventListener("click", function(){
+    if(confirm("Reset all progress and quiz answers? This cannot be undone.")){
+      state = { completed:{}, current:1, answers:{} };
+      save();
+      renderNav();
+      renderDay(DAYS[0]);
+    }
+  });
+
+  /* ============ INIT ============ */
+  var hashMatch = location.hash.match(/day-(\d+)/);
+  if(hashMatch){ state.current = parseInt(hashMatch[1],10); }
+  if(!DAYS.some(function(d){return d.id===state.current;})) state.current = 1;
+
+  renderNav();
+  renderDay(DAYS.filter(function(x){return x.id===state.current;})[0]);
+
+  /* ============ LATTICE CANVAS (decorative header) ============ */
+  (function(){
+    var canvas = document.getElementById("lattice");
+    var ctx = canvas.getContext("2d");
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var w,h,nodes=[];
+    function resize(){
+      var rect = canvas.parentElement.getBoundingClientRect();
+      w = canvas.width = rect.width * devicePixelRatio;
+      h = canvas.height = rect.height * devicePixelRatio;
+      canvas.style.width = rect.width+"px";
+      canvas.style.height = rect.height+"px";
+      var cols = Math.max(6, Math.round(rect.width/70));
+      var rows = Math.max(3, Math.round(rect.height/60));
+      nodes = [];
+      for(var i=0;i<cols;i++){
+        for(var j=0;j<rows;j++){
+          nodes.push({
+            x: (i+0.5)/cols * w + (Math.random()-0.5)*30,
+            y: (j+0.5)/rows * h + (Math.random()-0.5)*30,
+            vx: (Math.random()-0.5)*0.15,
+            vy: (Math.random()-0.5)*0.15,
+            r: Math.random() < 0.18 ? 2.4 : 1.3,
+            hueMix: Math.random()
+          });
+        }
+      }
+    }
+    function step(){
+      ctx.clearRect(0,0,w,h);
+      var accent = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#e0983f';
+      var accent2 = getComputedStyle(document.documentElement).getPropertyValue('--accent-2').trim() || '#59bdb2';
+      nodes.forEach(function(n){
+        if(!reduced){
+          n.x += n.vx; n.y += n.vy;
+          if(n.x<0||n.x>w) n.vx*=-1;
+          if(n.y<0||n.y>h) n.vy*=-1;
+        }
+      });
+      // connections
+      ctx.lineWidth = 1;
+      for(var i=0;i<nodes.length;i++){
+        for(var j=i+1;j<nodes.length;j++){
+          var a=nodes[i], b=nodes[j];
+          var dx=a.x-b.x, dy=a.y-b.y, dist=Math.sqrt(dx*dx+dy*dy);
+          var maxDist = 110*devicePixelRatio;
+          if(dist < maxDist){
+            ctx.strokeStyle = "rgba(230,220,200,"+ (0.10 * (1-dist/maxDist)) +")";
+            ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke();
+          }
+        }
+      }
+      nodes.forEach(function(n){
+        ctx.beginPath();
+        ctx.fillStyle = n.hueMix > 0.6 ? accent : (n.hueMix > 0.35 ? accent2 : "rgba(230,220,200,0.55)");
+        ctx.globalAlpha = n.r > 2 ? 0.9 : 0.5;
+        ctx.arc(n.x,n.y,n.r*devicePixelRatio,0,Math.PI*2);
+        ctx.fill();
+        ctx.globalAlpha = 1;
+      });
+      if(!reduced) requestAnimationFrame(step);
+    }
+    resize();
+    step();
+    window.addEventListener("resize", function(){ resize(); if(reduced) step(); });
+  })();
+
+})();
+</script>
