@@ -1,6 +1,6 @@
 # Right Forearm Tattoo Concepts — v1
 
-This folder contains an integrated, color-forward graphic-novel tattoo direction for a right-forearm wrap, plus the six exploratory studies that informed it. It is a concept exploration, not a stencil or final tattoo specification.
+This folder contains a tattoo-adapted, color-forward graphic-novel tattoo direction for a right-forearm wrap, plus the integrated concept and six exploratory studies that informed it. It is a concept exploration, not a stencil or final tattoo specification.
 
 Open the [visual design guide](index.html) to see the unified composition and the source symbols it integrates.
 
