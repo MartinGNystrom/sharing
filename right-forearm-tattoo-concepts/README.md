@@ -2,6 +2,8 @@
 
 This review board contains six distinct, color-forward graphic-novel tattoo directions for a right-forearm wrap. It is a concept exploration, not a stencil or final tattoo specification.
 
+For a visual, side-by-side explanation of each concept and its symbols, open the [design guide](index.html).
+
 ## Design brief
 
 - Purpose: a personal, symbolic memory jog that can be explained to others.
