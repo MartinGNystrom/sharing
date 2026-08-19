@@ -15,5 +15,13 @@
 <itunes:category text="Technology"/>
 <itunes:explicit>false</itunes:explicit>
 <description>A daily two-host conversation on nation-state cyber threats, exploited CVEs, and frontier AI model developments — condensed from a two-source daily briefing pipeline.</description>
+<item>
+<title>Cyber &amp; AI Daily Briefing — August 19, 2026</title>
+<description>A forged-JWT SharePoint bypass, a Fortune-500 Azure/Entra credential-theft spree, and an emergency GitLab patch all trace back to the same root cause: identity, not malware. Plus OpenAI pauses Astra training after a first-ever "Critical" cyber classification, and Google enters the model-routing race.</description>
+<pubDate>Wed, 19 Aug 2026 22:00:45 GMT</pubDate>
+<guid isPermaLink="true">https://martingnystrom.github.io/sharing/daily-briefing-podcast/episodes/2026-08-19.mp3</guid>
+<enclosure url="https://martingnystrom.github.io/sharing/daily-briefing-podcast/episodes/2026-08-19.mp3" length="1762550" type="audio/mpeg"/>
+<itunes:duration>220</itunes:duration>
+</item>
 </channel>
 </rss>
