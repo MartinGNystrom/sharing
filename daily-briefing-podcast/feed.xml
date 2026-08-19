@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+<title>Cyber &amp; AI Daily Briefing</title>
+<link>https://martingnystrom.github.io/sharing/daily-briefing-podcast/</link>
+<atom:link href="https://martingnystrom.github.io/sharing/daily-briefing-podcast/feed.xml" rel="self" type="application/rss+xml"/>
+<language>en-us</language>
+<itunes:author>Martin Nystrom</itunes:author>
+<itunes:image href="https://martingnystrom.github.io/sharing/daily-briefing-podcast/artwork.png"/>
+<image>
+<url>https://martingnystrom.github.io/sharing/daily-briefing-podcast/artwork.png</url>
+<title>Cyber &amp; AI Daily Briefing</title>
+<link>https://martingnystrom.github.io/sharing/daily-briefing-podcast/</link>
+</image>
+<itunes:category text="Technology"/>
+<itunes:explicit>false</itunes:explicit>
+<description>A daily two-host conversation on nation-state cyber threats, exploited CVEs, and frontier AI model developments — condensed from a two-source daily briefing pipeline.</description>
+</channel>
+</rss>
