@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Mount Mitchell weekend — 2026-10-03 · review draft</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;650&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #f7f8fb;
+    --card: #ffffff;
+    --ink: #1a1d26;
+    --muted: #5b6475;
+    --line: #e3e7ef;
+    --accent: #2C5FD1;
+    --accent-soft: #e8effc;
+    --good: #0f7a4a;
+    --warn: #9a6700;
+    --bad: #b42318;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f1218;
+      --card: #171b24;
+      --ink: #eef1f7;
+      --muted: #9aa3b5;
+      --line: #2a3140;
+      --accent: #6C97F2;
+      --accent-soft: #1c2740;
+      --good: #3ecf8e;
+      --warn: #e5a73b;
+      --bad: #f97066;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 32px 20px 72px; }
+  h1 { font-size: 1.65rem; font-weight: 650; margin: 0 0 6px; letter-spacing: -0.02em; }
+  h2 { font-size: 1.08rem; margin: 32px 0 12px; font-weight: 650; }
+  h3 { font-size: 0.98rem; margin: 0 0 8px; font-weight: 650; }
+  .sub { color: var(--muted); margin: 0 0 20px; font-size: 0.95rem; }
+  .bluf {
+    background: var(--accent-soft);
+    border-left: 4px solid var(--accent);
+    padding: 14px 16px;
+    border-radius: 0 10px 10px 0;
+    margin-bottom: 22px;
+  }
+  .bluf strong { color: var(--accent); }
+  .status {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 650;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 999px;
+    background: #e8f6ef;
+    color: var(--good);
+    margin-bottom: 10px;
+  }
+  @media (prefers-color-scheme: dark) {
+    .status { background: #163226; }
+  }
+  .warn-pill { background: #fff4df; color: var(--warn); }
+  .bad-pill { background: #fdeceb; color: var(--bad); }
+  @media (prefers-color-scheme: dark) {
+    .warn-pill { background: #3a2c12; }
+    .bad-pill { background: #3a1714; }
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+  .grid { display: grid; gap: 12px; }
+  @media (min-width: 720px) { .grid-2 { grid-template-columns: 1fr 1fr; } }
+  ul.clean { margin: 8px 0 0; padding-left: 18px; color: var(--muted); }
+  ul.clean li { margin: 5px 0; }
+  ul.clean a, p a, td a, li a { color: var(--accent); }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+    font-size: 0.92rem;
+    margin-bottom: 12px;
+  }
+  th, td { padding: 11px 13px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+  th { background: var(--accent-soft); font-weight: 650; width: 30%; }
+  tr:last-child th, tr:last-child td { border-bottom: none; }
+  .links a { display: inline-block; margin: 0 12px 8px 0; }
+  .foot { margin-top: 28px; color: var(--muted); font-size: 0.85rem; }
+  code { font-size: 0.88em; background: var(--accent-soft); padding: 1px 6px; border-radius: 4px; }
+  ol.steps { margin: 8px 0 0; padding-left: 20px; color: var(--muted); }
+  ol.steps li { margin: 6px 0; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Mount Mitchell weekend</h1>
+    <p class="sub">Camp night <strong>2026-10-03</strong> · hike <strong>2026-10-04</strong> · draft for review · <strong>not booked</strong> · updated 2026-09-02</p>
+
+    <div class="bluf">
+      <strong>BLUF.</strong> Overnight at <strong>Curtis Creek</strong> (USFS, Old Fort) in the R1T + RTT. Sunday: enter Mount Mitchell SP at gate open <strong>7:00</strong>, hike <strong>up</strong> to the summit via NC-128 / Camp Alice (~4.5 mi up / ~9 mi RT), return to the truck, leave within gate hours. Mount Mitchell SP campground is closed all of 2025–2026. Carolina Hemlocks sold out for that night.
+    </div>
+
+    <h2>Locked decisions</h2>
+    <table>
+      <tr><th>Item</th><th>Decision</th></tr>
+      <tr><td>Weekend</td><td>Sat night 2026-10-03 → Sun hike 2026-10-04</td></tr>
+      <tr><td>Hard blocks</td><td>Mom birthday weekend 2026-10-10/11. San Jose/Cisco not on calendar yet.</td></tr>
+      <tr><td>People</td><td>Martin + Eli (pickup Greensboro on the way from Mebane)</td></tr>
+      <tr><td>Vehicle</td><td>Rivian R1T Adventure Dual Large (~108 kWh / 329 mi EPA), pickup ~2026-09-08</td></tr>
+      <tr><td>Sleep</td><td><strong>Curtis Creek</strong> preferred (not inside SP). Hotel OK fallback.</td></tr>
+      <tr><td>Hike priority</td><td>Climb <em>up</em> to Mount Mitchell summit (name moment). Sunrise secondary.</td></tr>
+      <tr><td>Booking</td><td>No Recreation.gov book until explicit go</td></tr>
+    </table>
+
+    <h2>1. Camp — Curtis Creek (primary)</h2>
+    <div class="card">
+      <span class="status">Likely pick · available 2026-09-02</span>
+      <h3>Curtis Creek Campground (NC) · Pisgah NF</h3>
+      <ul class="clean">
+        <li>Facility: <a href="https://www.recreation.gov/camping/campgrounds/251469">Recreation.gov campground 251469</a></li>
+        <li>Night: Fri 2026-10-03 → Sat checkout 2026-10-04 (1 night)</li>
+        <li>Fee: <strong>$10/night</strong> Standard nonelectric · check-in 3 PM / out 12 PM</li>
+        <li>Fit: drive-up gravel pads, R1T + rooftop tent OK · max 6 people · pets/fires OK</li>
+        <li>Near Electrify America Old Fort (easy Sat charge)</li>
+      </ul>
+      <p style="margin:12px 0 6px;font-weight:650">Open Standard sites (still available as of check):</p>
+      <div class="links">
+        <a href="https://www.recreation.gov/camping/campsites/95971">Site 009</a>
+        <a href="https://www.recreation.gov/camping/campsites/95896">Site 010</a>
+        <a href="https://www.recreation.gov/camping/campsites/95911">Site 011</a>
+        <a href="https://www.recreation.gov/camping/campsites/95969">Site 015</a>
+        <a href="https://www.recreation.gov/camping/campsites/95956">Site 017</a>
+      </div>
+      <p style="color:var(--muted);font-size:0.9rem;margin:8px 0 0">Tent-only walk-ins also open (003, 018–024) — skip for RTT. Taken: 001–008, 012–014, 016.</p>
+    </div>
+
+    <div class="grid grid-2">
+      <div class="card">
+        <span class="status warn-pill">Backup camp</span>
+        <h3>Mount Pisgah Campground (BRP)</h3>
+        <ul class="clean">
+          <li><a href="https://www.recreation.gov/camping/campgrounds/234182">Recreation.gov 234182</a> · $30/night</li>
+          <li>~93% full that night; still open: A03, A07, <strong>A11</strong>, <strong>A13</strong>, <strong>A26</strong>, A27, A33, B02, B26</li>
+          <li>Farther from Old Fort EA</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="status bad-pill">Unavailable</span>
+        <h3>Inside Mount Mitchell SP</h3>
+        <ul class="clean">
+          <li>SP campground <strong>closed all 2025–2026</strong> (water line) — <a href="https://www.ncparks.gov/state-parks/mount-mitchell-state-park/camping">NC Parks camping</a></li>
+          <li>No RTT camping in parking lots</li>
+          <li>Overnight parking = dashboard form for Pisgah backpacking only</li>
+          <li><a href="https://www.recreation.gov/camping/campgrounds/233954">Carolina Hemlocks</a> sold out for 2026-10-03</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>2. Hike — up to Mount Mitchell</h2>
+    <div class="card">
+      <span class="status">Recommended · A</span>
+      <h3>NC-128 / MST → Camp Alice → summit observation deck</h3>
+      <ul class="clean">
+        <li><strong>~4.5 mi one-way / ~9 mi RT</strong>, ~1,300 ft gain</li>
+        <li>True ascent <em>to</em> Mitchell (priority #1)</li>
+        <li>Route sketch: NC-128 MST crossing → Buncombe Horse / connectors → Commissary → Camp Alice → deck</li>
+        <li>Status: appears open; confirm before trip</li>
+        <li>With Curtis overnight: leave camp early, <strong>gate at 7:00</strong>, on trail ~7:15 → summit mid-morning (not true 7:26 deck sunrise unless overnight/outside-gate logistics)</li>
+        <li>Park hours Oct: <strong>7:00 AM – 8:00 PM</strong></li>
+      </ul>
+      <p style="margin:12px 0 6px;font-weight:650">Official / map links</p>
+      <div class="links">
+        <a href="https://www.ncparks.gov/state-parks/mount-mitchell-state-park">Mount Mitchell SP home</a>
+        <a href="https://www.ncparks.gov/state-parks/mount-mitchell-state-park/plan-your-visit">Plan your visit</a>
+        <a href="https://www.ncparks.gov/state-parks/mount-mitchell-state-park/camping">Camping / overnight parking rules</a>
+        <a href="https://www.ncparks.gov/state-parks/mount-mitchell-state-park/blogs/mount-mitchell-state-park-reopens-after-hurricane-helene">Helene reopening notes</a>
+        <a href="https://www.nps.gov/blri/planyourvisit/roadclosures.htm">Blue Ridge Parkway closures</a>
+        <a href="https://sunrise.maplogs.com/mount_mitchell_mt_mitchell_south_toe_nc_usa.139420.html">Sunrise 2026-10-04 (~7:26 AM EDT)</a>
+      </div>
+      <p style="color:var(--muted);font-size:0.9rem;margin:8px 0 0">Confirm open: park <strong>828-867-4000</strong> · USFS Appalachian RD <strong>828-689-9694</strong></p>
+    </div>
+
+    <div class="grid grid-2">
+      <div class="card">
+        <span class="status warn-pill">Longer · B</span>
+        <h3>Black Mountain Crest (Bowlens Creek)</h3>
+        <ul class="clean">
+          <li>~11–12 mi one-way to summit (shuttle or huge RT)</li>
+          <li><a href="https://www.alltrails.com/trail/us/north-carolina/black-mountain-crest-trail">AllTrails Crest</a></li>
+          <li><a href="https://www.fs.usda.gov/r08/northcarolina/recreation/trails/black-mountain-crest-trail">USFS Crest</a></li>
+          <li>Awkward from Curtis; not sunrise-realistic</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="status bad-pill">Not primary</span>
+        <h3>Deep Gap / classic BMC trail</h3>
+        <ul class="clean">
+          <li><a href="https://www.alltrails.com/trail/us/north-carolina/deep-gap-trail--3">Deep Gap ~7.4 mi RT</a> — starts <em>at</em> summit, hikes away (fails “up to Mitchell”)</li>
+          <li>Classic Mt Mitchell Trail from Black Mountain CG: campground/trail closed (Helene) — <a href="https://www.fs.usda.gov/r08/northcarolina/recreation/black-mountain-campground">USFS BMC</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>3. Roads / access</h2>
+    <table>
+      <tr><th>Segment</th><th>Status / note</th></tr>
+      <tr><td>BRP MP 355.3–382 (Asheville → Mitchell)</td><td><strong>Open</strong> (construction possible). Primary approach.</td></tr>
+      <tr><td>BRP MP 344.2–355.3 (NC-80 → Mitchell)</td><td><strong>Closed</strong> (Helene). Do not plan this shortcut.</td></tr>
+      <tr><td>NC-128 into SP</td><td>From Parkway MP ~355.3. Gate locked overnight.</td></tr>
+      <tr><td>Curtis → gate</td><td>~20–30 min via Old Fort / Parkway (verify morning).</td></tr>
+    </table>
+
+    <h2>4. Charging (R1T Dual Large)</h2>
+    <div class="card">
+      <p style="margin:0 0 8px;color:var(--muted)">Pack is <strong>~108 kWh usable / 329 mi EPA</strong> (not Dual Max ~140 kWh). Home Tesla Wall Connector install <strong>2026-09-09</strong>.</p>
+      <table>
+        <tr><th>Milestone</th><th>Target</th></tr>
+        <tr><td>Leave Mebane</td><td>~100%</td></tr>
+        <tr><td>Sat DCFC Old Fort → camp</td><td>Arrive Curtis <strong>65–80%</strong></td></tr>
+        <tr><td>Overnight Camp Mode reserve</td><td>Budget <strong>20–30%</strong></td></tr>
+        <tr><td>Leave camp for summit</td><td><strong>≥40–50%</strong></td></tr>
+        <tr><td>Sun top-up before long return</td><td>~80% at Asheville RAN or Old Fort EA</td></tr>
+        <tr><td>Home</td><td>≥15–20%; L2 overnight</td></tr>
+      </table>
+      <p style="margin:12px 0 6px;font-weight:650">Charger links</p>
+      <ul class="clean">
+        <li><strong>Electrify America Old Fort</strong> (primary Sat / easy for Curtis) — 121 Parker Padgett Rd ·
+          <a href="https://www.plugshare.com/location/622897">PlugShare</a> ·
+          <a href="https://rivianroamer.com/charging/sites/140123">Rivian Roamer</a>
+          · note: store may be closed; chargers work; no restrooms</li>
+        <li><strong>Rivian Adventure Network Asheville</strong> (strong Sun option) — 800 Brevard Rd ·
+          <a href="https://www.plugshare.com/location/831433">PlugShare</a> ·
+          <a href="https://dcfctracker.com/stations/397774">DCFC Tracker</a></li>
+        <li>Backups: <a href="https://www.plugshare.com/location/1219024">EA Target Greensboro</a> ·
+          <a href="https://www.plugshare.com/location/1342862">EA Target Winston-Salem</a> ·
+          Tesla Burlington (verify Magic Dock / adapter)</li>
+        <li>Specs: <a href="https://rivian.com/support/article/what-is-the-usable-kwh-capacity-of-your-batteries">Rivian usable kWh</a> ·
+          <a href="https://greencarscompare.com/car/rivian-r1t-dual-motor-large-2025/specs/">Dual Large specs</a></li>
+      </ul>
+    </div>
+
+    <h2>5. Weekend timeline (default)</h2>
+    <div class="card">
+      <h3>Saturday 2026-10-03</h3>
+      <ol class="steps">
+        <li>Depart Mebane ~100% → pick up Eli in Greensboro</li>
+        <li>I-40 W → <strong>charge Old Fort EA</strong> → 85–90%</li>
+        <li>Short hop to <strong>Curtis Creek</strong> · arrive with camping headroom</li>
+        <li>RTT night · Camp Mode · wake ≥40–50%</li>
+      </ol>
+      <h3 style="margin-top:16px">Sunday 2026-10-04</h3>
+      <ol class="steps">
+        <li>Leave Curtis ~6:15–6:30 → NC-128 gate for <strong>7:00 open</strong></li>
+        <li>Hike Camp Alice ascent → Mitchell deck → back to truck</li>
+        <li>Top up Asheville RAN <em>or</em> Old Fort EA → ~80%</li>
+        <li>I-40 E → drop Eli Greensboro → Mebane</li>
+      </ol>
+    </div>
+
+    <h2>6. Open questions / next actions</h2>
+    <ul class="clean">
+      <li>Pick Curtis site (009 / 010 / 011 / 015 / 017) and say <strong>go</strong> to book</li>
+      <li>Call park to confirm Camp Alice / MST ascent still open</li>
+      <li>Optional: ask park about any legal pre-dawn / outside-gate start for true sunrise</li>
+      <li>RTT purchase still separate (~$2k bed mount); not required to book camp</li>
+    </ul>
+
+    <p class="foot">
+      Personal planning draft · not a reservation · no spend without explicit go.<br/>
+      Addresses: Mount Mitchell SP, 2388 N.C. 128, Burnsville, NC 28714 · Curtis Creek via Recreation.gov facility 251469 (Old Fort, NC).
+    </p>
+  </div>
+</body>
+</html>
