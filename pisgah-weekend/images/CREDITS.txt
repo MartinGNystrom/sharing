@@ -1,25 +1,10 @@
-Photo credits for pisgah-weekend/
+Photos (Wikimedia Commons / public domain where noted) used on the Mount Pisgah weekend share page:
+- hero-fall.jpg — Mount Pisgah autumn scene (optimized from source)
+- mt-from-151.jpg — Mount Pisgah summit / tower from NC 151
+- observation.jpg — Wooden observation deck at Mount Pisgah summit
+- ridge.jpg — Mount Pisgah summit and tower from Blue Ridge Parkway
+- buck-spring.jpg — Buck Spring Lodge ruins near Mount Pisgah
+- summit-deck.jpg — Observation platform stairs at Mount Pisgah summit
+- mt-oct.jpg — Mount Pisgah ridgeline in October
 
-1. hero-mt-pisgah.jpg
-   Source: Wikimedia Commons — File:Mount Pisgah (North Carolina) Oct 2016.jpg
-   Author: Thomson200
-   License: CC0 1.0 (Public Domain Dedication)
-   https://commons.wikimedia.org/wiki/File:Mount_Pisgah_(North_Carolina)_Oct_2016.jpg
-
-2. observation-deck.jpg
-   Source: Wikimedia Commons — File:Observation Platform, Mount Pisgah, Blue Ridge Parkway, Mount Pisgah, NC - 53045267200.jpg
-   Author: Warren LeMay (w_lemay) via Flickr
-   License: CC BY-SA 2.0
-   https://commons.wikimedia.org/wiki/File:Observation_Platform,_Mount_Pisgah,_Blue_Ridge_Parkway,_Mount_Pisgah,_NC_-_53045267200.jpg
-
-3. cold-mountain-view.jpg
-   Source: Wikimedia Commons — File:Cold Mountain from Mount Pisgah Overlook, Oct 2016.jpg
-   Author: Thomson200
-   License: CC0 1.0 (Public Domain Dedication)
-   https://commons.wikimedia.org/wiki/File:Cold_Mountain_from_Mount_Pisgah_Overlook,_Oct_2016.jpg
-
-4. mt-pisgah-fall.jpg
-   Source: Wikimedia Commons — File:Mt-Pisgah-Fall.jpg
-   Author: PBarn424
-   License: CC BY-SA 4.0
-   https://commons.wikimedia.org/wiki/File:Mt-Pisgah-Fall.jpg
+These are optimized JPEGs for GitHub Pages. Source backup also lives in gist MartinGNystrom/1d916a2882278196cc75c7e6c1ebe5e0.

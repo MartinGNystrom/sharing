@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Sunrise on Mount Pisgah · 2026-10-03</title>
-<meta name="description" content="Martin and Eli camp at Mount Pisgah Campground 2026-10-03, then hike to the observation deck for sunrise ~7:27 AM on 2026-10-04."/>
+<title>Mount Pisgah weekend · 2026-10-03 · Martin + Eli</title>
+<meta name="description" content="Camp Mount Pisgah 2026-10-03. Pre-dawn summit hike for sunrise 2026-10-04. Martin + Eli adventure weekend."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;650&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <style>
   :root {
     --bg: #f4f6fb;
@@ -21,8 +21,8 @@
     --accent-glow: rgba(44, 95, 209, 0.14);
     --good: #0f7a4a;
     --good-soft: #e8f6ef;
-    --hero-from: #1a3a8a;
-    --hero-to: #2C5FD1;
+    --warn: #9a6700;
+    --warn-soft: #fff6e0;
     --shadow: 0 1px 2px rgba(26, 29, 38, 0.04), 0 8px 24px rgba(26, 29, 38, 0.06);
     --radius: 14px;
   }
@@ -39,8 +39,8 @@
       --accent-glow: rgba(108, 151, 242, 0.16);
       --good: #3ecf8e;
       --good-soft: #163226;
-      --hero-from: #0c1628;
-      --hero-to: #1a2f5c;
+      --warn: #e5a73b;
+      --warn-soft: #2e2410;
       --shadow: 0 1px 2px rgba(0,0,0,0.25), 0 10px 28px rgba(0,0,0,0.35);
     }
   }
@@ -56,30 +56,18 @@
   }
   a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
   a:hover { text-decoration-thickness: 2px; }
+  p { margin: 0 0 12px; }
+  p:last-child { margin-bottom: 0; }
 
-  /* Photo hero */
   .hero {
-    position: relative;
-    min-height: clamp(320px, 58vh, 560px);
-    display: flex;
-    align-items: flex-end;
-    color: #f4f7ff;
-    overflow: hidden;
-  }
-  .hero-photo {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 40%;
-  }
-  .hero-scrim {
-    position: absolute;
-    inset: 0;
     background:
-      linear-gradient(to top, rgba(8, 14, 28, 0.88) 0%, rgba(8, 14, 28, 0.45) 42%, rgba(8, 14, 28, 0.2) 70%, rgba(8, 14, 28, 0.35) 100%),
-      radial-gradient(ellipse 70% 50% at 80% 20%, var(--accent-glow), transparent 55%);
+      linear-gradient(160deg, rgba(12,22,40,0.72) 0%, rgba(26,58,138,0.55) 45%, rgba(44,95,209,0.45) 100%),
+      url("images/hero-fall.jpg") center/cover no-repeat;
+    color: #f4f7ff;
+    padding: 48px 20px 64px;
+    position: relative;
+    overflow: hidden;
+    min-height: 360px;
   }
   .hero::after {
     content: "";
@@ -87,84 +75,83 @@
     inset: auto 0 0 0;
     height: 56px;
     background: linear-gradient(to bottom, transparent, var(--bg));
-    z-index: 2;
   }
-  .hero-inner {
-    position: relative;
-    z-index: 1;
-    max-width: 920px;
-    margin: 0 auto;
-    padding: 48px 20px 64px;
-    width: 100%;
-  }
-  .pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+  .hero-inner { max-width: 920px; margin: 0 auto; position: relative; z-index: 1; }
+  .pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
   .pill {
     display: inline-flex; align-items: center; gap: 6px;
-    font-size: 0.72rem; font-weight: 650; letter-spacing: 0.05em; text-transform: uppercase;
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;
     padding: 5px 11px; border-radius: 999px;
     background: rgba(255,255,255,0.14); color: #fff; border: 1px solid rgba(255,255,255,0.22);
-    backdrop-filter: blur(6px);
   }
   .hero h1 {
-    font-size: clamp(1.9rem, 5vw, 2.75rem);
-    font-weight: 650; margin: 0 0 12px; letter-spacing: -0.03em; line-height: 1.12;
-    text-shadow: 0 2px 24px rgba(0,0,0,0.35);
+    font-size: clamp(1.8rem, 4.5vw, 2.45rem);
+    font-weight: 700; margin: 0 0 10px; letter-spacing: -0.025em; line-height: 1.15;
+    text-shadow: 0 2px 16px rgba(0,0,0,0.35);
   }
   .hero .lede {
-    margin: 0;
-    opacity: 0.95;
-    font-size: 1.08rem;
-    max-width: 36em;
-    line-height: 1.5;
-    text-shadow: 0 1px 12px rgba(0,0,0,0.35);
+    margin: 0 0 22px; opacity: 0.92; font-size: 1.05rem; max-width: 40em;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.3);
   }
+  .bluf {
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.22);
+    border-left: 4px solid #fff;
+    padding: 16px 18px;
+    border-radius: 0 12px 12px 0;
+    font-size: 0.98rem;
+  }
+  .bluf strong { color: #fff; }
 
   .wrap { max-width: 920px; margin: 0 auto; padding: 8px 20px 80px; }
 
-  .invite {
-    margin: -12px 0 28px;
+  .glance-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 14px;
+    margin: -28px 0 28px;
     position: relative;
-    z-index: 3;
+    z-index: 2;
+  }
+  @media (max-width: 720px) {
+    .glance-grid { grid-template-columns: 1fr; margin-top: -20px; }
+  }
+  .glance-card {
     background: var(--card);
     border: 1px solid var(--line);
     border-radius: var(--radius);
-    padding: 22px 24px;
+    padding: 22px 22px 18px;
     box-shadow: var(--shadow);
   }
-  .invite p { margin: 0 0 12px; font-size: 1.05rem; }
-  .invite p:last-child { margin-bottom: 0; color: var(--muted); font-size: 0.95rem; }
-
-  .glance {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-    margin-bottom: 8px;
+  .glance-card.primary { border-color: color-mix(in srgb, var(--accent) 35%, var(--line)); }
+  .glance-card h2 {
+    margin: 0 0 4px; font-size: 0.78rem; font-weight: 600;
+    letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent);
   }
-  @media (max-width: 720px) {
-    .glance { grid-template-columns: 1fr 1fr; }
+  .mission {
+    font-size: 1.35rem; font-weight: 700; letter-spacing: -0.02em;
+    line-height: 1.25; margin: 10px 0 12px;
   }
-  .glance-item {
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    padding: 14px 14px 12px;
+  .glance-lines { list-style: none; margin: 0; padding: 0; }
+  .glance-lines li {
+    display: flex; justify-content: space-between; gap: 12px;
+    padding: 9px 0; border-top: 1px solid var(--line); font-size: 0.92rem;
   }
-  .glance-item .label {
-    font-size: 0.7rem; font-weight: 650; letter-spacing: 0.05em;
-    text-transform: uppercase; color: var(--accent); margin-bottom: 4px;
+  .glance-lines li span:last-child { font-weight: 600; white-space: nowrap; text-align: right; }
+  .note {
+    margin: 12px 0 0; font-size: 0.82rem; color: var(--muted); line-height: 1.45;
   }
-  .glance-item .value { font-weight: 650; font-size: 1.02rem; letter-spacing: -0.01em; }
-  .glance-item .sub { font-size: 0.8rem; color: var(--muted); margin-top: 2px; }
 
   h2.section {
-    font-size: 1.12rem; font-weight: 650; margin: 36px 0 14px;
+    font-size: 1.12rem; font-weight: 700; margin: 36px 0 14px;
     letter-spacing: -0.015em; display: flex; align-items: center; gap: 10px;
   }
   h2.section::before {
     content: ""; width: 8px; height: 8px; border-radius: 50%;
     background: var(--accent); flex-shrink: 0;
   }
-  h3 { font-size: 1rem; font-weight: 650; margin: 0 0 8px; }
+  h3 { font-size: 1rem; font-weight: 700; margin: 0 0 8px; }
 
   .card {
     background: var(--card);
@@ -174,52 +161,56 @@
     margin-bottom: 12px;
     box-shadow: 0 1px 2px rgba(26,29,38,0.03);
   }
+  .card .prose { color: var(--muted); font-size: 0.95rem; }
+  .card .prose strong { color: var(--ink); }
+
+  .scene {
+    display: block; width: 100%; height: 200px; object-fit: cover;
+    border-radius: var(--radius); margin: 0 0 14px;
+    border: 1px solid var(--line);
+  }
+  .scene.tall { height: 240px; }
+  .scene-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px;
+  }
+  @media (max-width: 640px) { .scene-grid { grid-template-columns: 1fr; } }
+  .scene-card {
+    position: relative; border-radius: var(--radius); overflow: hidden;
+    border: 1px solid var(--line); min-height: 160px;
+  }
+  .scene-card img { width: 100%; height: 160px; object-fit: cover; display: block; }
+  .scene-card .cap {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    padding: 10px 12px;
+    background: linear-gradient(transparent, rgba(10,14,22,0.78));
+    color: #fff; font-size: 0.82rem; font-weight: 600;
+  }
 
   .tag {
-    display: inline-block; font-size: 0.7rem; font-weight: 650;
+    display: inline-block; font-size: 0.7rem; font-weight: 600;
     letter-spacing: 0.05em; text-transform: uppercase;
     padding: 3px 9px; border-radius: 999px;
     background: var(--good-soft); color: var(--good); margin-bottom: 10px;
   }
+  .tag.warn { background: var(--warn-soft); color: var(--warn); }
   .tag.accent { background: var(--accent-soft); color: var(--accent); }
 
-  .photo-strip {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 12px;
-    margin: 8px 0 28px;
+  table {
+    width: 100%; border-collapse: collapse;
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: var(--radius); overflow: hidden;
+    font-size: 0.92rem; margin-bottom: 12px;
   }
-  @media (max-width: 640px) {
-    .photo-strip { grid-template-columns: 1fr; }
+  th, td { padding: 11px 14px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+  th { background: var(--accent-soft); font-weight: 600; width: 30%; }
+  tr:last-child th, tr:last-child td { border-bottom: none; }
+  @media (max-width: 560px) {
+    table, thead, tbody, th, td, tr { display: block; }
+    th { width: auto; border-bottom: none; padding-bottom: 4px; }
+    td { padding-top: 0; border-bottom: 1px solid var(--line); }
+    tr { padding: 8px 0; }
+    tr:last-child td { border-bottom: none; }
   }
-  .photo-card {
-    position: relative;
-    border-radius: var(--radius);
-    overflow: hidden;
-    border: 1px solid var(--line);
-    background: var(--bg-elev);
-    min-height: 200px;
-  }
-  .photo-card img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    min-height: 200px;
-    object-fit: cover;
-  }
-  .photo-card figcaption {
-    position: absolute;
-    left: 0; right: 0; bottom: 0;
-    padding: 28px 12px 10px;
-    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
-    color: #fff;
-    font-size: 0.78rem;
-    font-weight: 500;
-  }
-
-  .prose { color: var(--muted); font-size: 0.98rem; margin: 0 0 10px; }
-  .prose strong { color: var(--ink); }
-  .prose:last-child { margin-bottom: 0; }
 
   ul.clean { margin: 6px 0 0; padding-left: 18px; color: var(--muted); }
   ul.clean li { margin: 6px 0; }
@@ -227,6 +218,37 @@
   ol.steps { margin: 6px 0 0; padding-left: 20px; color: var(--muted); }
   ol.steps li { margin: 7px 0; }
   ol.steps strong { color: var(--ink); }
+
+  .sites {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 8px;
+    margin-top: 12px;
+  }
+  .site {
+    display: flex; flex-direction: column; gap: 2px;
+    padding: 12px 12px 10px;
+    border-radius: 10px;
+    border: 1px solid var(--line);
+    background: var(--bg-elev);
+    text-decoration: none; color: inherit;
+    transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s;
+  }
+  .site:hover {
+    border-color: var(--accent);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow);
+    text-decoration: none;
+  }
+  .site.prefer { border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); background: var(--accent-soft); }
+  .site.avoid { opacity: 0.55; }
+  .site .name { font-weight: 700; font-size: 1.02rem; color: var(--accent); }
+  .site .meta { font-size: 0.75rem; color: var(--muted); }
+  .site .status {
+    font-size: 0.68rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;
+    color: var(--good); margin-top: 4px;
+  }
+  .site.avoid .status { color: var(--warn); }
 
   .timeline { position: relative; padding-left: 22px; margin: 8px 0 0; }
   .timeline::before {
@@ -241,16 +263,14 @@
     background: var(--card); border: 2px solid var(--accent); box-sizing: border-box;
   }
   .tl-item.sunrise::before { background: var(--accent); border-color: var(--accent); }
-  .tl-time { font-size: 0.78rem; font-weight: 650; color: var(--accent); letter-spacing: 0.02em; }
+  .tl-time { font-size: 0.78rem; font-weight: 600; color: var(--accent); letter-spacing: 0.02em; }
   .tl-body { font-size: 0.94rem; color: var(--muted); margin-top: 2px; }
   .tl-body strong { color: var(--ink); }
 
-  .two-col {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
-  }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
   @media (max-width: 640px) { .two-col { grid-template-columns: 1fr; } }
 
-  .link-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .link-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
   .btn {
     display: inline-flex; align-items: center; gap: 6px;
     padding: 8px 14px; border-radius: 999px;
@@ -259,109 +279,150 @@
     border: 1px solid color-mix(in srgb, var(--accent) 25%, var(--line));
   }
   .btn:hover { text-decoration: none; filter: brightness(1.05); }
-  .btn.solid {
-    background: var(--accent); color: #fff; border-color: transparent;
-  }
-  @media (prefers-color-scheme: dark) {
-    .btn.solid { color: #0d1016; }
-  }
+  .btn.solid { background: var(--accent); color: #fff; border-color: transparent; }
+  @media (prefers-color-scheme: dark) { .btn.solid { color: #0d1016; } }
 
-  .note {
-    margin: 12px 0 0; font-size: 0.82rem; color: var(--muted); line-height: 1.45;
+  .panel {
+    background: var(--accent-soft);
+    border: 1px solid color-mix(in srgb, var(--accent) 30%, var(--line));
+    border-radius: var(--radius);
+    padding: 18px;
+    margin-bottom: 12px;
   }
+  .panel h3 { color: var(--accent); margin-bottom: 8px; }
+  .panel p { color: var(--ink); font-size: 0.95rem; }
 
   .foot {
     margin-top: 36px; padding-top: 18px; border-top: 1px solid var(--line);
     color: var(--muted); font-size: 0.84rem;
   }
-  .credits {
-    margin-top: 10px;
-    font-size: 0.75rem;
-    color: var(--muted);
-    line-height: 1.45;
-  }
-  .credits a { color: var(--muted); }
+  .credits { font-size: 0.75rem; color: var(--muted); margin-top: 10px; }
 </style>
 </head>
 <body>
 
   <header class="hero">
-    <img class="hero-photo" src="images/hero-mt-pisgah.jpg" alt="Mount Pisgah rising above the Blue Ridge, with its summit tower against autumn sky" width="1920" height="1302"/>
-    <div class="hero-scrim" aria-hidden="true"></div>
     <div class="hero-inner">
       <div class="pill-row">
         <span class="pill">Blue Ridge Parkway · MP 408.8</span>
         <span class="pill">Camp 2026-10-03</span>
-        <span class="pill">Sunrise 2026-10-04 · ~7:27 AM</span>
+        <span class="pill">Sunrise 2026-10-04 ~7:27 AM EDT</span>
+        <span class="pill">Martin + Eli</span>
       </div>
-      <h1>Sunrise on Mount Pisgah</h1>
-      <p class="lede">Eli, this is the one: sleep under the trees at nearly 5,000 feet, then walk up a named summit in the dark and watch the sun hit the Blue Ridge from the observation deck.</p>
+      <h1>Summit before the sun</h1>
+      <p class="lede">One night under the stars at Mount Pisgah. One headlamp hike to the observation deck. Watch the Blue Ridge light up at sunrise from 5,721 ft.</p>
+      <div class="bluf">
+        <strong>BLUF.</strong> Overnight <strong>2026-10-03</strong> at Mount Pisgah Campground (Rec.gov 234182). Pre-dawn hike from camp via Buck Spring / MST side-spur → Mount Pisgah Trail → observation deck for sunrise (~7:27 AM EDT). Truck stays at camp. ~5–6+ mi RT. Leave camp ~5:00–5:30 AM. Site preference A33 → B26 → A07.
+      </div>
     </div>
   </header>
 
   <div class="wrap">
 
-    <section class="invite" aria-label="The adventure">
-      <p>Martin and Eli. One night at <strong>Mount Pisgah Campground</strong>. One hike from camp to the <strong>Mount Pisgah</strong> observation deck for sunrise (~7:27 AM EDT on 2026-10-04). Fall color on the Parkway. No separate trailhead drive: the trail leaves from where we sleep.</p>
-      <p>About 5–6+ miles round trip from camp, steep and rocky near the top. Optional Buck Spring side-spur on the way. Leave camp around 5:00–5:30 AM with headlamps.</p>
-    </section>
+    <div class="glance-grid">
+      <section class="glance-card primary" aria-labelledby="mission-title">
+        <h2 id="mission-title">The mission</h2>
+        <div class="mission">Sleep on the mountain. Wake in the dark. Reach the deck before sunrise.</div>
+        <p class="prose" style="color:var(--muted);font-size:0.95rem;margin:0 0 8px">Martin and Eli (14) roll in on the Rivian R1T Dual Large with rooftop tent, camp high on the Parkway, then hike from camp to the Mount Pisgah observation deck as the sky turns gold.</p>
+        <div class="link-row">
+          <a class="btn solid" href="https://www.recreation.gov/camping/campgrounds/234182">Open Rec.gov</a>
+          <a class="btn" href="https://cdn.recreation.gov/public/2022/12/02/16/34/234182_e9893c63-292f-4b1f-8082-dfd060e75fe0.pdf">Camp map PDF</a>
+        </div>
+      </section>
 
-    <div class="glance">
-      <div class="glance-item">
-        <div class="label">Summit</div>
-        <div class="value">5,721 ft</div>
-        <div class="sub">Observation deck</div>
+      <section class="glance-card">
+        <h2>At a glance</h2>
+        <ul class="glance-lines">
+          <li><span>Who</span><span>Martin + Eli (14)</span></li>
+          <li><span>Facility</span><span>234182</span></li>
+          <li><span>Elevation</span><span>~4,980 ft</span></li>
+          <li><span>Stay</span><span>Sat night → Sun</span></li>
+          <li><span>Gear</span><span>R1T Dual Large + RTT</span></li>
+          <li><span>Hike RT from camp</span><span>~5–6+ mi</span></li>
+          <li><span>Site pick</span><span>A33 → B26 → A07</span></li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="scene-grid">
+      <div class="scene-card">
+        <img src="images/mt-from-151.jpg" alt="Mount Pisgah summit with broadcast tower from NC 151" loading="lazy"/>
+        <div class="cap">Mount Pisgah · the tower marks the summit</div>
       </div>
-      <div class="glance-item">
-        <div class="label">Camp</div>
-        <div class="value">~4,980 ft</div>
-        <div class="sub">Mt Pisgah Campground</div>
-      </div>
-      <div class="glance-item">
-        <div class="label">Hike</div>
-        <div class="value">~5–6+ mi</div>
-        <div class="sub">RT from camp</div>
-      </div>
-      <div class="glance-item">
-        <div class="label">Sunrise</div>
-        <div class="value">~7:27 AM</div>
-        <div class="sub">2026-10-04</div>
+      <div class="scene-card">
+        <img src="images/observation.jpg" alt="Wooden observation deck at Mount Pisgah summit" loading="lazy"/>
+        <div class="cap">Observation deck · sunrise goal ~7:27 AM</div>
       </div>
     </div>
 
-    <div class="photo-strip">
-      <figure class="photo-card">
-        <img src="images/observation-deck.jpg" alt="Wooden observation platform at the Mount Pisgah summit with mountain views beyond" width="1600" height="1200" loading="lazy"/>
-        <figcaption>The deck at the top. This is the sunrise spot.</figcaption>
-      </figure>
-      <figure class="photo-card">
-        <img src="images/cold-mountain-view.jpg" alt="Cold Mountain and layered Blue Ridge peaks in fall color from a Mount Pisgah overlook" width="1600" height="1067" loading="lazy"/>
-        <figcaption>Cold Mountain and the ridges from a Pisgah overlook.</figcaption>
-      </figure>
+    <h2 class="section">The adventure</h2>
+    <div class="panel">
+      <h3>What you are signing up for</h3>
+      <p>This is a real mountain overnight, not a hotel weekend. You leave Mebane, pick up Eli in Greensboro, charge in Asheville, then climb the Blue Ridge Parkway to Mount Pisgah Campground. Sleep in the rooftop tent. Before dawn, headlamps on, hike from camp through Buck Spring / MST, hit the Mount Pisgah Trail, and stand on the observation deck as the sun clears the ridges. One outing. Truck stays parked. Then pack, roll home.</p>
     </div>
+    <table>
+      <tr><th>Rule</th><th>How it plays</th></tr>
+      <tr><td>Hike from camp</td><td>Leave from the pad. No drive camp → trailhead. Truck stays put.</td></tr>
+      <tr><td>One hike</td><td>Single outing to the Pisgah observation deck and back. Side-spur OK.</td></tr>
+      <tr><td>Sunrise on summit</td><td>On the deck for ~7:27 AM EDT.</td></tr>
+      <tr><td>Drive</td><td>Mebane → Greensboro → I-40 W → Asheville RAN → BRP → camp (~4.5–5 hr).</td></tr>
+    </table>
 
-    <h2 class="section">The hike</h2>
+    <h2 class="section">Basecamp</h2>
+    <img class="scene" src="images/ridge.jpg" alt="Mount Pisgah summit and tower from the Blue Ridge Parkway" loading="lazy"/>
     <div class="card">
-      <p class="prose">Start at camp in the dark. Follow the campground connectors toward the Inn corridor, then the <strong>Mount Pisgah Trail</strong> (about 1.6 mi / ~712 ft from the lot start; longer from camp). The finish is steep and rocky. At the top: the observation deck, 5,721 ft, with views toward Asheville, the French Broad, and Shining Rock on a clear morning.</p>
-      <p class="prose">Want a quieter approach? Swing onto the <strong>Buck Spring Trail</strong> (Mountains-to-Sea) as a side-spur: lodge site foundations, gap overlooks, then rejoin for the final climb. Same outing, same summit.</p>
-      <ul class="clean">
-        <li><strong>Distance:</strong> ~5–6+ mi RT from camp (loop out Buck Spring, return more direct)</li>
-        <li><strong>Trailhead facts:</strong> <a href="https://www.nps.gov/places/mount-pisgah-trailhead.htm">NPS Mount Pisgah Trailhead</a> at MP 407.6</li>
-        <li><strong>Not on this plan:</strong> a second hike to Fryingpan tower (still reachable from the camp entrance if energy and time allow later)</li>
-      </ul>
+      <span class="tag">Home for the night</span>
+      <h3>Mount Pisgah Campground</h3>
+      <div class="prose">
+        <p><a href="https://www.recreation.gov/camping/campgrounds/234182">Recreation.gov facility 234182</a> on the Blue Ridge Parkway at MP ~408.8. Night of Saturday <strong>2026-10-03</strong>, checkout Sunday <strong>2026-10-04</strong>.</p>
+        <p>Drive-up pads fit the R1T and rooftop tent. No hookups. Watch limb clearance. Food goes in bear boxes or a locked vehicle. Showers in Loops B and C. Flush toilets, potable water, and a seasonal dump station on site. NPS overview: <a href="https://www.nps.gov/thingstodo/pisgah-campground.htm">Spend the night at Mount Pisgah Campground</a>.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="tag accent">Site preference</span>
+      <h3>Quieter pads first</h3>
+      <p class="prose" style="margin-bottom:0">Want the quieter, more isolated pads. Order is <strong>A33</strong>, then <strong>B26</strong>, then <strong>A07</strong>. Skip A11, A13, A27, and B02. Loop B sits closer to showers.</p>
+      <div class="sites">
+        <a class="site prefer" href="https://www.recreation.gov/camping/campsites/9691"><span class="name">A33</span><span class="meta">Loop A · 1st pick</span><span class="status">Prefer</span></a>
+        <a class="site prefer" href="https://www.recreation.gov/camping/campsites/9717"><span class="name">B26</span><span class="meta">Loop B · 2nd pick</span><span class="status">Prefer</span></a>
+        <a class="site prefer" href="https://www.recreation.gov/camping/campsites/9665"><span class="name">A07</span><span class="meta">Loop A · 3rd pick</span><span class="status">Prefer</span></a>
+        <span class="site avoid"><span class="name">A11</span><span class="meta">Loop A</span><span class="status">Avoid</span></span>
+        <span class="site avoid"><span class="name">A13</span><span class="meta">Loop A</span><span class="status">Avoid</span></span>
+        <span class="site avoid"><span class="name">A27</span><span class="meta">Loop A</span><span class="status">Avoid</span></span>
+        <span class="site avoid"><span class="name">B02</span><span class="meta">Loop B</span><span class="status">Avoid</span></span>
+      </div>
+    </div>
+
+    <h2 class="section">The sunrise hike</h2>
+    <div class="scene-grid">
+      <div class="scene-card">
+        <img src="images/buck-spring.jpg" alt="Buck Spring Lodge ruins near Mount Pisgah on the Blue Ridge Parkway" loading="lazy"/>
+        <div class="cap">Buck Spring / MST side-spur from camp</div>
+      </div>
+      <div class="scene-card">
+        <img src="images/summit-deck.jpg" alt="Observation platform stairs at Mount Pisgah summit" loading="lazy"/>
+        <div class="cap">Deck arrival · 5,721 ft</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="prose">
+        <p>The prize is the Mount Pisgah observation deck at 5,721 ft, with the big broadcast tower right there. From camp, follow the connector / Inn corridor, take the optional <strong>Buck Spring Trail</strong> (MST side-spur), reach the Mount Pisgah parking corridor, then climb the <strong>Mount Pisgah Trail</strong> (~1.6 mi / ~712 ft with a steep rocky finish) to the deck.</p>
+        <p>Expect ~5–6+ mi round trip from camp. Leave camp ~5:00–5:30 AM EDT with headlamps. The NPS trailhead at MP 407.6 is a reference only; the truck does not move from camp. Buck Spring Lodge foundation and gap overlooks make solid side-spur stops on the way up.</p>
+      </div>
       <div class="link-row">
         <a class="btn" href="https://www.nps.gov/places/mount-pisgah-trailhead.htm">NPS trailhead</a>
         <a class="btn" href="https://www.alltrails.com/trail/us/north-carolina/mount-pisgah-trail">AllTrails · Mt Pisgah</a>
-        <a class="btn" href="https://www.openstreetmap.org/#map=14/35.425/-82.756">OpenStreetMap</a>
+        <a class="btn" href="https://www.openstreetmap.org/#map=14/35.425/-82.756">OpenStreetMap area</a>
       </div>
     </div>
 
-    <h2 class="section">Sunrise morning · 2026-10-04</h2>
+    <h2 class="section">Sunrise timeline · Sun 2026-10-04</h2>
     <div class="card">
       <div class="timeline">
         <div class="tl-item">
           <div class="tl-time">~5:00–5:30 AM EDT</div>
-          <div class="tl-body">Leave camp with headlamps, layers, water, and breakfast bars.</div>
+          <div class="tl-body">Leave camp with headlamps, layers, water, breakfast bars.</div>
         </div>
         <div class="tl-item">
           <div class="tl-time">~7:01 AM</div>
@@ -369,80 +430,63 @@
         </div>
         <div class="tl-item sunrise">
           <div class="tl-time">~7:27 AM</div>
-          <div class="tl-body"><strong>Sunrise on the observation deck.</strong></div>
+          <div class="tl-body"><strong>Sunrise on the observation deck.</strong> That is the moment.</div>
         </div>
         <div class="tl-item">
           <div class="tl-time">Morning</div>
-          <div class="tl-body">Descend to camp, pack up, showers, then roll out.</div>
+          <div class="tl-body">Descend to camp · pack · showers · roll out.</div>
         </div>
       </div>
-      <p class="note">Sun times from the timeanddate Asheville-area table for 2026-10-04. Check Parkway status morning-of: <a href="https://www.nps.gov/blri/planyourvisit/roadclosures.htm">road closures</a>.</p>
+      <p class="note">Sun times use the Asheville-area table for 2026-10-04. Confirm BRP road status morning-of: <a href="https://www.nps.gov/blri/planyourvisit/roadclosures.htm">Parkway closures</a>.</p>
     </div>
 
-    <h2 class="section">Where we sleep</h2>
-    <div class="card">
-      <span class="tag">Camp</span>
-      <h3>Mount Pisgah Campground</h3>
-      <p class="prose">Blue Ridge Parkway MP ~408.8. Night of <strong>2026-10-03</strong>, checkout morning of <strong>2026-10-04</strong> after the hike. Drive-up pads, no hookups. Showers in Loops B and C, flush toilets, potable water.</p>
-      <p class="prose">If we get a pick of sites: <strong>A33</strong> first, then <strong>B26</strong> (Loop B is closer to showers). Either works.</p>
-      <ul class="clean">
-        <li><a href="https://www.recreation.gov/camping/campgrounds/234182">Recreation.gov facility 234182</a></li>
-        <li>NPS overview: <a href="https://www.nps.gov/thingstodo/pisgah-campground.htm">Spend the night at Mount Pisgah Campground</a></li>
-        <li>Camp map: <a href="https://cdn.recreation.gov/public/2022/12/02/16/34/234182_e9893c63-292f-4b1f-8082-dfd060e75fe0.pdf">PDF</a></li>
-        <li>Phone (May–Oct): 828-648-2644</li>
-      </ul>
-    </div>
-
-    <h2 class="section">The weekend sketch</h2>
+    <h2 class="section">Saturday and Sunday</h2>
+    <img class="scene" src="images/mt-oct.jpg" alt="Mount Pisgah ridgeline in October" loading="lazy"/>
     <div class="two-col">
       <div class="card">
-        <span class="tag accent">Saturday · 2026-10-03</span>
+        <span class="tag accent">Saturday 2026-10-03</span>
+        <p class="prose" style="margin-bottom:8px">Depart Mebane near full SOC, pick up Eli in Greensboro, run I-40 west, charge at the <strong>Rivian Adventure Network Asheville</strong> before the Parkway, then BRP south to Mount Pisgah. Arrive before dark and sleep in the RTT.</p>
         <ol class="steps">
-          <li>Depart Mebane, pick up Eli in Greensboro</li>
-          <li>I-40 W toward Asheville (~4.5–5 hr total). Charge before the Parkway (Rivian Adventure Network Asheville, or a nearby EA)</li>
-          <li>Blue Ridge Parkway south to Mount Pisgah Campground. Arrive before dark. Sleep in the rooftop tent.</li>
+          <li>Mebane → Greensboro pickup</li>
+          <li>I-40 W → Asheville RAN</li>
+          <li>BRP → camp · RTT night</li>
         </ol>
       </div>
       <div class="card">
-        <span class="tag">Sunday · 2026-10-04</span>
+        <span class="tag">Sunday 2026-10-04</span>
+        <p class="prose" style="margin-bottom:8px">Pre-dawn hike from camp to the deck for sunrise, return to the truck, pack, and checkout. Top SOC if needed, then I-40 east with a Greensboro drop and home to Mebane.</p>
         <ol class="steps">
-          <li>Pre-dawn hike to Pisgah for sunrise</li>
-          <li>Back to camp, pack, optional short falls stop only if energy remains</li>
-          <li>Top up charge if needed, I-40 E, Greensboro drop, then Mebane</li>
+          <li>Pre-dawn hike for sunrise</li>
+          <li>Pack · checkout</li>
+          <li>I-40 E → Greensboro → Mebane</li>
         </ol>
       </div>
     </div>
 
-    <h2 class="section">Charge and route (high level)</h2>
+    <h2 class="section">Truck and charge</h2>
     <div class="card">
-      <p class="prose">Truck: Rivian R1T with Dual Large pack. Leave home with a full charge. Hit Asheville charging before climbing onto the Parkway so overnight Camp Mode has reserve. Do not arrive thin.</p>
+      <div class="prose">
+        <p>Vehicle is the Rivian R1T Dual Large with rooftop tent. Primary charge is Asheville RAN (<a href="https://www.plugshare.com/location/831433">PlugShare</a>). Backup is EA Old Fort (<a href="https://www.plugshare.com/location/622897">PlugShare</a>). Keep overnight reserve for Camp Mode and avoid arriving thin on the Parkway.</p>
+      </div>
+    </div>
+
+    <h2 class="section">Gear checklist</h2>
+    <div class="card">
       <ul class="clean">
-        <li>Asheville RAN (800 Brevard): <a href="https://www.plugshare.com/location/831433">PlugShare</a></li>
-        <li>EA Old Fort backup: <a href="https://www.plugshare.com/location/622897">PlugShare</a></li>
+        <li><strong>Camp:</strong> RTT, bedding, bear-safe food storage, headlamps, layers for ~5,000 ft nights</li>
+        <li><strong>Hike:</strong> headlamps, water, breakfast bars, trail shoes, warm summit layer</li>
+        <li><strong>Drive:</strong> near-full SOC leaving Mebane, Asheville RAN stop before BRP</li>
       </ul>
     </div>
 
-    <h2 class="section">Optional water stop</h2>
-    <div class="card">
-      <p class="prose"><strong>Skinny Dip Falls</strong> at Looking Glass Rock Overlook (MP 417), about 15 minutes south on the Parkway, ~0.8 mi RT. Only after the sunrise hike, and only if legs and time still feel good. Crabtree Falls and Linville Falls campgrounds are closed in 2026 (Helene recovery).</p>
-    </div>
-
-    <figure class="photo-card" style="margin:28px 0 12px; min-height:240px;">
-      <img src="images/mt-pisgah-fall.jpg" alt="Mount Pisgah summit tower rising above autumn forest along the Blue Ridge" width="1600" height="1067" loading="lazy"/>
-      <figcaption>Mount Pisgah in fall. That tower marks the summit we are hiking to.</figcaption>
-    </figure>
-
     <p class="foot">
-      Personal planning draft for Martin and Eli · Mount Pisgah weekend 2026-10-03 / 2026-10-04.<br/>
+      Mount Pisgah camping weekend 2026-10-03 · Martin + Eli.<br/>
       Updated 2026-09-02.
     </p>
     <p class="credits">
-      Photos (Wikimedia Commons): hero, <em>Mount Pisgah (North Carolina) Oct 2016</em> by Thomson200 (CC0);
-      observation deck by Warren LeMay / w_lemay (CC BY-SA 2.0);
-      Cold Mountain view by Thomson200 (CC0);
-      fall summit by PBarn424 (CC BY-SA 4.0).
-      See <a href="images/CREDITS.txt">images/CREDITS.txt</a>.
+      Photos: Wikimedia Commons · Mt-Pisgah-Fall.jpg; Mount Pisgah from NC 151, Oct 2016; Observation Platform Mount Pisgah (Blue Ridge Parkway); Buck Spring Lodge Ruins; Mount Pisgah BRP views; Mount Pisgah (North Carolina) Oct 2016. Freely usable (CC0 / CC licenses on Commons). Embedded as JPEG data URIs for offline gist viewing.
     </p>
   </div>
+
 </body>
 </html>
