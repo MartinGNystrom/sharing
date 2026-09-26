@@ -1,0 +1,31 @@
+Photo credits (all via Wikimedia Commons; images resized and compressed for the web, no other changes)
+
+img/north-core-banks-sunrise.jpg
+  Commons title: File:Core_Banks_-_sunrise_-_02.JPG
+  Author: Jarek Tuszyński
+  License: CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+  URL: https://commons.wikimedia.org/wiki/File:Core_Banks_-_sunrise_-_02.JPG
+
+img/milky-way-cape-hatteras-light.jpg
+  Commons title: File:Cape_Hatteras_Light_(197946855).jpeg
+  Author: Koran Thompson
+  License: CC0 1.0 (https://creativecommons.org/publicdomain/zero/1.0/)
+  URL: https://commons.wikimedia.org/wiki/File:Cape_Hatteras_Light_(197946855).jpeg
+
+img/core-banks-vehicle-ferry.jpg
+  Commons title: File:Core_Banks_ferry_-_2013-06_-_1.JPG
+  Author: Jarek Tuszyński
+  License: CC BY-SA 3.0 (https://creativecommons.org/licenses/by-sa/3.0/)
+  URL: https://commons.wikimedia.org/wiki/File:Core_Banks_ferry_-_2013-06_-_1.JPG
+
+img/north-core-banks-beach-dunes.jpg
+  Commons title: File:Core_Banks_-_sunset_-_03.JPG
+  Author: Jarek Tuszyński
+  License: CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+  URL: https://commons.wikimedia.org/wiki/File:Core_Banks_-_sunset_-_03.JPG
+
+img/portsmouth-methodist-church.jpg
+  Commons title: File:Portsmouth_-_Methodist_Church_-_01.JPG
+  Author: Jarek Tuszyński
+  License: CC BY-SA 3.0 (https://creativecommons.org/licenses/by-sa/3.0/)
+  URL: https://commons.wikimedia.org/wiki/File:Portsmouth_-_Methodist_Church_-_01.JPG

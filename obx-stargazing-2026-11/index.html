@@ -168,12 +168,28 @@ footer{margin:56px 0 0;padding:24px 0 40px;border-top:1px solid var(--line);colo
   .route{display:none}
   .route-list{display:block}
 }
+/* Photos */
+header.sky.photo{background:linear-gradient(180deg,rgba(5,9,22,.62) 0%,rgba(5,9,22,.30) 42%,rgba(5,9,22,.88) 100%),url(img/north-core-banks-sunrise.jpg) center 58%/cover no-repeat,var(--sky1)}
+header.sky.photo svg.stars{opacity:.55}
+.hero-credit{margin:22px 0 0;font:11px/1.45 "IBM Plex Mono",monospace;color:#AFC0EE}
+.hero-credit a{color:#D5DDF7;border-bottom-color:rgba(213,221,247,.4)}
+figure.photo{margin:0 0 16px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+figure.photo img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;background:var(--accent-soft)}
+figure.photo.wide img{aspect-ratio:21/9}
+figure.photo figcaption{padding:10px 14px 12px;font-size:13.5px;line-height:1.5;color:var(--muted);border-top:1px solid var(--line)}
+figure.photo figcaption b{color:var(--text);font-weight:600}
+.credit{display:block;margin-top:4px;font:11px/1.45 "IBM Plex Mono",monospace;color:var(--muted)}
+.credit a{color:var(--accent)}
+.photos-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-bottom:14px}
+.photos-2 figure.photo{margin:0}
+.box.full{margin-top:14px}
+@media (prefers-color-scheme: dark){figure.photo img{filter:brightness(.92)}}
 @media print{nav.toc{display:none} .night{color:#000;background:#fff;border-color:#ccc} .night h3{color:#000}}
 </style>
 </head>
 <body>
 
-<header class="sky">
+<header class="sky photo">
   <svg class="stars" viewBox="0 0 1000 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
     <defs>
       <linearGradient id="mw" x1="0" y1="1" x2="1" y2="0">
@@ -213,13 +229,14 @@ footer{margin:56px 0 0;padding:24px 0 40px;border-top:1px solid var(--line);colo
         <div><b>New moon</b>2026-11-09 02:02 EST<br>Moon rises 04:56 Sat,<br>just before dawn</div>
       </div>
     </div>
+    <p class="hero-credit">Photo: sunrise over the Atlantic near Long Point, North Core Banks, 2014-06-27. Jarek Tuszyński, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:Core_Banks_-_sunrise_-_02.JPG">Wikimedia Commons</a>.</p>
   </div>
 </header>
 
 <nav class="toc" aria-label="Sections">
   <div class="wrap">
     <a href="#bluf">Status</a><a href="#facts">Key facts</a><a href="#itinerary">Itinerary</a><a href="#sky">Night sky</a>
-    <a href="#getting-there">Getting there</a><a href="#rules">Island rules</a><a href="#bookings">Bookings</a><a href="#gonogo">Go/no-go</a>
+    <a href="#getting-there">Getting there</a><a href="#rules">Island rules</a><a href="#bathrooms">Bathrooms</a><a href="#bookings">Bookings</a><a href="#gonogo">Go/no-go</a>
     <a href="#gear">Gear</a><a href="#fallback">Fallback</a><a href="#contacts">Contacts</a><a href="#sources">Sources</a>
   </div>
 </nav>
@@ -259,10 +276,10 @@ footer{margin:56px 0 0;padding:24px 0 40px;border-top:1px solid var(--line);colo
     <div class="day">
       <div class="day-h"><h3>Friday</h3><span class="date">2026-11-06</span><span class="pill p-warn">Ferry time TBD</span></div>
       <ol class="tl">
-        <li><span class="t">before</span><span>Move the Fri 08:30 medication dose to before departure. Truck at 90%+.</span></li>
+        <li><span class="t">before</span><span>Truck at 90%+.</span></li>
         <li><span class="t">07:00</span><span>Leave Mebane.</span></li>
         <li><span class="t">~11:00</span><span>Charge at Tesla Supercharger Morehead City, 2900 Arendell St, to 90%+.</span></li>
-        <li class="hl"><span class="t">~12:20</span><span>Arrive Morris Marina, 1000 Morris Marina Rd, Atlantic. Sign in 30 to 45 min before sailing. Early-afternoon crossing, ~1 h <span class="unv">time TBD</span></span></li>
+        <li class="hl"><span class="t">~12:20</span><span>Arrive Morris Marina, 1000 Morris Marina Rd, Atlantic. Sign in 30 to 45 min before sailing. Use a restroom on the mainland first. Early-afternoon crossing, ~1 h <span class="unv">time TBD</span></span></li>
         <li><span class="t">afternoon</span><span>Air down to 15 to 20 psi, Soft Sand mode. Show the paper ORV permit to a ranger for the decal. Pick a spot on the ocean beach seaward of the primary dunes.</span></li>
         <li><span class="t">17:06</span><span>Sunset. Set up bed, chairs, red lights before dark. Pre-heat with Camp Mode.</span></li>
         <li class="hl"><span class="t">18:31</span><span>Astronomical dark. Observing night, effectively moonless until 04:56 (see Night sky).</span></li>
@@ -292,6 +309,11 @@ footer{margin:56px 0 0;padding:24px 0 40px;border-top:1px solid var(--line);colo
 <section id="sky">
   <h2><span class="n">03</span>Night sky timeline</h2>
   <p class="lede">Computed for North Core Banks (34.98 N, 76.20 W). Sun and Moon times cross-checked with USNO. The flat ocean horizon to the east and south is the main asset.</p>
+  <figure class="photo wide">
+    <img src="img/milky-way-cape-hatteras-light.jpg" width="1152" height="768" loading="lazy" alt="The Milky Way rising beside the black-and-white striped Cape Hatteras Lighthouse at night, with its beam lit.">
+    <figcaption><b>Milky Way over Cape Hatteras Lighthouse</b>, Cape Hatteras National Seashore, 2015-08-13. Shown for the kind of coastal sky to expect; this is about 60 mi up the Outer Banks, not Cape Lookout. In November the bright core of the Milky Way sets early, around 19:20.
+    <span class="credit">Koran Thompson, <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:Cape_Hatteras_Light_(197946855).jpeg">Wikimedia Commons</a></span></figcaption>
+  </figure>
   <div class="nights">
     <div class="night">
       <h3>Fri night: the plan</h3><span class="date">Fri 2026-11-06 into Sat 11-07</span>
@@ -369,6 +391,11 @@ footer{margin:56px 0 0;padding:24px 0 40px;border-top:1px solid var(--line);colo
     <li><span class="mono">ferry ~1 h · time TBD</span>North Core Banks, Cape Lookout NS</li>
     <li><span class="mono">fallback</span>Cedar Island ferry (~13.5 mi from Morris Marina) to Ocracoke</li>
   </ol>
+  <figure class="photo">
+    <img src="img/core-banks-vehicle-ferry.jpg" width="1600" height="1071" loading="lazy" alt="A small white vehicle ferry with a truck on deck approaching a wooden dock on Core Sound.">
+    <figcaption><b>Core Banks vehicle ferry at the Great Island dock</b>, South Core Banks, 2013-06-23. This is the Davis to Great Island ferry, shown for the type of crossing. It is not the Morris Marina boat (the <i>Donza Lee</i>).
+    <span class="credit">Jarek Tuszyński, <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:Core_Banks_ferry_-_2013-06_-_1.JPG">Wikimedia Commons</a></span></figcaption>
+  </figure>
   <div class="two">
     <div class="box">
       <h3>Charging</h3>
@@ -395,6 +422,18 @@ footer{margin:56px 0 0;padding:24px 0 40px;border-top:1px solid var(--line);colo
 <section id="rules">
   <h2><span class="n">05</span>Rules on the island</h2>
   <p class="lede">North Core Banks, Cape Lookout National Seashore. Per NPS camping and ORV pages.</p>
+  <div class="photos-2">
+    <figure class="photo">
+      <img src="img/north-core-banks-beach-dunes.jpg" width="1600" height="1123" loading="lazy" alt="Grassy dunes in the foreground, a wide sand beach and the Atlantic beyond, with pink-lit clouds and a gull overhead.">
+      <figcaption><b>Ocean beach and dunes near Long Point</b>, North Core Banks, 2014-06-27. Camp on the sand seaward of dunes like these.
+      <span class="credit">Jarek Tuszyński, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:Core_Banks_-_sunset_-_03.JPG">Wikimedia Commons</a></span></figcaption>
+    </figure>
+    <figure class="photo">
+      <img src="img/portsmouth-methodist-church.jpg" width="1600" height="1071" loading="lazy" alt="The white wooden Methodist church with a steeple in Portsmouth Village, on a green lawn under a cloudy sky.">
+      <figcaption><b>Portsmouth Methodist Church</b>, Portsmouth Village, 2014-06-25. The village is cut off from the ferry side of the island by Evergreen Inlet, opened by Hurricane Dorian in 2019, so you can't drive there from Long Point.
+      <span class="credit">Jarek Tuszyński, <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:Portsmouth_-_Methodist_Church_-_01.JPG">Wikimedia Commons</a></span></figcaption>
+    </figure>
+  </div>
   <div class="two">
     <div class="box">
       <h3>Camping and driving</h3>
@@ -403,19 +442,30 @@ footer{margin:56px 0 0;padding:24px 0 40px;border-top:1px solid var(--line);colo
         <li>Truck-bed camping only on the ocean beach, seaward of the primary dunes. Not on the back road unless signed.</li>
         <li>ORV permit required for the truck. Show the paper permit to a ranger for the decal. <span class="unv">Nov decal pickup spot TBD</span></li>
         <li>Night driving is allowed in November.</li>
-        <li>No driving in the Portsmouth historic district.</li>
+        <li>No driving in the Portsmouth historic district. The village is cut off by Evergreen Inlet at about mile 3, per the NPS maps page (2021). <span class="unv">confirm</span></li>
       </ul>
     </div>
     <div class="box">
       <h3>Fires, water, facilities</h3>
       <ul class="clean">
         <li>Fires only below the high-tide line, max 3 ft. Never in Portsmouth Village.</li>
-        <li>No potable water. Cabins, bathhouse, and dump station closed.</li>
+        <li>No potable water. Long Point cabins, bathhouse, and dump station closed per NPS conditions (2026-04-08). See Bathrooms.</li>
         <li>Portsmouth Village visitor center closed, unstaffed after late October.</li>
         <li>Pack out all trash.</li>
         <li>NPS conditions page last updated 2026-04-08, before the September storm. No storm reports found for North Core Banks. <span class="unv">ask rangers about beach condition</span></li>
       </ul>
     </div>
+  </div>
+  <div class="box full" id="bathrooms">
+    <h3>Bathrooms</h3>
+    <p style="margin-bottom:8px"><b>Plan on none at camp.</b> Bring a portable toilet or WAG bags and pack them out. There are no trash cans on the islands.</p>
+    <ul class="clean">
+      <li><b>Long Point bathhouse</b> (restrooms and showers, in the former cabin area near the ferry landing): NPS Alerts &amp; Conditions (2026-04-08) lists it <b>Closed</b>, along with the dump station. Older NPS pages still say "seasonal" (camping page, 2026-04-04) or "summer". <span class="unv">Nov status unconfirmed, ask rangers</span></li>
+      <li><b>Portsmouth Village:</b> the visitor center restrooms are closed for solar-system repairs (NPS conditions, 2026-04-08). The visitor center is seasonal, Mon to Fri 10:00 to 16:00. A 2017 NPS FAQ mentions composting toilets near the village. You can't drive there anyway (Evergreen Inlet). <span class="unv">composting toilets unconfirmed</span></li>
+      <li><b>Open beach:</b> no facilities. NPS rule where there is no restroom: bury waste <b>above</b> the high-tide line, away from where people walk or camp, in a cathole 6 to 8 in deep and 4 to 6 in wide. Cover it when done.</li>
+      <li><b>Morris Marina:</b> the ferry leaves from Atlantic RV Resort, which has a bathhouse and an on-site restaurant. Whether ferry passengers can use it is not stated. <span class="unv">ask when booking</span></li>
+      <li><b>Ocracoke Campground (fallback):</b> flush toilets, drinking water, and cold (unheated) showers per Recreation.gov and NPS Cape Hatteras (2026-06-22). <span class="unv">post-storm status unconfirmed</span></li>
+    </ul>
   </div>
 </section>
 
@@ -428,8 +478,8 @@ footer{margin:56px 0 0;padding:24px 0 40px;border-top:1px solid var(--line);colo
       <tbody>
         <tr><td>Day off work, Fri 11-06</td><td class="nw mono">before booking</td><td>Needed for the Fri plan. The Sat fallback needs no day off.</td><td><span class="pill p-warn">Open</span></td></tr>
         <tr><td>Confirm dates with Jennifer</td><td class="nw mono">2026-09-28</td><td>Before 2026-09-29.</td><td><span class="pill p-warn">Open</span></td></tr>
-        <tr><td>Call Morris Marina</td><td class="nw mono">2026-09-28</td><td>Sailings Fri 11-06 out, Sat 11-07 back (morning or midday). Fallback Sat 11-07 out, Sun 11-08 back; ask whether a booked sailing can be moved a day. R1T price and weight. Driver and passenger fares. Latest date to book.</td><td><span class="pill p-info">Scheduled</span></td></tr>
-        <tr><td>Call Cape Lookout rangers</td><td class="nw mono">2026-10-09</td><td>Decal pickup in Nov, beach and route north after the storm, camping permit question.</td><td><span class="pill p-warn">Open</span></td></tr>
+        <tr><td>Call Morris Marina</td><td class="nw mono">2026-09-28</td><td>Sailings Fri 11-06 out, Sat 11-07 back (morning or midday). Fallback Sat 11-07 out, Sun 11-08 back; ask whether a booked sailing can be moved a day. R1T price and weight. Driver and passenger fares. Latest date to book. Can ferry passengers use the Atlantic RV Resort restrooms?</td><td><span class="pill p-info">Scheduled</span></td></tr>
+        <tr><td>Call Cape Lookout rangers</td><td class="nw mono">2026-10-09</td><td>Decal pickup in Nov, beach and route north after the storm, camping permit question, Long Point bathhouse status in Nov.</td><td><span class="pill p-warn">Open</span></td></tr>
         <tr><td>ORV permit, $75</td><td class="nw mono">2026-10-30</td><td>Buy after ferry confirms. Print on paper; phone prints come out blank.</td><td><span class="pill p-bad">Not bought</span></td></tr>
         <tr><td>NACS adapter</td><td class="nw mono">2026-10-30</td><td>Only if Grivvy has a CCS port.</td><td><span class="pill p-warn">Check</span></td></tr>
         <tr><td>Weather go/no-go, 72 h</td><td class="nw mono">2026-11-03</td><td>Clear Outside, Astrospheric, NWS MHX sky cover, marine forecast.</td><td><span class="pill p-mute">Later</span></td></tr>
@@ -483,7 +533,8 @@ footer{margin:56px 0 0;padding:24px 0 40px;border-top:1px solid var(--line);colo
       <li>Reclining chair</li><li>Tripod</li><li>Lens dew heater and power</li></ul></div>
     <div class="box"><h3>Water and camp</h3><ul class="checks">
       <li>2 gal water per person (1 night, 2 days), plus spare</li><li>Food for 1 night</li><li>Trash bags; pack everything out</li>
-      <li>Firewood only if fire planned (below high-tide line)</li><li>First aid kit</li></ul></div>
+      <li>Firewood only if fire planned (below high-tide line)</li><li>First aid kit</li>
+      <li>Portable toilet or WAG bags, toilet paper, trowel; pack out used bags</li></ul></div>
   </div>
   <p class="note">Nov normals ~63/51 F (Ocracoke), colder behind fronts. Expect wind and heavy dew.</p>
 </section>
@@ -519,7 +570,7 @@ footer{margin:56px 0 0;padding:24px 0 40px;border-top:1px solid var(--line);colo
       <thead><tr><th>Who</th><th>Phone / link</th><th>Notes</th></tr></thead>
       <tbody>
         <tr><td>Morris Marina ferry</td><td class="nw"><a href="tel:+12522254261">252-225-4261</a><br><a href="tel:+12527234962">252-723-4962</a></td><td>Mon to Sat 08:00 to 16:00. Phone booking only.</td></tr>
-        <tr><td>Cape Lookout NS rangers</td><td class="nw"><a href="tel:+12527282250">252-728-2250</a></td><td>Decal, conditions, camping permit question.</td></tr>
+        <tr><td>Cape Lookout NS rangers</td><td class="nw"><a href="tel:+12527282250">252-728-2250</a></td><td>Decal, conditions, camping permit question, Long Point bathhouse.</td></tr>
         <tr><td>NC Ferry reservations</td><td class="nw"><a href="tel:+18002933779">1-800-293-3779</a></td><td>Cedar Island to Ocracoke (fallback).</td></tr>
         <tr><td>Portsmouth Island Boat Tours</td><td class="nw"><a href="tel:+12529284361">252-928-4361</a> (Rudy)<br><a href="tel:+12529285431">252-928-5431</a> (Donald)</td><td>From Ocracoke. Fallback only.</td></tr>
         <tr><td>Portsmouth Island Adventures</td><td class="nw"><a href="tel:+12529284484">252-928-4484</a></td><td>Second boat option, from the original plan. <span class="unv">not rechecked</span></td></tr>
@@ -549,6 +600,8 @@ footer{margin:56px 0 0;padding:24px 0 40px;border-top:1px solid var(--line);colo
     <li>Crystal Coast Stargazers: <a href="https://ccgazers.com">ccgazers.com</a></li>
     <li>Tesla Supercharger locator (Morehead City, New Bern): <a href="https://www.tesla.com/findus">tesla.com/findus</a></li>
     <li>Forecast tools: <a href="https://clearoutside.com/forecast/34.98/-76.20">Clear Outside</a>, <a href="https://www.astrospheric.com">Astrospheric</a>, <a href="https://forecast.weather.gov/MapClick.php?lat=34.98&amp;lon=-76.2">NWS forecast (MHX)</a>, <a href="https://www.weather.gov/mhx/">NWS Newport/Morehead City</a></li>
+    <li>Bathrooms: NPS Cape Lookout <a href="https://www.nps.gov/calo/planyourvisit/conditions.htm">conditions</a> (2026-04-08), <a href="https://www.nps.gov/calo/planyourvisit/camping.htm">camping</a> (2026-04-04), <a href="https://www.nps.gov/calo/planyourvisit/visitorcenters.htm">visitor centers</a> (2026-03-12), <a href="https://www.nps.gov/calo/planyourvisit/maps.htm">maps</a> (2021-09-09), <a href="https://www.nps.gov/calo/faqs.htm">FAQ</a> (2017), <a href="https://www.nps.gov/calo/planyourvisit/ferry.htm">ferry FAQ</a> (2025-01-21); <a href="https://www.nps.gov/caha/planyourvisit/campgrounds.htm">NPS Cape Hatteras campgrounds</a> (2026-06-22); <a href="https://www.atlanticrvresort.com/">Atlantic RV Resort</a></li>
+    <li>Photos: Wikimedia Commons, credited under each image. Jarek Tuszyński (CC BY-SA 3.0 and 4.0), Koran Thompson (CC0). Images resized and compressed for the web; no other changes.</li>
     <li>Star, planet, and twilight times other than USNO: computed with PyEphem for 34.98 N, 76.20 W. Astronomical dark ends ~05:05, not 04:55 as in the first plan.</li>
   </ol>
 </section>
