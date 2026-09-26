@@ -72,8 +72,8 @@ p{margin:0 0 12px}
 .bluf dt{font:500 12px/1.9 "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
 .bluf dd{margin:0}
 
-/* Pills */
-.pill{display:inline-block;font:500 12px/1 "IBM Plex Mono",monospace;padding:5px 9px;border-radius:999px;white-space:nowrap;vertical-align:1px}
+/* Chips */
+.chip{display:inline-block;font:500 12px/1 "IBM Plex Mono",monospace;padding:5px 9px;border-radius:999px;white-space:nowrap;vertical-align:1px}
 .p-bad{color:var(--bad);background:var(--bad-bg)}
 .p-warn{color:var(--warn);background:var(--warn-bg)}
 .p-ok{color:var(--ok);background:var(--ok-bg)}
@@ -237,7 +237,7 @@ figure.photo figcaption b{color:var(--text);font-weight:600}
   <div class="wrap">
     <a href="#bluf">Status</a><a href="#facts">Key facts</a><a href="#itinerary">Itinerary</a><a href="#sky">Night sky</a>
     <a href="#getting-there">Getting there</a><a href="#rules">Island rules</a><a href="#bathrooms">Bathrooms</a><a href="#bookings">Bookings</a><a href="#gonogo">Go/no-go</a>
-    <a href="#gear">Gear</a><a href="#fallback">Fallback</a><a href="#contacts">Contacts</a><a href="#sources">Sources</a>
+    <a href="#temps">Temps</a><a href="#gear">Gear</a><a href="#fallback">Fallback</a><a href="#contacts">Contacts</a><a href="#sources">Sources</a>
   </div>
 </nav>
 
@@ -248,7 +248,7 @@ figure.photo figcaption b{color:var(--text);font-weight:600}
     <h2>Bottom line</h2>
     <p class="headline">Plan is one night at Cape Lookout, North Core Banks: camp Fri 2026-11-06, home Sat 2026-11-07, in the R1T bed on the ocean beach. Weather fallback is one day later, Sat 2026-11-07 to Sun 2026-11-08. Nothing is booked yet.</p>
     <dl>
-      <dt>Status</dt><dd><span class="pill p-bad">Not booked</span> Ferry, ORV permit, and all fallback reservations are open.</dd>
+      <dt>Status</dt><dd><span class="chip p-bad">Not booked</span> Ferry, ORV permit, and all fallback reservations are open.</dd>
       <dt>Next action</dt><dd>Call Morris Marina <b>Mon 2026-09-28</b>, 08:00 to 16:00, at <a href="tel:+12522254261">252-225-4261</a>. Ask for Fri 11-06 out and Sat 11-07 back, with Sat 11-07 out and Sun 11-08 back as the fallback. Ask whether a booked sailing can be moved a day, R1T price and weight, and the driver fare.</dd>
       <dt>Also due</dt><dd>Request Fri 2026-11-06 off work. Confirm dates with Jennifer before 2026-09-29. Call rangers by 2026-10-09. Buy and print the ORV permit by 2026-10-30.</dd>
       <dt>Fallback</dt><dd>Weather: shift one day to Sat 11-07 night. Access: Ocracoke Campground via the Cedar Island ferry, 1 night. Backup window 2026-11-13 to 2026-11-16, one night within it.</dd>
@@ -274,7 +274,7 @@ figure.photo figcaption b{color:var(--text);font-weight:600}
   <p class="lede">All ferry times are TBD until the Morris Marina call. Times below are targets.</p>
   <div class="days">
     <div class="day">
-      <div class="day-h"><h3>Friday</h3><span class="date">2026-11-06</span><span class="pill p-warn">Ferry time TBD</span></div>
+      <div class="day-h"><h3>Friday</h3><span class="date">2026-11-06</span><span class="chip p-warn">Ferry time TBD</span></div>
       <ol class="tl">
         <li><span class="t">before</span><span>Truck at 90%+.</span></li>
         <li><span class="t">07:00</span><span>Leave Mebane.</span></li>
@@ -286,7 +286,7 @@ figure.photo figcaption b{color:var(--text);font-weight:600}
       </ol>
     </div>
     <div class="day">
-      <div class="day-h"><h3>Saturday</h3><span class="date">2026-11-07</span><span class="pill p-warn">Ferry time TBD</span></div>
+      <div class="day-h"><h3>Saturday</h3><span class="date">2026-11-07</span><span class="chip p-warn">Ferry time TBD</span></div>
       <ol class="tl">
         <li class="hl"><span class="t">05:45</span><span>Crescent Moon about 1.5° from Venus, ~9° up, low ESE over the ocean. Spica is close by. Moon rose 04:56.</span></li>
         <li><span class="t">06:32</span><span>Sunrise. Break camp. Pack out all trash.</span></li>
@@ -296,7 +296,7 @@ figure.photo figcaption b{color:var(--text);font-weight:600}
       </ol>
     </div>
     <div class="day">
-      <div class="day-h"><h3>Weather fallback</h3><span class="date">Sat 2026-11-07 to Sun 2026-11-08</span><span class="pill p-mute">Only if Fri is cloudy</span></div>
+      <div class="day-h"><h3>Weather fallback</h3><span class="date">Sat 2026-11-07 to Sun 2026-11-08</span><span class="chip p-mute">Only if Fri is cloudy</span></div>
       <ol class="tl">
         <li><span class="t">Sat</span><span>Same schedule shifted one day: leave Mebane 07:00, charge, ferry out, camp Sat night. Fully moonless; the Moon rises 05:58 Sun, after dawn begins. Needs Morris Marina to move the sailing.</span></li>
         <li><span class="t">Sun 05:00</span><span>Optional: Jupiter and Mars high in the SE, about 3° apart in Leo. No Moon and Venus pairing on this date.</span></li>
@@ -476,16 +476,16 @@ figure.photo figcaption b{color:var(--text);font-weight:600}
     <table>
       <thead><tr><th>Item</th><th>Due</th><th>Details</th><th>Status</th></tr></thead>
       <tbody>
-        <tr><td>Day off work, Fri 11-06</td><td class="nw mono">before booking</td><td>Needed for the Fri plan. The Sat fallback needs no day off.</td><td><span class="pill p-warn">Open</span></td></tr>
-        <tr><td>Confirm dates with Jennifer</td><td class="nw mono">2026-09-28</td><td>Before 2026-09-29.</td><td><span class="pill p-warn">Open</span></td></tr>
-        <tr><td>Call Morris Marina</td><td class="nw mono">2026-09-28</td><td>Sailings Fri 11-06 out, Sat 11-07 back (morning or midday). Fallback Sat 11-07 out, Sun 11-08 back; ask whether a booked sailing can be moved a day. R1T price and weight. Driver and passenger fares. Latest date to book. Can ferry passengers use the Atlantic RV Resort restrooms?</td><td><span class="pill p-info">Scheduled</span></td></tr>
-        <tr><td>Call Cape Lookout rangers</td><td class="nw mono">2026-10-09</td><td>Decal pickup in Nov, beach and route north after the storm, camping permit question, Long Point bathhouse status in Nov.</td><td><span class="pill p-warn">Open</span></td></tr>
-        <tr><td>ORV permit, $75</td><td class="nw mono">2026-10-30</td><td>Buy after ferry confirms. Print on paper; phone prints come out blank.</td><td><span class="pill p-bad">Not bought</span></td></tr>
-        <tr><td>NACS adapter</td><td class="nw mono">2026-10-30</td><td>Only if Grivvy has a CCS port.</td><td><span class="pill p-warn">Check</span></td></tr>
-        <tr><td>Weather go/no-go, 72 h</td><td class="nw mono">2026-11-03</td><td>Clear Outside, Astrospheric, NWS MHX sky cover, marine forecast.</td><td><span class="pill p-mute">Later</span></td></tr>
-        <tr><td>Weather go/no-go, 24 h</td><td class="nw mono">2026-11-05</td><td>Same sources plus a ferry check call.</td><td><span class="pill p-mute">Later</span></td></tr>
-        <tr><td>Fallback: Ocracoke Campground</td><td class="nw mono">as needed</td><td>Recreation.gov 232504, 1 night Fri 11-06, $28. Reservations reopened 2026-09-26; ~94 sites open 11-06.</td><td><span class="pill p-mute">Fallback</span></td></tr>
-        <tr><td>Fallback: Cedar Island ferry</td><td class="nw mono">as needed</td><td>$15 each way under 20 ft. Out Fri 11-06; back Sat 11-07, 07:30 or 13:00 from Ocracoke. 90-day window is open.</td><td><span class="pill p-mute">Fallback</span></td></tr>
+        <tr><td>Day off work, Fri 11-06</td><td class="nw mono">before booking</td><td>Needed for the Fri plan. The Sat fallback needs no day off.</td><td><span class="chip p-warn">Open</span></td></tr>
+        <tr><td>Confirm dates with Jennifer</td><td class="nw mono">2026-09-28</td><td>Before 2026-09-29.</td><td><span class="chip p-warn">Open</span></td></tr>
+        <tr><td>Call Morris Marina</td><td class="nw mono">2026-09-28</td><td>Sailings Fri 11-06 out, Sat 11-07 back (morning or midday). Fallback Sat 11-07 out, Sun 11-08 back; ask whether a booked sailing can be moved a day. R1T price and weight. Driver and passenger fares. Latest date to book. Can ferry passengers use the Atlantic RV Resort restrooms?</td><td><span class="chip p-info">Scheduled</span></td></tr>
+        <tr><td>Call Cape Lookout rangers</td><td class="nw mono">2026-10-09</td><td>Decal pickup in Nov, beach and route north after the storm, camping permit question, Long Point bathhouse status in Nov.</td><td><span class="chip p-warn">Open</span></td></tr>
+        <tr><td>ORV permit, $75</td><td class="nw mono">2026-10-30</td><td>Buy after ferry confirms. Print on paper; phone prints come out blank.</td><td><span class="chip p-bad">Not bought</span></td></tr>
+        <tr><td>NACS adapter</td><td class="nw mono">2026-10-30</td><td>Only if Grivvy has a CCS port.</td><td><span class="chip p-warn">Check</span></td></tr>
+        <tr><td>Weather go/no-go, 72 h</td><td class="nw mono">2026-11-03</td><td>Clear Outside, Astrospheric, NWS MHX sky cover, marine forecast.</td><td><span class="chip p-mute">Later</span></td></tr>
+        <tr><td>Weather go/no-go, 24 h</td><td class="nw mono">2026-11-05</td><td>Same sources plus a ferry check call.</td><td><span class="chip p-mute">Later</span></td></tr>
+        <tr><td>Fallback: Ocracoke Campground</td><td class="nw mono">as needed</td><td>Recreation.gov 232504, 1 night Fri 11-06, $28. Reservations reopened 2026-09-26; ~94 sites open 11-06.</td><td><span class="chip p-mute">Fallback</span></td></tr>
+        <tr><td>Fallback: Cedar Island ferry</td><td class="nw mono">as needed</td><td>$15 each way under 20 ft. Out Fri 11-06; back Sat 11-07, 07:30 or 13:00 from Ocracoke. 90-day window is open.</td><td><span class="chip p-mute">Fallback</span></td></tr>
       </tbody>
     </table>
   </div>
@@ -519,15 +519,46 @@ figure.photo figcaption b{color:var(--text);font-weight:600}
   <p class="note">Also check DriveNC and NCDOT ferry alerts before leaving.</p>
 </section>
 
+<section id="temps">
+  <h2><span class="n">08</span>Expected temperatures</h2>
+  <p class="lede"><b>Plan for lows of 50 to 55 F that feel like 45 to 52 F in the wind, and pack for a wind chill near 32 F.</b> These are climate averages, not a forecast.</p>
+  <div class="cards">
+    <div class="card"><div class="k">Overnight low</div><div class="v">50 to 55 F</div><p class="d">Typical early-November night on the coast.</p></div>
+    <div class="card"><div class="k">Feels like</div><div class="v">45 to 52 F</div><p class="d">During stargazing hours, with the usual 10 to 15 mph wind off the water.</p></div>
+    <div class="card"><div class="k">Daytime high</div><div class="v">~65 F</div><p class="d">Early November runs a few degrees warmer than the November average.</p></div>
+  </div>
+  <div class="two" style="margin-top:14px">
+    <div class="box">
+      <h3>Cold-front night: pack for this</h3>
+      <p>The clearest nights often come right after a front passes. Those nights can drop to about 40 F with a 15 to 20 mph north wind, a wind chill near 32 F. Damp beach air feels colder than the reading.</p>
+      <ul class="clean">
+        <li>Sleeping bag rated to about 30 F</li>
+        <li>Windproof shell</li>
+        <li>Warm hat and gloves</li>
+      </ul>
+      <p class="note" style="margin-bottom:0">All on the <a href="#gear">Gear checklist</a>.</p>
+    </div>
+    <div class="box">
+      <h3>Source and forecast</h3>
+      <ul class="clean">
+        <li><b>NOAA 1991-2020 November normals</b> for the coast. Cape Hatteras (station USW00093729): 65.8 F high / 51.5 F low. Core Sound, Cape Lookout: about 64.9 / 49.7 F.</li>
+        <li>Early November runs a few degrees warmer than the monthly average.</li>
+        <li>The real forecast arrives about a week out, around <span class="mono">2026-10-30</span>.</li>
+        <li>The daily trip watch covers temperature and wind chill in the go/no-go checks on <span class="mono">2026-11-03</span> and <span class="mono">2026-11-05</span>.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
 <section id="gear">
-  <h2><span class="n">08</span>Gear checklist</h2>
+  <h2><span class="n">09</span>Gear checklist</h2>
   <div class="four">
     <div class="box"><h3>Truck and sand</h3><ul class="checks">
       <li>Tire gauge; air down to 15 to 20 psi</li><li>Compressor to re-inflate</li><li>Shovel</li><li>Jack board</li>
       <li>Soft Sand mode on the island</li><li>NACS adapter if needed</li><li>Printed ORV permit</li></ul></div>
     <div class="box"><h3>Sleep and cold</h3><ul class="checks">
-      <li>Sleeping bag rated 30 F or lower</li><li>Closed-cell foam under the air mattress</li><li>Wool layers, hat, gloves</li>
-      <li>Hand warmers</li><li>Camp Mode pre-heat</li><li>Rain shell for heavy dew and wind</li></ul></div>
+      <li>Sleeping bag rated to about 30 F or lower</li><li>Closed-cell foam under the air mattress</li><li>Wool layers</li><li>Warm hat and gloves</li>
+      <li>Hand warmers</li><li>Camp Mode pre-heat</li><li>Windproof shell, also for rain and heavy dew</li></ul></div>
     <div class="box"><h3>Sky</h3><ul class="checks">
       <li>Red headlamp</li><li>Stellarium / SkySafari on phone, night mode</li><li>10x50 binoculars</li>
       <li>Reclining chair</li><li>Tripod</li><li>Lens dew heater and power</li></ul></div>
@@ -536,11 +567,11 @@ figure.photo figcaption b{color:var(--text);font-weight:600}
       <li>Firewood only if fire planned (below high-tide line)</li><li>First aid kit</li>
       <li>Portable toilet or WAG bags, toilet paper, trowel; pack out used bags</li></ul></div>
   </div>
-  <p class="note">Nov normals ~63/51 F (Ocracoke), colder behind fronts. Expect wind and heavy dew.</p>
+  <p class="note">Pack for a cold-front night: about 40 F with a wind chill near 32 F. Expect wind and heavy dew. See <a href="#temps">Expected temperatures</a>.</p>
 </section>
 
 <section id="fallback">
-  <h2><span class="n">09</span>Fallback plan and backup dates</h2>
+  <h2><span class="n">10</span>Fallback plan and backup dates</h2>
   <div class="two">
     <div class="box">
       <h3>Fallback: Ocracoke base</h3>
@@ -564,7 +595,7 @@ figure.photo figcaption b{color:var(--text);font-weight:600}
 </section>
 
 <section id="contacts">
-  <h2><span class="n">10</span>Contacts</h2>
+  <h2><span class="n">11</span>Contacts</h2>
   <div class="tbl">
     <table>
       <thead><tr><th>Who</th><th>Phone / link</th><th>Notes</th></tr></thead>
@@ -582,7 +613,7 @@ figure.photo figcaption b{color:var(--text);font-weight:600}
 </section>
 
 <section id="sources">
-  <h2><span class="n">11</span>Sources</h2>
+  <h2><span class="n">12</span>Sources</h2>
   <p class="lede">Checked 2026-09-26 unless noted.</p>
   <ol class="src">
     <li>NPS Cape Lookout, camping: <a href="https://www.nps.gov/calo/planyourvisit/camping.htm">nps.gov/calo/planyourvisit/camping.htm</a></li>
@@ -598,6 +629,7 @@ figure.photo figcaption b{color:var(--text);font-weight:600}
     <li>Space.com, planets in 2026 (Saturn in Cetus, Jupiter in Leo, Nov 7 Venus, Moon, Spica): <a href="https://www.space.com/stargazing/what-to-expect-from-the-planets-in-2026-key-dates-and-sky-events">space.com</a></li>
     <li>Night sky November 2026 (Saturn evening, Mars-Jupiter 1.2° on 11-16): <a href="https://www.sterngucker.de/en/astronomical-events/night-sky-november/">sterngucker.de</a></li>
     <li>Crystal Coast Stargazers: <a href="https://ccgazers.com">ccgazers.com</a></li>
+    <li>NOAA NCEI U.S. Climate Normals, 1991-2020, November (Cape Hatteras USW00093729; Core Sound, Cape Lookout): <a href="https://www.ncei.noaa.gov/products/land-based-station/us-climate-normals">ncei.noaa.gov/products/land-based-station/us-climate-normals</a></li>
     <li>Tesla Supercharger locator (Morehead City, New Bern): <a href="https://www.tesla.com/findus">tesla.com/findus</a></li>
     <li>Forecast tools: <a href="https://clearoutside.com/forecast/34.98/-76.20">Clear Outside</a>, <a href="https://www.astrospheric.com">Astrospheric</a>, <a href="https://forecast.weather.gov/MapClick.php?lat=34.98&amp;lon=-76.2">NWS forecast (MHX)</a>, <a href="https://www.weather.gov/mhx/">NWS Newport/Morehead City</a></li>
     <li>Bathrooms: NPS Cape Lookout <a href="https://www.nps.gov/calo/planyourvisit/conditions.htm">conditions</a> (2026-04-08), <a href="https://www.nps.gov/calo/planyourvisit/camping.htm">camping</a> (2026-04-04), <a href="https://www.nps.gov/calo/planyourvisit/visitorcenters.htm">visitor centers</a> (2026-03-12), <a href="https://www.nps.gov/calo/planyourvisit/maps.htm">maps</a> (2021-09-09), <a href="https://www.nps.gov/calo/faqs.htm">FAQ</a> (2017), <a href="https://www.nps.gov/calo/planyourvisit/ferry.htm">ferry FAQ</a> (2025-01-21); <a href="https://www.nps.gov/caha/planyourvisit/campgrounds.htm">NPS Cape Hatteras campgrounds</a> (2026-06-22); <a href="https://www.atlanticrvresort.com/">Atlantic RV Resort</a></li>
