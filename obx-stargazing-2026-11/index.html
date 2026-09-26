@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="noindex, nofollow">
+<title>Cape Lookout Stargazing · 2026-11-06 to 2026-11-08</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --accent:#2C5FD1; --accent-soft:rgba(44,95,209,.09); --accent-line:rgba(44,95,209,.28);
+  --bg:#FAFAF8; --surface:#FFFFFF; --text:#1B1F27; --muted:#5B6270; --line:#E3E5EA;
+  --ok:#1D7A46; --ok-bg:rgba(29,122,70,.10);
+  --warn:#9A5B00; --warn-bg:rgba(196,122,0,.12);
+  --bad:#B42318; --bad-bg:rgba(180,35,24,.09);
+  --info:#2C5FD1; --info-bg:rgba(44,95,209,.10);
+  --sky1:#070B1A; --sky2:#12204A; --sky3:#1E3A7A;
+  --radius:12px;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --accent:#6C97F2; --accent-soft:rgba(108,151,242,.12); --accent-line:rgba(108,151,242,.35);
+    --bg:#0E1117; --surface:#161A22; --text:#E6E8EE; --muted:#9AA2B1; --line:#262C38;
+    --ok:#5FD08F; --ok-bg:rgba(95,208,143,.12);
+    --warn:#F2B35C; --warn-bg:rgba(242,179,92,.13);
+    --bad:#FF8A80; --bad-bg:rgba(255,138,128,.12);
+    --info:#6C97F2; --info-bg:rgba(108,151,242,.14);
+    --sky1:#03050C; --sky2:#0A1330; --sky3:#15295A;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 "IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-line)}
+a:hover{border-bottom-color:var(--accent)}
+.mono,code,.t{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace}
+.wrap{max-width:1000px;margin:0 auto;padding:0 24px}
+
+/* Header */
+header.sky{position:relative;overflow:hidden;color:#EEF2FF;
+  background:radial-gradient(120% 90% at 80% 0%,var(--sky3) 0%,var(--sky2) 45%,var(--sky1) 100%)}
+header.sky svg.stars{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+header.sky .wrap{position:relative;padding-top:56px;padding-bottom:44px}
+.eyebrow{font:500 12px/1 "IBM Plex Mono",monospace;letter-spacing:.14em;text-transform:uppercase;color:#A9BCF5}
+h1{font-size:clamp(30px,5vw,46px);line-height:1.1;margin:14px 0 10px;font-weight:700;letter-spacing:-.01em}
+.sub{color:#C9D3F2;max-width:640px;margin:0}
+.hero-row{display:flex;align-items:center;gap:28px;justify-content:space-between;flex-wrap:wrap}
+.moon{flex:0 0 auto;display:flex;align-items:center;gap:14px;font:13px/1.4 "IBM Plex Mono",monospace;color:#C9D3F2}
+.moon b{display:block;color:#fff;font-weight:500}
+
+nav.toc{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav.toc .wrap{display:flex;gap:6px;overflow-x:auto;padding-top:10px;padding-bottom:10px;scrollbar-width:none}
+nav.toc .wrap::-webkit-scrollbar{display:none}
+nav.toc a{flex:0 0 auto;border:1px solid var(--line);border-radius:999px;padding:4px 12px;font-size:13px;color:var(--muted);background:var(--surface)}
+nav.toc a:hover{color:var(--accent);border-color:var(--accent-line)}
+
+main section{padding:44px 0 8px;scroll-margin-top:56px}
+h2{font-size:22px;line-height:1.25;margin:0 0 6px;font-weight:600;letter-spacing:-.005em}
+h2 .n{font:500 13px "IBM Plex Mono",monospace;color:var(--accent);margin-right:10px;vertical-align:2px}
+h3{font-size:16px;margin:26px 0 8px;font-weight:600}
+.lede{color:var(--muted);margin:0 0 18px;max-width:720px}
+p{margin:0 0 12px}
+
+/* BLUF */
+.bluf{margin-top:28px;position:relative;z-index:2;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:var(--radius);padding:22px 24px;box-shadow:0 8px 28px rgba(10,20,50,.08)}
+.bluf h2{font-size:13px;font-family:"IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin-bottom:10px}
+.bluf .headline{font-size:19px;font-weight:600;line-height:1.4;margin:0 0 14px}
+.bluf dl{display:grid;grid-template-columns:max-content 1fr;gap:6px 18px;margin:0}
+.bluf dt{font:500 12px/1.9 "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.bluf dd{margin:0}
+
+/* Pills */
+.pill{display:inline-block;font:500 12px/1 "IBM Plex Mono",monospace;padding:5px 9px;border-radius:999px;white-space:nowrap;vertical-align:1px}
+.p-bad{color:var(--bad);background:var(--bad-bg)}
+.p-warn{color:var(--warn);background:var(--warn-bg)}
+.p-ok{color:var(--ok);background:var(--ok-bg)}
+.p-info{color:var(--info);background:var(--info-bg)}
+.p-mute{color:var(--muted);background:var(--accent-soft)}
+.unv{font:500 11px/1.5 "IBM Plex Mono",monospace;color:var(--warn);background:var(--warn-bg);padding:1px 6px;border-radius:4px;vertical-align:1px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+
+/* Cards */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media (max-width:820px){.cards{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.cards{grid-template-columns:1fr}}
+.four{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.route-list{display:none;margin:0 0 14px;padding:0;list-style:none;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius)}
+.route-list li{padding:10px 16px;border-top:1px solid var(--line);font-size:14.5px}
+.route-list li:first-child{border-top:0}
+.route-list .mono{color:var(--accent);font-size:12.5px;display:block}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px}
+.card .k{font:500 11px/1 "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}
+.card .v{font-size:20px;font-weight:600;margin:8px 0 6px;line-height:1.25}
+.card .d{font-size:14px;color:var(--muted);margin:0}
+
+/* Itinerary */
+.days{display:grid;gap:14px}
+.day{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px}
+.day-h{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+.day-h h3{margin:0;font-size:18px}
+.day-h .date{font:500 13px "IBM Plex Mono",monospace;color:var(--accent)}
+ol.tl{list-style:none;margin:0;padding:0}
+ol.tl li{display:grid;grid-template-columns:78px 1fr;gap:14px;padding:7px 0;border-top:1px dashed var(--line)}
+ol.tl li:first-child{border-top:0}
+ol.tl .t{font-size:13px;color:var(--muted);padding-top:2px}
+ol.tl li.hl .t{color:var(--accent);font-weight:500}
+
+/* Night sky */
+.nights{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+.night{border-radius:var(--radius);padding:20px 22px;color:#E6ECFF;border:1px solid #1E2A4F;
+  background:linear-gradient(180deg,#0B1330 0%,#081024 100%)}
+.night h3{margin:0 0 4px;color:#fff}
+.night .date{font:500 12px "IBM Plex Mono",monospace;color:#9DB6FF;margin-bottom:10px;display:block}
+.night ol.tl li{border-top-color:#22305A}
+.night ol.tl .t{color:#8FA3D6}
+.night ol.tl li.hl .t{color:#A9C1FF}
+.night a{color:#A9C1FF}
+.night .tag{font:500 10.5px/1 "IBM Plex Mono",monospace;color:#0B1330;background:#A9C1FF;border-radius:3px;padding:2px 5px;margin-right:6px;vertical-align:1px}
+.note{font-size:14px;color:var(--muted);margin-top:14px}
+
+/* Tables */
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:14.5px}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+th{font:500 11.5px "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);background:var(--accent-soft);white-space:nowrap}
+td.nw{white-space:nowrap}
+
+/* Lists and grids */
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px 22px}
+.box h3{margin-top:0}
+ul.clean{margin:0;padding-left:18px}
+ul.clean li{margin:5px 0}
+ul.checks{list-style:none;margin:0;padding:0}
+ul.checks li{position:relative;padding-left:26px;margin:7px 0}
+ul.checks li::before{content:"";position:absolute;left:0;top:5px;width:14px;height:14px;border:1.5px solid var(--accent-line);border-radius:3px}
+.go li::marker{color:var(--ok)} .nogo li::marker{color:var(--bad)}
+.box.go{border-top:3px solid var(--ok)} .box.nogo{border-top:3px solid var(--bad)}
+
+.route{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:14px 10px 6px;margin-bottom:14px}
+.route svg{width:100%;height:auto;display:block}
+.route .lbl{fill:var(--text);font:500 13px "IBM Plex Sans",sans-serif}
+.route .sm{fill:var(--muted);font:12px "IBM Plex Mono",monospace}
+.route .road{stroke:var(--accent);stroke-width:3;fill:none;stroke-linecap:round}
+.route .ferry{stroke:var(--accent);stroke-width:2.5;fill:none;stroke-dasharray:6 6}
+.route .alt{stroke:var(--muted);stroke-width:2;fill:none;stroke-dasharray:3 6}
+.route .dot{fill:var(--surface);stroke:var(--accent);stroke-width:3}
+.route .dot.alt2{stroke:var(--muted)}
+
+ol.src{padding-left:20px;font-size:14.5px}
+ol.src li{margin:6px 0;word-break:break-word}
+footer{margin:56px 0 0;padding:24px 0 40px;border-top:1px solid var(--line);color:var(--muted);font-size:13.5px}
+
+@media (max-width:640px){
+  .wrap{padding:0 16px}
+  header.sky .wrap{padding-top:36px;padding-bottom:40px}
+  .bluf{padding:18px}
+  .bluf dl{grid-template-columns:1fr;gap:0}
+  .bluf dd{margin-bottom:8px}
+  ol.tl li{grid-template-columns:74px 1fr;gap:10px}
+  .day,.night{padding:16px}
+  th,td{padding:9px 10px}
+  main section{padding-top:36px}
+  .moon svg{width:48px;height:48px}
+  .route{display:none}
+  .route-list{display:block}
+}
+@media print{nav.toc{display:none} .night{color:#000;background:#fff;border-color:#ccc} .night h3{color:#000}}
+</style>
+</head>
+<body>
+
+<header class="sky">
+  <svg class="stars" viewBox="0 0 1000 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <linearGradient id="mw" x1="0" y1="1" x2="1" y2="0">
+        <stop offset="0" stop-color="#9FB6FF" stop-opacity="0"/>
+        <stop offset=".5" stop-color="#9FB6FF" stop-opacity=".10"/>
+        <stop offset="1" stop-color="#9FB6FF" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <path d="M-50 330 C 250 190, 520 150, 1050 -40 L 1050 60 C 560 220, 300 260, -50 400 Z" fill="url(#mw)"/>
+    <g fill="#fff">
+      <circle cx="42" cy="38" r="1.1" opacity=".8"/><circle cx="118" cy="92" r=".8" opacity=".6"/><circle cx="190" cy="24" r="1.3" opacity=".9"/>
+      <circle cx="260" cy="130" r=".7" opacity=".5"/><circle cx="318" cy="58" r="1" opacity=".7"/><circle cx="372" cy="196" r=".8" opacity=".5"/>
+      <circle cx="430" cy="34" r=".9" opacity=".7"/><circle cx="488" cy="112" r="1.2" opacity=".8"/><circle cx="540" cy="18" r=".7" opacity=".6"/>
+      <circle cx="596" cy="160" r=".9" opacity=".6"/><circle cx="640" cy="72" r="1.4" opacity=".95"/><circle cx="700" cy="30" r=".8" opacity=".6"/>
+      <circle cx="742" cy="118" r="1" opacity=".7"/><circle cx="802" cy="52" r=".7" opacity=".5"/><circle cx="860" cy="140" r="1.1" opacity=".8"/>
+      <circle cx="912" cy="26" r=".9" opacity=".7"/><circle cx="966" cy="96" r=".8" opacity=".6"/><circle cx="80" cy="240" r=".9" opacity=".5"/>
+      <circle cx="152" cy="180" r="1" opacity=".6"/><circle cx="228" cy="262" r=".8" opacity=".4"/><circle cx="455" cy="250" r=".7" opacity=".4"/>
+      <circle cx="690" cy="236" r=".9" opacity=".5"/><circle cx="930" cy="220" r="1" opacity=".5"/><circle cx="820" cy="270" r=".7" opacity=".4"/>
+      <!-- Pleiades-like cluster -->
+      <circle cx="760" cy="200" r="1.3" opacity=".9"/><circle cx="768" cy="195" r="1" opacity=".8"/><circle cx="773" cy="203" r="1.1" opacity=".85"/>
+      <circle cx="764" cy="208" r=".9" opacity=".7"/><circle cx="778" cy="197" r=".8" opacity=".7"/><circle cx="755" cy="193" r=".7" opacity=".6"/>
+    </g>
+    <line x1="560" y1="40" x2="640" y2="88" stroke="#fff" stroke-width="1" stroke-linecap="round" opacity=".45"/>
+  </svg>
+  <div class="wrap">
+    <div class="hero-row">
+      <div>
+        <div class="eyebrow">Trip plan · Cape Lookout National Seashore · Dark Sky Park</div>
+        <h1>North Core Banks stargazing</h1>
+        <p class="sub">Fri 2026-11-06 to Sun 2026-11-08. Truck-bed camping in the R1T "Grivvy" via the Morris Marina vehicle ferry, Atlantic NC. Two moonless nights.</p>
+      </div>
+      <div class="moon" title="Moon phase near new moon">
+        <svg width="64" height="64" viewBox="0 0 64 64" aria-hidden="true">
+          <circle cx="32" cy="32" r="26" fill="#1A2447" stroke="#5C6FA8" stroke-width="1.2"/>
+          <path d="M32 6 A26 26 0 0 1 32 58 A17 26 0 0 0 32 6 Z" fill="#E8ECFA" opacity=".9"/>
+        </svg>
+        <div><b>New moon</b>2026-11-09 02:02 EST<br>Moon down all night<br>on both trip nights</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Sections">
+  <div class="wrap">
+    <a href="#bluf">Status</a><a href="#facts">Key facts</a><a href="#itinerary">Itinerary</a><a href="#sky">Night sky</a>
+    <a href="#getting-there">Getting there</a><a href="#rules">Island rules</a><a href="#bookings">Bookings</a><a href="#gonogo">Go/no-go</a>
+    <a href="#gear">Gear</a><a href="#fallback">Fallback</a><a href="#contacts">Contacts</a><a href="#sources">Sources</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<section id="bluf" style="padding-top:0">
+  <div class="bluf">
+    <h2>Bottom line</h2>
+    <p class="headline">Plan is Cape Lookout, North Core Banks, 2026-11-06 to 2026-11-08, camping in the R1T bed on the ocean beach. Nothing is booked yet.</p>
+    <dl>
+      <dt>Status</dt><dd><span class="pill p-bad">Not booked</span> Ferry, ORV permit, and all fallback reservations are open.</dd>
+      <dt>Next action</dt><dd>Call Morris Marina <b>Mon 2026-09-28</b>, 08:00 to 16:00, at <a href="tel:+12522254261">252-225-4261</a>. Ask for Fri 11-06 out and Sun 11-08 back, R1T price and weight, and the driver fare.</dd>
+      <dt>Also due</dt><dd>Confirm dates with Jennifer before 2026-09-29. Call rangers by 2026-10-09. Buy and print the ORV permit by 2026-10-30.</dd>
+      <dt>Fallback</dt><dd>Ocracoke Campground via the Cedar Island ferry. Backup weekend 2026-11-13 to 2026-11-16.</dd>
+    </dl>
+  </div>
+</section>
+
+<section id="facts">
+  <h2><span class="n">01</span>Key facts</h2>
+  <p class="lede">Times are ET. EST (UTC-5) applies after 2026-11-01.</p>
+  <div class="cards">
+    <div class="card"><div class="k">Dates</div><div class="v">2026-11-06 to 11-08</div><p class="d">Fri to Sun, 2 nights. Backup 2026-11-13 to 11-16.</p></div>
+    <div class="card"><div class="k">Moon</div><div class="v">New 2026-11-09 02:02</div><p class="d">Sets 15:25 Fri and 15:53 Sat. Rises 04:56 Sat (3% crescent) and 05:58 Sun.</p></div>
+    <div class="card"><div class="k">Dark hours</div><div class="v">18:31 to 05:05</div><p class="d">Astronomical dark. Sunset 17:06 Fri, 17:05 Sat. Sunrise 06:32 Sat, 06:33 Sun.</p></div>
+    <div class="card"><div class="k">Drive</div><div class="v">~226 mi, ~4 h 45 min</div><p class="d">Mebane to Morris Marina. Charge in Morehead City, 36 mi before the marina.</p></div>
+    <div class="card"><div class="k">Ferry</div><div class="v">Morris Marina, $155 RT</div><p class="d">Vehicles up to 19 ft. ~1 h crossing. Nov times not posted <span class="unv">TBD</span></p></div>
+    <div class="card"><div class="k">Permit</div><div class="v">ORV permit $75</div><p class="d">Recreation.gov, valid to 2026-12-31, non-refundable. Print on paper. Camping itself is free.</p></div>
+  </div>
+</section>
+
+<section id="itinerary">
+  <h2><span class="n">02</span>Day-by-day</h2>
+  <p class="lede">All ferry times are TBD until the Morris Marina call. Times below are targets.</p>
+  <div class="days">
+    <div class="day">
+      <div class="day-h"><h3>Friday</h3><span class="date">2026-11-06</span><span class="pill p-warn">Ferry time TBD</span></div>
+      <ol class="tl">
+        <li><span class="t">before</span><span>Move the Fri 08:30 medication dose to before departure. Truck at 90%+.</span></li>
+        <li><span class="t">07:00</span><span>Leave Mebane.</span></li>
+        <li><span class="t">~11:00</span><span>Charge at Tesla Supercharger Morehead City, 2900 Arendell St, to 90%+.</span></li>
+        <li class="hl"><span class="t">~12:20</span><span>Arrive Morris Marina, 1000 Morris Marina Rd, Atlantic. Sign in 30 to 45 min before sailing. Early-afternoon crossing, ~1 h <span class="unv">time TBD</span></span></li>
+        <li><span class="t">afternoon</span><span>Air down to 15 to 20 psi, Soft Sand mode. Show the paper ORV permit to a ranger for the decal. Pick a spot on the ocean beach seaward of the primary dunes.</span></li>
+        <li><span class="t">17:06</span><span>Sunset. Set up bed, chairs, red lights before dark. Pre-heat with Camp Mode.</span></li>
+        <li class="hl"><span class="t">18:31</span><span>Astronomical dark. Night 1 (see Night sky).</span></li>
+      </ol>
+    </div>
+    <div class="day">
+      <div class="day-h"><h3>Saturday</h3><span class="date">2026-11-07</span></div>
+      <ol class="tl">
+        <li class="hl"><span class="t">05:45</span><span>Crescent Moon about 1.5° from Venus, low ESE over the ocean. Spica is close by.</span></li>
+        <li><span class="t">06:32</span><span>Sunrise.</span></li>
+        <li><span class="t">day</span><span>Explore north toward Portsmouth. Walk the village; no driving in the historic district. Visitor center closed and unstaffed after late October. Bring water; there is none on the island.</span></li>
+        <li><span class="t">17:05</span><span>Sunset. Back at camp.</span></li>
+        <li class="hl"><span class="t">18:31</span><span>Astronomical dark. Night 2, fully moonless until dawn.</span></li>
+      </ol>
+    </div>
+    <div class="day">
+      <div class="day-h"><h3>Sunday</h3><span class="date">2026-11-08</span><span class="pill p-warn">Ferry time TBD</span></div>
+      <ol class="tl">
+        <li><span class="t">05:00</span><span>Optional: Jupiter and Mars high in the SE, about 3° apart in Leo.</span></li>
+        <li><span class="t">06:33</span><span>Sunrise. Break camp. Pack out all trash.</span></li>
+        <li class="hl"><span class="t">morning</span><span>Ferry back to Atlantic <span class="unv">time TBD</span>. Re-inflate tires at the marina.</span></li>
+        <li><span class="t">midday</span><span>Charge at Morehead City for the ~190 mi home.</span></li>
+        <li><span class="t">evening</span><span>Home in Mebane early evening.</span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section id="sky">
+  <h2><span class="n">03</span>Night sky timeline</h2>
+  <p class="lede">Computed for North Core Banks (34.98 N, 76.20 W). Sun and Moon times cross-checked with USNO. The flat ocean horizon to the east and south is the main asset.</p>
+  <div class="nights">
+    <div class="night">
+      <h3>Night 1</h3><span class="date">Fri 2026-11-06 into Sat 11-07</span>
+      <ol class="tl">
+        <li><span class="t">17:32</span><span>Civil twilight ends. Saturn already up in the ESE.</span></li>
+        <li class="hl"><span class="t">18:31</span><span><span class="tag">MILKY WAY</span>Summer Milky Way arches overhead through Cygnus (Deneb near the zenith) down to the SW. Look low SW first; the galactic center sets about 19:20.</span></li>
+        <li><span class="t">19:00</span><span><span class="tag">M31</span>Andromeda Galaxy high in the NE to E, about 50° up at dark, highest ~21:45. Naked eye in a dark sky, better in 10x50s. Double Cluster in Perseus nearby.</span></li>
+        <li><span class="t">20:00</span><span><span class="tag">PLEIADES</span>Pleiades climbing in the ENE. Highest ~00:50.</span></li>
+        <li><span class="t">20:35</span><span><span class="tag">ORION</span>Orion starts rising in the E; well up after 23:00, highest ~02:35. Sirius rises ~22:30.</span></li>
+        <li class="hl"><span class="t">21:36</span><span><span class="tag">SATURN</span>Saturn highest in the S, ~56° up, in Cetus, mag ~0.6. Sets 03:41.</span></li>
+        <li class="hl"><span class="t">all night</span><span><span class="tag">TAURIDS</span>Southern Taurid fireball peak was 11-04/05, Northern peak 11-11/12. Low rates, but known for bright fireballs. Best after midnight when Taurus is high.</span></li>
+        <li><span class="t">23:48</span><span>Mars rises, then Jupiter at 00:06 (mag -1.9), both in Leo, E.</span></li>
+        <li><span class="t">04:53</span><span>Venus rises; the 3% crescent Moon rises 04:56.</span></li>
+        <li><span class="t">05:05</span><span>Astronomical dawn.</span></li>
+        <li class="hl"><span class="t">05:45</span><span><span class="tag">VENUS + MOON</span>Crescent Moon ~1.5° from Venus, Spica ~1.3° from Venus, all ~9° up, ESE. Binoculars.</span></li>
+      </ol>
+    </div>
+    <div class="night">
+      <h3>Night 2</h3><span class="date">Sat 2026-11-07 into Sun 11-08</span>
+      <ol class="tl">
+        <li><span class="t">17:05</span><span>Sunset.</span></li>
+        <li class="hl"><span class="t">18:31</span><span><span class="tag">MILKY WAY</span>Same arc as Night 1. Moon does not rise until 05:58, after dawn begins: the darkest night of the trip.</span></li>
+        <li><span class="t">19:00</span><span><span class="tag">M31</span>Andromeda Galaxy and Double Cluster high in the NE to E.</span></li>
+        <li class="hl"><span class="t">21:30</span><span><span class="tag">SATURN</span>Saturn highest in the S. Rings are opening again after edge-on in 2025; needs a telescope.</span></li>
+        <li><span class="t">22:00</span><span><span class="tag">PLEIADES</span>Pleiades and Taurus well up in the E; Taurid radiant area.</span></li>
+        <li><span class="t">23:00</span><span><span class="tag">ORION</span>Orion clear of the ocean horizon in the E.</span></li>
+        <li class="hl"><span class="t">after 00:00</span><span><span class="tag">TAURIDS</span>Watch for fireballs. Reclining chair, wide view, no screen.</span></li>
+        <li><span class="t">05:00</span><span><span class="tag">JUPITER + MARS</span>~58° up in the SE, about 3° apart in Leo near Regulus. Venus low ESE.</span></li>
+        <li><span class="t">05:05</span><span>Astronomical dawn. Sunrise 06:33.</span></li>
+      </ol>
+    </div>
+  </div>
+  <p class="note">Crystal Coast Stargazers hold a Club Member Dark Sky Night at Cape Lookout on 2026-11-06/07 from 17:00, members and invited guests only; location in the park not stated. No public NPS astronomy event found for November.</p>
+</section>
+
+<section id="getting-there">
+  <h2><span class="n">04</span>Getting there</h2>
+  <p class="lede">Mebane to Morris Marina is about 226 mi and 4 h 45 min of driving. No charging on Core Banks.</p>
+  <div class="route" role="img" aria-label="Route diagram: Mebane to Morehead City charging stop to Morris Marina in Atlantic, then ferry to North Core Banks. Fallback: Cedar Island ferry to Ocracoke.">
+    <svg viewBox="0 0 900 250">
+      <g class="sm"><line x1="30" y1="26" x2="60" y2="26" class="road"/><text class="sm" x="68" y="30">drive</text>
+      <line x1="130" y1="26" x2="160" y2="26" class="ferry"/><text class="sm" x="168" y="30">ferry</text>
+      <line x1="230" y1="26" x2="260" y2="26" class="alt"/><text class="sm" x="268" y="30">fallback</text></g>
+      <path class="road" d="M50 150 L 660 150"/>
+      <path class="ferry" d="M660 150 C 710 120, 760 90, 820 70"/>
+      <path class="alt" d="M660 150 C 680 185, 700 200, 730 205"/>
+      <path class="alt" d="M730 205 C 780 212, 820 205, 850 190"/>
+      <circle class="dot" cx="50" cy="150" r="8"/>
+      <circle class="dot" cx="260" cy="150" r="6"/>
+      <circle class="dot" cx="440" cy="150" r="8"/>
+      <circle class="dot" cx="660" cy="150" r="8"/>
+      <circle class="dot" cx="820" cy="70" r="8"/>
+      <circle class="dot alt2" cx="730" cy="205" r="5"/>
+      <circle class="dot alt2" cx="850" cy="190" r="5"/>
+      <text class="lbl" x="50" y="126" text-anchor="middle">Mebane</text>
+      <text class="sm" x="50" y="178" text-anchor="middle">07:00</text>
+      <text class="lbl" x="260" y="126" text-anchor="middle">New Bern</text>
+      <text class="sm" x="260" y="178" text-anchor="middle">backup charge</text>
+      <text class="lbl" x="440" y="126" text-anchor="middle">Morehead City</text>
+      <text class="sm" x="440" y="178" text-anchor="middle">charge ~11:00</text>
+      <text class="lbl" x="640" y="126" text-anchor="end">Morris Marina</text>
+      <text class="sm" x="640" y="178" text-anchor="end">Atlantic, ~12:20</text>
+      <text class="sm" x="545" y="142" text-anchor="middle">36 mi</text>
+      <text class="lbl" x="820" y="46" text-anchor="middle">North Core Banks</text>
+      <text class="sm" x="760" y="128" text-anchor="start">ferry ~1 h</text>
+      <text class="sm" x="730" y="232" text-anchor="middle">Cedar Island</text>
+      <text class="sm" x="862" y="172" text-anchor="middle">Ocracoke</text>
+      <text class="sm" x="150" y="142" text-anchor="middle">~190 mi to charge</text>
+    </svg>
+  </div>
+  <ol class="route-list">
+    <li><span class="mono">07:00</span>Mebane, leave at 90%+</li>
+    <li><span class="mono">~11:00 · ~190 mi</span>Morehead City Supercharger, charge to 90%+ (backup: New Bern)</li>
+    <li><span class="mono">~12:20 · +36 mi</span>Morris Marina, Atlantic. Sign in 30 to 45 min early</li>
+    <li><span class="mono">ferry ~1 h · time TBD</span>North Core Banks, Cape Lookout NS</li>
+    <li><span class="mono">fallback</span>Cedar Island ferry (~13.5 mi from Morris Marina) to Ocracoke</li>
+  </ol>
+  <div class="two">
+    <div class="box">
+      <h3>Charging</h3>
+      <ul class="clean">
+        <li><b>Primary:</b> Tesla Supercharger Morehead City, 2900 Arendell St. 12 NACS stalls, 325 kW. ~36 mi, ~56 min to the marina. Needs a NACS adapter if Grivvy has a CCS port <span class="unv">check adapter</span></li>
+        <li><b>Backup:</b> New Bern. Electrify America at Target, 3410 Dr MLK Jr Blvd (6 CCS, 150 kW), or New Bern Tesla Superchargers. ~66 mi to the marina.</li>
+        <li>Board the ferry at 90%+. Soft sand and Camp Mode heat use range; there is no charging on the island.</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h3>Morris Marina ferry</h3>
+      <ul class="clean">
+        <li>1000 Morris Marina Rd, Atlantic NC. Booking by phone only: 252-225-4261 (alt 252-723-4962), Mon to Sat 08:00 to 16:00.</li>
+        <li>Limited 2026 schedule, no posted times. Season runs through end of November. <span class="unv">Nov sailings unconfirmed</span></li>
+        <li>$155 round trip for vehicles up to 19 ft. R1T is ~18 ft long, under 8 ft wide, ~7,000 lb. <span class="unv">confirm weight/price</span></li>
+        <li>Adult passenger $25. Driver fare unclear. <span class="unv">ask</span></li>
+        <li>Arrive 30 to 45 min early. Crossing ~1 h. Wind can cancel crossings.</li>
+      </ul>
+    </div>
+  </div>
+  <p class="note">Road status 2026-09-26: NC-12 closed at Pea Island (Basnight Bridge to Rodanthe) and north Ocracoke (Pony Pens to Hatteras terminal); Hatteras-Ocracoke ferry suspended, no ETA. Cedar Island and Swan Quarter ferries resumed 2026-09-26. None of this is on the main route.</p>
+</section>
+
+<section id="rules">
+  <h2><span class="n">05</span>Rules on the island</h2>
+  <p class="lede">North Core Banks, Cape Lookout National Seashore. Per NPS camping and ORV pages.</p>
+  <div class="two">
+    <div class="box">
+      <h3>Camping and driving</h3>
+      <ul class="clean">
+        <li>Camping is free, no permit per NPS (camping page updated 2026-04-04). 14-day limit. The Morris Marina FAQ says a free permit is required. <span class="unv">confirm with rangers</span></li>
+        <li>Truck-bed camping only on the ocean beach, seaward of the primary dunes. Not on the back road unless signed.</li>
+        <li>ORV permit required for the truck. Show the paper permit to a ranger for the decal. <span class="unv">Nov decal pickup spot TBD</span></li>
+        <li>Night driving is allowed in November.</li>
+        <li>No driving in the Portsmouth historic district.</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h3>Fires, water, facilities</h3>
+      <ul class="clean">
+        <li>Fires only below the high-tide line, max 3 ft. Never in Portsmouth Village.</li>
+        <li>No potable water. Cabins, bathhouse, and dump station closed.</li>
+        <li>Portsmouth Village visitor center closed, unstaffed after late October.</li>
+        <li>Pack out all trash.</li>
+        <li>NPS conditions page last updated 2026-04-08, before the September storm. No storm reports found for North Core Banks. <span class="unv">ask rangers about beach condition</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="bookings">
+  <h2><span class="n">06</span>Bookings and deadlines</h2>
+  <p class="lede">Nothing is booked. Do not buy the non-refundable ORV permit until Morris Marina confirms sailings.</p>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Item</th><th>Due</th><th>Details</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>Confirm dates with Jennifer</td><td class="nw mono">2026-09-28</td><td>Before 2026-09-29.</td><td><span class="pill p-warn">Open</span></td></tr>
+        <tr><td>Call Morris Marina</td><td class="nw mono">2026-09-28</td><td>Sailings Fri 11-06 out, Sun 11-08 back. R1T price and weight. Driver and passenger fares. Latest date to book.</td><td><span class="pill p-info">Scheduled</span></td></tr>
+        <tr><td>Call Cape Lookout rangers</td><td class="nw mono">2026-10-09</td><td>Decal pickup in Nov, beach and route north after the storm, camping permit question.</td><td><span class="pill p-warn">Open</span></td></tr>
+        <tr><td>ORV permit, $75</td><td class="nw mono">2026-10-30</td><td>Buy after ferry confirms. Print on paper; phone prints come out blank.</td><td><span class="pill p-bad">Not bought</span></td></tr>
+        <tr><td>NACS adapter</td><td class="nw mono">2026-10-30</td><td>Only if Grivvy has a CCS port.</td><td><span class="pill p-warn">Check</span></td></tr>
+        <tr><td>Weather go/no-go, 72 h</td><td class="nw mono">2026-11-03</td><td>Clear Outside, Astrospheric, NWS MHX sky cover, marine forecast.</td><td><span class="pill p-mute">Later</span></td></tr>
+        <tr><td>Weather go/no-go, 24 h</td><td class="nw mono">2026-11-05</td><td>Same sources plus a ferry check call.</td><td><span class="pill p-mute">Later</span></td></tr>
+        <tr><td>Fallback: Ocracoke Campground</td><td class="nw mono">as needed</td><td>Recreation.gov 232504, $28/night. Reservations reopened 2026-09-26; ~94 sites open 11-06.</td><td><span class="pill p-mute">Fallback</span></td></tr>
+        <tr><td>Fallback: Cedar Island ferry</td><td class="nw mono">as needed</td><td>$15 each way under 20 ft. 90-day window is open.</td><td><span class="pill p-mute">Fallback</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="gonogo">
+  <h2><span class="n">07</span>Go/no-go</h2>
+  <p class="lede">Decide at 72 h (2026-11-03) and 24 h (2026-11-05). Thresholds are suggestions, not park or ferry rules.</p>
+  <div class="two">
+    <div class="box go">
+      <h3>Go if all are true</h3>
+      <ul class="clean go">
+        <li>Morris Marina confirms both sailings.</li>
+        <li>At least one of Fri or Sat night shows mostly clear skies (roughly 30% cloud or less) after 18:30 in Clear Outside, Astrospheric, and NWS MHX sky cover.</li>
+        <li>No gale warning or small craft advisory for the sound or coastal waters on crossing days.</li>
+        <li>No NPS closure or alert for North Core Banks.</li>
+        <li>Overnight lows manageable with a 30 F bag.</li>
+      </ul>
+    </div>
+    <div class="box nogo">
+      <h3>No-go if any is true</h3>
+      <ul class="clean nogo">
+        <li>Ferry cancels or cannot confirm a return sailing.</li>
+        <li>Overcast or rain forecast for both nights.</li>
+        <li>Strong wind or a coastal storm forecast: crossings may cancel and you could be stuck.</li>
+        <li>NPS closes the beach or ORV routes.</li>
+      </ul>
+      <p class="note" style="margin-bottom:0">If no-go: move to 2026-11-13 to 11-16, or use the Ocracoke fallback if only the ferry is the problem.</p>
+    </div>
+  </div>
+  <p class="note">Also check DriveNC and NCDOT ferry alerts before leaving.</p>
+</section>
+
+<section id="gear">
+  <h2><span class="n">08</span>Gear checklist</h2>
+  <div class="four">
+    <div class="box"><h3>Truck and sand</h3><ul class="checks">
+      <li>Tire gauge; air down to 15 to 20 psi</li><li>Compressor to re-inflate</li><li>Shovel</li><li>Jack board</li>
+      <li>Soft Sand mode on the island</li><li>NACS adapter if needed</li><li>Printed ORV permit</li></ul></div>
+    <div class="box"><h3>Sleep and cold</h3><ul class="checks">
+      <li>Sleeping bag rated 30 F or lower</li><li>Closed-cell foam under the air mattress</li><li>Wool layers, hat, gloves</li>
+      <li>Hand warmers</li><li>Camp Mode pre-heat</li><li>Rain shell for heavy dew and wind</li></ul></div>
+    <div class="box"><h3>Sky</h3><ul class="checks">
+      <li>Red headlamp</li><li>Stellarium / SkySafari on phone, night mode</li><li>10x50 binoculars</li>
+      <li>Reclining chair</li><li>Tripod</li><li>Lens dew heater and power</li></ul></div>
+    <div class="box"><h3>Water and camp</h3><ul class="checks">
+      <li>1 gal water per person per day, plus spare</li><li>Food for 2 nights</li><li>Trash bags; pack everything out</li>
+      <li>Firewood only if fire planned (below high-tide line)</li><li>First aid kit</li></ul></div>
+  </div>
+  <p class="note">Nov normals ~63/51 F (Ocracoke), colder behind fronts. Expect wind and heavy dew.</p>
+</section>
+
+<section id="fallback">
+  <h2><span class="n">09</span>Fallback plan and backup dates</h2>
+  <div class="two">
+    <div class="box">
+      <h3>Fallback: Ocracoke base</h3>
+      <ul class="clean">
+        <li><b>Campground:</b> Ocracoke Campground, Recreation.gov 232504, $28/night. Reservations reopened 2026-09-26; ~94 sites open 11-06.</li>
+        <li><b>Ferry:</b> Cedar Island to Ocracoke, not Swan Quarter. Cedar Island terminal is ~13.5 mi from Morris Marina. 2 h 15 min, $15 each way under 20 ft. Book at ncferry.org or 1-800-293-3779; claim 30 min before.</li>
+        <li><b>Departs Cedar Island:</b> <span class="mono">07:30, 10:30, 16:30</span></li>
+        <li><b>Departs Ocracoke:</b> <span class="mono">07:30, 13:00, 16:30</span></li>
+        <li><b>Portsmouth by boat:</b> Portsmouth Island Boat Tours from Ocracoke Community Square. Rudy 252-928-4361, Donald 252-928-5431. No November schedule. <span class="unv">call ahead</span></li>
+        <li>No vehicles on Ocracoke beaches 21:00 to 07:00 through 11-15.</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h3>Backup dates</h3>
+      <ul class="clean">
+        <li><b>2026-11-13 to 11-16:</b> Moon sets 20:15 to 22:12, so dark skies after moonset. Mars and Jupiter ~1.2° apart predawn 11-15/16.</li>
+        <li><b>Leonids 2026-11-16 to 11-18:</b> Peak predawn Wed 11-18. Moon sets ~00:10. Needs a weekday off (PTO).</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="contacts">
+  <h2><span class="n">10</span>Contacts</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Who</th><th>Phone / link</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Morris Marina ferry</td><td class="nw"><a href="tel:+12522254261">252-225-4261</a><br><a href="tel:+12527234962">252-723-4962</a></td><td>Mon to Sat 08:00 to 16:00. Phone booking only.</td></tr>
+        <tr><td>Cape Lookout NS rangers</td><td class="nw"><a href="tel:+12527282250">252-728-2250</a></td><td>Decal, conditions, camping permit question.</td></tr>
+        <tr><td>NC Ferry reservations</td><td class="nw"><a href="tel:+18002933779">1-800-293-3779</a></td><td>Cedar Island to Ocracoke (fallback).</td></tr>
+        <tr><td>Portsmouth Island Boat Tours</td><td class="nw"><a href="tel:+12529284361">252-928-4361</a> (Rudy)<br><a href="tel:+12529285431">252-928-5431</a> (Donald)</td><td>From Ocracoke. Fallback only.</td></tr>
+        <tr><td>Portsmouth Island Adventures</td><td class="nw"><a href="tel:+12529284484">252-928-4484</a></td><td>Second boat option, from the original plan. <span class="unv">not rechecked</span></td></tr>
+        <tr><td>Recreation.gov</td><td><a href="https://www.recreation.gov/vehiclepermits/3332402">ORV permit</a> · <a href="https://www.recreation.gov/camping/campgrounds/232504">Ocracoke</a></td><td>Online only.</td></tr>
+        <tr><td>Crystal Coast Stargazers</td><td><a href="https://ccgazers.com">ccgazers.com</a></td><td>Club event 11-06/07, members and guests.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="sources">
+  <h2><span class="n">11</span>Sources</h2>
+  <p class="lede">Checked 2026-09-26 unless noted.</p>
+  <ol class="src">
+    <li>NPS Cape Lookout, camping: <a href="https://www.nps.gov/calo/planyourvisit/camping.htm">nps.gov/calo/planyourvisit/camping.htm</a></li>
+    <li>NPS Cape Lookout, ORV permits: <a href="https://www.nps.gov/calo/planyourvisit/orv.htm">nps.gov/calo/planyourvisit/orv.htm</a></li>
+    <li>NPS Cape Lookout, park conditions: <a href="https://www.nps.gov/calo/planyourvisit/conditions.htm">nps.gov/calo/planyourvisit/conditions.htm</a></li>
+    <li>Recreation.gov ORV permit: <a href="https://www.recreation.gov/vehiclepermits/3332402">recreation.gov/vehiclepermits/3332402</a></li>
+    <li>Recreation.gov Ocracoke Campground: <a href="https://www.recreation.gov/camping/campgrounds/232504">recreation.gov/camping/campgrounds/232504</a></li>
+    <li>Morris Marina ferry schedule and FAQ: <a href="https://www.morrismarinaferry.com/schedule">morrismarinaferry.com/schedule</a>, <a href="https://www.morrismarinaferry.com/faq">morrismarinaferry.com/faq</a></li>
+    <li>NCDOT Ferry Division: <a href="https://www.ncdot.gov/divisions/ferry/Pages/default.aspx">ncdot.gov/divisions/ferry</a>; reservations <a href="https://www.ncferry.org">ncferry.org</a></li>
+    <li>DriveNC road conditions: <a href="https://drivenc.gov">drivenc.gov</a></li>
+    <li>USNO sun and moon data (2026-11-06 to 11-08, 34.98 N 76.20 W): <a href="https://aa.usno.navy.mil/data/RS_OneDay">aa.usno.navy.mil/data/RS_OneDay</a></li>
+    <li>American Meteor Society shower calendar 2026: <a href="https://www.amsmeteors.org/meteor-showers/meteor-shower-calendar/">amsmeteors.org/meteor-showers/meteor-shower-calendar</a></li>
+    <li>Space.com, planets in 2026 (Saturn in Cetus, Jupiter in Leo, Nov 7 Venus, Moon, Spica): <a href="https://www.space.com/stargazing/what-to-expect-from-the-planets-in-2026-key-dates-and-sky-events">space.com</a></li>
+    <li>Night sky November 2026 (Saturn evening, Mars-Jupiter 1.2° on 11-16): <a href="https://www.sterngucker.de/en/astronomical-events/night-sky-november/">sterngucker.de</a></li>
+    <li>Crystal Coast Stargazers: <a href="https://ccgazers.com">ccgazers.com</a></li>
+    <li>Tesla Supercharger locator (Morehead City, New Bern): <a href="https://www.tesla.com/findus">tesla.com/findus</a></li>
+    <li>Forecast tools: <a href="https://clearoutside.com/forecast/34.98/-76.20">Clear Outside</a>, <a href="https://www.astrospheric.com">Astrospheric</a>, <a href="https://forecast.weather.gov/MapClick.php?lat=34.98&amp;lon=-76.2">NWS forecast (MHX)</a>, <a href="https://www.weather.gov/mhx/">NWS Newport/Morehead City</a></li>
+    <li>Star, planet, and twilight times other than USNO: computed with PyEphem for 34.98 N, 76.20 W. Astronomical dark ends ~05:05, not 04:55 as in the first plan.</li>
+  </ol>
+</section>
+
+<footer>
+  Private trip plan for Martin Nystrom. Research only; nothing booked or paid. Last updated 2026-09-26. Items marked <span class="unv">TBD</span> or similar are not yet verified.
+</footer>
+</main>
+</body>
+</html>
