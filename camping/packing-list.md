@@ -12,7 +12,8 @@ Martin + Eli overnight camping trip. Tap to check items off.
 - [ ] Electric blanket (runs off the truck outlets; pack with the power cords)
 
 ## Food & drink
-- [ ] Cooler
+- [ ] Cooler (regular ice cooler)
+- [ ] Ice (buy day of)
 - [ ] Cold drinks
 - [ ] Coffee
 - [ ] Brewer

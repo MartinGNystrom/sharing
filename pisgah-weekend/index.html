@@ -3,8 +3,11 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Mount Pisgah weekend · 2026-10-02 to 2026-10-04 · Martin + Eli</title>
-<meta name="description" content="Camp Mount Pisgah Fri 2026-10-02 to Sun 2026-10-04 at site B26. Pre-dawn summit hike for sunrise Sunday. Martin + Eli adventure weekend."/>
+<title>Mount Pisgah camping · weekend of Oct 2–4 · Martin + Eli</title>
+<meta name="description" content="One night at Mount Pisgah Campground (site B26) on the Blue Ridge Parkway, with a headlamp hike to the summit for sunrise. Weekend of Oct 2–4."/>
+<meta property="og:title" content="Summit before the sun · Mount Pisgah"/>
+<meta property="og:description" content="Camp at Mount Pisgah, then a headlamp hike to the summit deck for sunrise. Weekend of Oct 2–4."/>
+<meta property="og:image" content="https://martingnystrom.github.io/sharing/pisgah-weekend/images/b26-view.jpg"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
@@ -302,23 +305,82 @@
     color: var(--muted); font-size: 0.84rem;
   }
   .credits { font-size: 0.75rem; color: var(--muted); margin-top: 10px; }
+  /* --- additions (Sep 2026 rebuild) --- */
+  .toc { display:flex; gap:8px; overflow-x:auto; padding:4px 0 10px; margin:0 0 4px; scrollbar-width:none; }
+  .toc::-webkit-scrollbar { display:none; }
+  .toc a { flex:none; font-size:.82rem; font-weight:600; padding:6px 12px; border-radius:999px;
+    background:var(--card); border:1px solid var(--line); color:var(--ink); text-decoration:none; }
+  .toc a:hover { border-color:var(--accent); color:var(--accent); }
+  h2.section { scroll-margin-top: 12px; }
+  .stat-row { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin:0 0 12px; }
+  @media (max-width:520px){ .stat-row { grid-template-columns:repeat(2,1fr); } }
+  .stat { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 12px 10px; }
+  .stat .big { font-size:1.35rem; font-weight:700; letter-spacing:-.02em; color:var(--accent); line-height:1.15; }
+  .stat .lbl { font-size:.78rem; color:var(--muted); margin-top:2px; }
+  .leg { display:flex; gap:12px; padding:12px 0; border-top:1px solid var(--line); }
+  .leg:first-child { border-top:0; padding-top:2px; }
+  .leg .ico { flex:none; width:34px; height:34px; border-radius:50%; display:grid; place-items:center;
+    background:var(--accent-soft); color:var(--accent); font-weight:700; font-size:.95rem; }
+  .leg.charge .ico { background:var(--good-soft); color:var(--good); }
+  .leg .what { font-weight:600; }
+  .leg .meta { font-size:.86rem; color:var(--muted); }
+  .gallery { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:12px; }
+  @media (min-width:760px){ .gallery { grid-template-columns:1fr 1fr 1fr; } }
+  .gallery figure { margin:0; background:var(--card); border:1px solid var(--line); border-radius:12px; overflow:hidden; }
+  .gallery figure.wide { grid-column:1 / -1; }
+  .gallery img { display:block; width:100%; height:150px; object-fit:cover; }
+  .gallery figure.wide img { height:210px; }
+  .gallery figcaption { font-size:.78rem; color:var(--muted); padding:8px 10px 9px; line-height:1.35; }
+  .gallery figcaption b { color:var(--ink); font-weight:600; }
+  .mapfig { margin:0 0 12px; background:#fff; border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; }
+  .mapfig img { display:block; width:100%; height:auto; }
+  .mapfig figcaption { background:var(--card); font-size:.78rem; color:var(--muted); padding:9px 12px; border-top:1px solid var(--line); }
+  .wx { width:100%; }
+  .wx td, .wx th { font-size:.88rem; }
+  .wx .t { font-weight:700; white-space:nowrap; }
+  .wx .pop { color:var(--accent); font-weight:600; white-space:nowrap; }
+  @media (max-width:560px){ .wx th { background:var(--accent-soft); padding-top:9px; } }
+  .asof { font-size:.78rem; color:var(--muted); margin:-4px 0 10px; }
+  .day-h { display:flex; align-items:baseline; gap:10px; margin:0 0 6px; }
+  .day-h .tag { margin:0; }
+  .callout { border-left:4px solid var(--accent); background:var(--accent-soft); padding:12px 14px; border-radius:0 12px 12px 0; margin:0 0 12px; font-size:.93rem; }
+  .callout.warn { border-left-color:var(--warn); background:var(--warn-soft); }
+  .callout strong { color:var(--ink); }
+  .kv { list-style:none; padding:0; margin:6px 0 0; }
+  .kv li { display:flex; justify-content:space-between; gap:12px; padding:8px 0; border-top:1px solid var(--line); font-size:.9rem; }
+  .kv li:first-child { border-top:0; }
+  .kv li span:first-child { color:var(--muted); }
+  .kv li span:last-child { font-weight:600; text-align:right; }
+  .credits a { color:var(--muted); }
 </style>
 </head>
 <body>
+<!--
+  DAY LABELS: the night isn't final yet (Fri 10/2 or Sat 10/3).
+  To set it, edit DAY_LABELS in the <script> right below, e.g.
+    { 1: "Fri Oct 2", 2: "Sat Oct 3" }   or   { 1: "Sat Oct 3", 2: "Sun Oct 4" }
+  Every element with data-day="1" / data-day="2" updates automatically.
+-->
+<script>
+  const DAY_LABELS = { 1: "Day 1", 2: "Day 2" };
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll("[data-day]").forEach(el => { el.textContent = DAY_LABELS[el.dataset.day] || el.textContent; });
+  });
+</script>
 
   <header class="hero">
     <div class="hero-inner">
       <div class="pill-row">
         <span class="pill">Blue Ridge Parkway · MP 408.8</span>
-        <span class="pill">Camp 2026-10-02 → 2026-10-04</span>
+        <span class="pill">Weekend of Oct 2–4</span>
         <span class="pill">Site B26 · Loop B</span>
-        <span class="pill">Sunrise 2026-10-04 ~7:27 AM EDT</span>
+        <span class="pill">Sunrise ~7:26 AM</span>
         <span class="pill">Martin + Eli</span>
       </div>
       <h1>Summit before the sun</h1>
-      <p class="lede">Two nights under the stars at Mount Pisgah. One headlamp hike to the observation deck. Watch the Blue Ridge light up at sunrise from 5,721 ft.</p>
+      <p class="lede">One night camping at Mount Pisgah, almost a mile high. Campfire and s'mores, then a headlamp hike in the dark to watch the sun come up from 5,721 ft.</p>
       <div class="bluf">
-        <strong>BLUF.</strong> Locked Rec.gov stay at Mount Pisgah Campground (facility 234182), site <strong>B26 (Loop B)</strong>. Check-in <strong>Fri 2026-10-02</strong>, checkout <strong>Sun 2026-10-04</strong> (two nights: Fri + Sat). Pre-dawn hike from camp via Buck Spring / MST side-spur → Mount Pisgah Trail → observation deck for sunrise (~7:27 AM EDT Sunday). Truck stays at camp. ~5–6+ mi RT. Leave camp ~5:00–5:30 AM.
+        <strong>The plan, fast:</strong> Martin picks you up in Greensboro. About 4 to 4½ hours to camp, including a snack stop while Grivvy charges. You get your <strong>own tent</strong> next to the truck. Next morning, wake-up is around <strong>4:45 AM</strong>. We hike about 3 miles up to the summit deck for sunrise, then come back for breakfast and head home. Which night: <strong>weekend of Oct 2–4, exact night TBD</strong>.
       </div>
     </div>
   </header>
@@ -328,172 +390,273 @@
     <div class="glance-grid">
       <section class="glance-card primary" aria-labelledby="mission-title">
         <h2 id="mission-title">The mission</h2>
-        <div class="mission">Sleep on the mountain. Wake in the dark. Reach the deck before sunrise.</div>
-        <p class="prose" style="color:var(--muted);font-size:0.95rem;margin:0 0 8px">Martin and Eli (14) roll in on the Rivian R1T Dual Large with rooftop tent, camp high on the Parkway, then hike from camp to the Mount Pisgah observation deck as the sky turns gold.</p>
+        <div class="mission">Sleep on the mountain. Wake up in the dark. Be on the summit deck before the sun.</div>
         <div class="link-row">
-          <a class="btn solid" href="https://www.recreation.gov/camping/campgrounds/234182">Open Rec.gov</a>
-          <a class="btn" href="https://cdn.recreation.gov/public/2022/12/02/16/34/234182_e9893c63-292f-4b1f-8082-dfd060e75fe0.pdf">Camp map PDF</a>
+          <a class="btn solid" href="https://martingnystrom.github.io/sharing/camping/packing-list/">What to bring</a>
+          <a class="btn" href="#bathrooms">Where are the bathrooms?</a>
+          <a class="btn" href="#weather">Weather</a>
         </div>
       </section>
-
       <section class="glance-card">
         <h2>At a glance</h2>
         <ul class="glance-lines">
-          <li><span>Who</span><span>Martin + Eli (14)</span></li>
-          <li><span>Facility</span><span>234182</span></li>
-          <li><span>Elevation</span><span>~4,980 ft</span></li>
-          <li><span>Stay</span><span>Fri–Sun · 2 nights</span></li>
-          <li><span>Gear</span><span>R1T Dual Large + RTT</span></li>
-          <li><span>Hike RT from camp</span><span>~5–6+ mi</span></li>
-          <li><span>Site</span><span>B26 · Loop B</span></li>
+          <li><span>Who</span><span>Martin + Eli</span></li>
+          <li><span>When</span><span>1 night · weekend of Oct 2–4</span></li>
+          <li><span>Camp</span><span>Mount Pisgah · site B26</span></li>
+          <li><span>Car time</span><span>~4–4½ hr each way</span></li>
+          <li><span>Camp elevation</span><span>~4,900 ft</span></li>
+          <li><span>Hike</span><span>~6 mi round trip</span></li>
+          <li><span>Sunrise</span><span>~7:26 AM</span></li>
+          <li><span>Nearest bathroom</span><span>~350 ft away</span></li>
         </ul>
       </section>
     </div>
 
+    <nav class="toc" aria-label="Sections">
+      <a href="#drive">Drive</a><a href="#charging">Charging</a><a href="#camp">Camp setup</a><a href="#bathrooms">Bathrooms</a>
+      <a href="#hike">Hike</a><a href="#schedule">Schedule</a><a href="#weather">Weather</a><a href="#photos">Photos</a><a href="#bring">What to bring</a>
+    </nav>
+
     <div class="scene-grid">
       <div class="scene-card">
-        <img src="images/mt-from-151.jpg" alt="Mount Pisgah summit with broadcast tower from NC 151" loading="lazy"/>
-        <div class="cap">Mount Pisgah · the tower marks the summit</div>
+        <img src="images/b26-view.jpg" alt="Campsite B26 at Mount Pisgah Campground with Mount Pisgah in the background" loading="lazy"/>
+        <div class="cap">Our site, B26, with Mount Pisgah behind it</div>
       </div>
       <div class="scene-card">
         <img src="images/observation.jpg" alt="Wooden observation deck at Mount Pisgah summit" loading="lazy"/>
-        <div class="cap">Observation deck · sunrise goal ~7:27 AM</div>
+        <div class="cap">The summit deck, where we'll watch sunrise</div>
       </div>
     </div>
 
-    <h2 class="section">The adventure</h2>
+    <!-- ============ DRIVE ============ -->
+    <h2 class="section" id="drive">Time in the car</h2>
+    <div class="stat-row">
+      <div class="stat"><div class="big">~195 mi</div><div class="lbl">Greensboro to camp</div></div>
+      <div class="stat"><div class="big">~3¼–4 hr</div><div class="lbl">driving time</div></div>
+      <div class="stat"><div class="big">+25 min</div><div class="lbl">charging stop</div></div>
+    </div>
+    <div class="card">
+      <h3>Getting there (<span data-day="1">Day 1</span>)</h3>
+      <div class="leg"><div class="ico">1</div><div><div class="what">Pickup in Greensboro</div><div class="meta">Martin picks you up. Bring your bag, pillow, and sleeping bag.</div></div></div>
+      <div class="leg"><div class="ico">2</div><div><div class="what">I-40 West to Old Fort · ~146 mi</div><div class="meta">About 2½–2¾ hours. Mostly highway past Winston-Salem, Statesville, Hickory, and Morganton.</div></div></div>
+      <div class="leg charge"><div class="ico">⚡</div><div><div class="what">Supercharger stop at Old Fort · ~20–30 min</div><div class="meta">Snack and bathroom break while Grivvy charges. Details <a href="#charging">below</a>.</div></div></div>
+      <div class="leg"><div class="ico">3</div><div><div class="what">Old Fort → Asheville → Blue Ridge Parkway → camp · ~49 mi</div><div class="meta">About 1 hour. Up the mountain on I-40, NC 191, then about 15 miles south on the Parkway. There are <strong>9 tunnels</strong> on that stretch, so count them. The campground is on the right just past the Pisgah Inn.</div></div></div>
+      <p class="note">Door to camp from Greensboro: plan on about <strong>4 to 4½ hours</strong> with the stop. The drive home is about the same, with one charging stop on the way down the mountain. Cell service at camp is weak to none, so download music and shows before you leave.</p>
+    </div>
+
+    <!-- ============ CHARGING ============ -->
+    <h2 class="section" id="charging">Charging stops (Grivvy)</h2>
+    <div class="callout">Grivvy is Martin's Rivian R1T. It has a Tesla-style plug built in, so it charges right at Tesla Superchargers. Each stop is about <strong>20–30 minutes</strong>. That's long enough for a bathroom break, a snack, and stretching your legs.</div>
+    <div class="two-col">
+      <div class="card">
+        <span class="tag">Main stop · going up</span>
+        <h3>Old Fort Supercharger</h3>
+        <ul class="kv">
+          <li><span>Where</span><span>Stuckey's, I-40 exit 75</span></li>
+          <li><span>Chargers</span><span>12 stalls, up to 250 kW</span></li>
+          <li><span>Snacks</span><span>Stuckey's store + Dairy Queen</span></li>
+          <li><span>Time</span><span>~20–30 min</span></li>
+        </ul>
+        <p class="note">This is the last big stop before the mountains, about an hour from camp. Good place to buy <strong>ice for the cooler</strong>.</p>
+      </div>
+      <div class="card">
+        <span class="tag accent">Backup / going home</span>
+        <h3>Asheville · Westgate Supercharger</h3>
+        <ul class="kv">
+          <li><span>Where</span><span>Westgate shopping center, West Asheville</span></li>
+          <li><span>Chargers</span><span>20 stalls, up to 325 kW</span></li>
+          <li><span>From camp</span><span>~23 mi · ~40 min</span></li>
+          <li><span>Time</span><span>~20–30 min</span></li>
+        </ul>
+        <p class="note">Handy for a top-up before the Parkway, or as the first stop on the way home. (Old Fort works on the way home too.)</p>
+      </div>
+    </div>
+
+    <!-- ============ CAMP SETUP ============ -->
+    <h2 class="section" id="camp">The camp setup</h2>
+    <div class="gallery">
+      <figure class="wide"><img src="images/b26-pad.jpg" alt="Paved, level parking pad at site B26" loading="lazy"/><figcaption><b>Site B26:</b> paved, level back-in pad. Grivvy parks here.</figcaption></figure>
+      <figure><img src="images/b26-table.jpg" alt="Path down to the picnic table and fire ring at site B26" loading="lazy"/><figcaption><b>B26:</b> a short walk down to the picnic table and fire ring.</figcaption></figure>
+      <figure><img src="images/cg-tent.jpg" alt="A small tent set up at a Mount Pisgah campsite" loading="lazy"/><figcaption><b>Tent camping at Mount Pisgah</b> (not our site, but a similar setup).</figcaption></figure>
+    </div>
+    <div class="two-col">
+      <div class="card">
+        <span class="tag accent">Your spot</span>
+        <h3>Eli's own tent</h3>
+        <div class="prose">
+          <p>You get your <strong>own ground tent</strong> (borrowed) set up right next to the truck, with:</p>
+          <ul class="clean">
+            <li><strong>Your own air mattress</strong> (we'll test it for leaks the night before)</li>
+            <li><strong>Sleeping bag</strong> and <strong>pillow</strong></li>
+            <li><strong>Electric blanket</strong> powered by the truck. It really helps on a cold mountain night.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card">
+        <span class="tag">Martin's spot</span>
+        <h3>Truck-bed tent</h3>
+        <div class="prose">
+          <p>Martin sleeps in Grivvy's bed on a <strong>queen air mattress</strong> under a truck-bed tent. There's no rooftop tent this time. You'll be a few feet apart.</p>
+          <p>Site B26 is a quiet one, tucked away from Parkway traffic. It has a picnic table, a fire ring with a grill grate, and a lantern post.</p>
+        </div>
+      </div>
+    </div>
+    <div class="callout warn"><strong>Bears live here. It's normal, just be smart.</strong> All food, drinks, the cooler, trash, and anything that smells (toothpaste, snacks) go in the locked truck or the bear-proof food locker at night and whenever we leave camp. Never keep food in your tent.</div>
+    <div class="callout"><strong>Bring layers.</strong> Camp is near 5,000 ft, and early-October nights are often in the 40s, sometimes the 30s. It's much colder than Greensboro. Pack a warm hoodie or fleece, a jacket, long pants, warm socks, and a beanie for the pre-dawn hike. Sleep in dry clothes, not the ones you wore all day.</div>
+
+    <!-- ============ BATHROOMS ============ -->
+    <h2 class="section" id="bathrooms">Where are the bathrooms?</h2>
     <div class="panel">
-      <h3>What you are signing up for</h3>
-      <p>This is a real mountain weekend, not a hotel trip. Friday you leave Mebane, pick up Eli in Greensboro, charge in Asheville, then climb the Blue Ridge Parkway to Mount Pisgah Campground site B26. Two nights in the rooftop tent. Sunday before dawn, headlamps on, hike from camp through Buck Spring / MST, hit the Mount Pisgah Trail, and stand on the observation deck as the sun clears the ridges. One outing. Truck stays parked. Then pack, roll home.</p>
+      <h3>Short answer: really close</h3>
+      <p>There are <strong>two restroom buildings within about a 2-minute walk</strong> of B26. Both have real <strong>flush toilets and sinks</strong>, and both are open in early October (the campground runs through Oct 25).</p>
     </div>
-    <table>
-      <tr><th>Rule</th><th>How it plays</th></tr>
-      <tr><td>Hike from camp</td><td>Leave from the pad. No drive camp → trailhead. Truck stays put.</td></tr>
-      <tr><td>One hike</td><td>Single outing to the Pisgah observation deck and back. Side-spur OK.</td></tr>
-      <tr><td>Sunrise on summit</td><td>On the deck for ~7:27 AM EDT.</td></tr>
-      <tr><td>Drive</td><td>Mebane → Greensboro → I-40 W → Asheville RAN → BRP → camp (~4.5–5 hr).</td></tr>
-    </table>
-
-    <h2 class="section">Basecamp</h2>
-    <img class="scene" src="images/ridge.jpg" alt="Mount Pisgah summit and tower from the Blue Ridge Parkway" loading="lazy"/>
-    <div class="card">
-      <span class="tag">Home for two nights</span>
-      <h3>Mount Pisgah Campground</h3>
-      <div class="prose">
-        <p><a href="https://www.recreation.gov/camping/campgrounds/234182">Recreation.gov facility 234182</a> on the Blue Ridge Parkway at MP ~408.8. Check-in Friday <strong>2026-10-02</strong>, checkout Sunday <strong>2026-10-04</strong> after the sunrise hike. Two nights: Fri night + Sat night.</p>
-        <p>Drive-up pads fit the R1T and rooftop tent. No hookups. Watch limb clearance. Food goes in bear boxes or a locked vehicle. Showers in Loops B and C. Flush toilets, potable water, and a seasonal dump station on site. NPS overview: <a href="https://www.nps.gov/thingstodo/pisgah-campground.htm">Spend the night at Mount Pisgah Campground</a>.</p>
+    <figure class="mapfig">
+      <img src="images/bathroom-map.png" alt="Campground map of Loops A and B with site B26 circled in blue, the nearest restroom 350 feet south by the entrance circled in orange, and the Loop B shower house 500 feet north circled in green" loading="lazy"/>
+      <figcaption>Part of the official NPS campground map, marked up for us. Distances are walking estimates along the loop road. <a href="https://cdn.recreation.gov/public/2022/12/02/16/34/234182_e9893c63-292f-4b1f-8082-dfd060e75fe0.pdf">Full map (PDF)</a></figcaption>
+    </figure>
+    <div class="two-col">
+      <div class="card">
+        <span class="tag warn">Closest · toilets</span>
+        <h3>Entrance restroom · ~350 ft</h3>
+        <p class="prose">From B26, walk <strong>toward the campground entrance</strong> (south), past sites 27–29. The building sits where Loops A and B split. It has flush toilets and sinks but <strong>no showers</strong>. About a 1–2 minute walk, and the best one for a middle-of-the-night trip.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Showers here</span>
+        <h3>Loop B shower house · ~500 ft</h3>
+        <p class="prose">From B26, walk <strong>farther into Loop B</strong> (north), past sites 24–21. The building is in the middle of the loop near site 19. It has flush toilets, sinks, and <strong>hot showers</strong>, including accessible ones. About a 2-minute walk. Go here for a morning shower after the hike.</p>
       </div>
     </div>
+    <p class="note">Take your headlamp at night. The loop road is dark and there are no streetlights.</p>
 
-    <div class="card">
-      <span class="tag accent">Reserved site</span>
-      <h3>Site B26 (Loop B)</h3>
-      <p class="prose" style="margin-bottom:0">Booked on Recreation.gov. Loop B sits closer to showers. Pad fits the R1T and rooftop tent.</p>
-      <div class="sites">
-        <a class="site booked" href="https://www.recreation.gov/camping/campsites/9717"><span class="name">B26</span><span class="meta">Loop B · reserved</span><span class="status">Booked</span></a>
-      </div>
+    <!-- ============ HIKE ============ -->
+    <h2 class="section" id="hike">The sunrise hike</h2>
+    <div class="stat-row">
+      <div class="stat"><div class="big">~6 mi</div><div class="lbl">round trip from camp</div></div>
+      <div class="stat"><div class="big">~3 mi</div><div class="lbl">each way</div></div>
+      <div class="stat"><div class="big">~700 ft</div><div class="lbl">steep climb at the end</div></div>
+      <div class="stat"><div class="big">5,721 ft</div><div class="lbl">summit elevation</div></div>
+      <div class="stat"><div class="big">~1¾–2 hr</div><div class="lbl">going up, in the dark</div></div>
+      <div class="stat"><div class="big">~7:26 AM</div><div class="lbl">sunrise</div></div>
     </div>
-
-    <h2 class="section">The sunrise hike</h2>
     <div class="scene-grid">
       <div class="scene-card">
-        <img src="images/buck-spring.jpg" alt="Buck Spring Lodge ruins near Mount Pisgah on the Blue Ridge Parkway" loading="lazy"/>
-        <div class="cap">Buck Spring / MST side-spur from camp</div>
+        <img src="images/buck-spring.jpg" alt="Stone foundation of the old Buck Spring Lodge along the trail" loading="lazy"/>
+        <div class="cap">Buck Spring Trail, past the old Vanderbilt lodge ruins</div>
       </div>
       <div class="scene-card">
-        <img src="images/summit-deck.jpg" alt="Observation platform stairs at Mount Pisgah summit" loading="lazy"/>
-        <div class="cap">Deck arrival · 5,721 ft</div>
+        <img src="images/summit-deck.jpg" alt="Stairs up to the observation platform at Mount Pisgah summit" loading="lazy"/>
+        <div class="cap">The last stairs up to the deck</div>
       </div>
     </div>
     <div class="card">
-      <div class="prose">
-        <p>The prize is the Mount Pisgah observation deck at 5,721 ft, with the big broadcast tower right there. From camp, follow the connector / Inn corridor, take the optional <strong>Buck Spring Trail</strong> (MST side-spur), reach the Mount Pisgah parking corridor, then climb the <strong>Mount Pisgah Trail</strong> (~1.6 mi / ~712 ft with a steep rocky finish) to the deck.</p>
-        <p>Expect ~5–6+ mi round trip from camp. Leave camp ~5:00–5:30 AM EDT with headlamps. The NPS trailhead at MP 407.6 is a reference only; the truck does not move from camp. Buck Spring Lodge foundation and gap overlooks make solid side-spur stops on the way up.</p>
-      </div>
+      <h3>The route, step by step</h3>
+      <ol class="steps">
+        <li><strong>Leave camp around 5:00–5:30 AM</strong> with headlamps on. Walk out the campground entrance and carefully cross the Parkway toward the Pisgah Inn.</li>
+        <li><strong>Buck Spring Trail · ~1.1 mi.</strong> This is part of the Mountains-to-Sea Trail (look for white dot blazes). It runs from the Pisgah Inn to the Mount Pisgah parking area and passes the spot where George Vanderbilt's hunting lodge stood. Rocky and rooty, with gentle ups and downs.</li>
+        <li><strong>Mount Pisgah parking area.</strong> Walk to the far end of the lot, where the Mount Pisgah trailhead is.</li>
+        <li><strong>Mount Pisgah Trail · the final climb, ~1.3 mi and ~700 ft up.</strong> Flat at first, then log and rock steps. The second half is <strong>steep and rocky</strong>, and it ends at the observation deck next to the big TV tower.</li>
+        <li><strong>Sunrise on the deck.</strong> The sky starts glowing around 7:00. Sunrise is about <strong>7:26 AM</strong>. On a clear morning you can see the Shining Rock Wilderness, the French Broad valley, and even Asheville.</li>
+        <li><strong>Back the same way</strong> (about 1¼ hours down) for breakfast at camp.</li>
+      </ol>
       <div class="link-row">
-        <a class="btn" href="https://www.nps.gov/places/mount-pisgah-trailhead.htm">NPS trailhead</a>
-        <a class="btn" href="https://www.alltrails.com/trail/us/north-carolina/mount-pisgah-trail">AllTrails · Mt Pisgah</a>
-        <a class="btn" href="https://www.openstreetmap.org/#map=14/35.425/-82.756">OpenStreetMap area</a>
+        <a class="btn" href="https://www.nps.gov/blri/planyourvisit/mt-pisgah-trails.htm">NPS: Pisgah trails</a>
+        <a class="btn" href="https://www.alltrails.com/trail/us/north-carolina/mount-pisgah-trail-via-mount-pisgah-trailhead">AllTrails: Mt Pisgah Trail</a>
       </div>
     </div>
-
-    <h2 class="section">Sunrise timeline · Sun 2026-10-04</h2>
     <div class="card">
-      <div class="timeline">
-        <div class="tl-item">
-          <div class="tl-time">~5:00–5:30 AM EDT</div>
-          <div class="tl-body">Leave camp with headlamps, layers, water, breakfast bars.</div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-time">~7:01 AM</div>
-          <div class="tl-body">Civil twilight (Asheville area).</div>
-        </div>
-        <div class="tl-item sunrise">
-          <div class="tl-time">~7:27 AM</div>
-          <div class="tl-body"><strong>Sunrise on the observation deck.</strong> That is the moment.</div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-time">Morning</div>
-          <div class="tl-body">Descend to camp · pack · showers · roll out.</div>
-        </div>
-      </div>
-      <p class="note">Sun times use the Asheville-area table for 2026-10-04. Confirm BRP road status morning-of: <a href="https://www.nps.gov/blri/planyourvisit/roadclosures.htm">Parkway closures</a>.</p>
-    </div>
-
-    <h2 class="section">Friday through Sunday</h2>
-    <img class="scene" src="images/mt-oct.jpg" alt="Mount Pisgah ridgeline in October" loading="lazy"/>
-    <div class="three-col">
-      <div class="card">
-        <span class="tag accent">Friday 2026-10-02</span>
-        <p class="prose" style="margin-bottom:8px">Depart Mebane near full SOC, pick up Eli in Greensboro, run I-40 west, charge at the <strong>Rivian Adventure Network Asheville</strong> before the Parkway, then BRP south to Mount Pisgah. Arrive before dark, set up on B26, sleep in the RTT.</p>
-        <ol class="steps">
-          <li>Mebane → Greensboro pickup</li>
-          <li>I-40 W → Asheville RAN</li>
-          <li>BRP → site B26 · RTT night 1</li>
-        </ol>
-      </div>
-      <div class="card">
-        <span class="tag accent">Saturday 2026-10-03</span>
-        <p class="prose" style="margin-bottom:8px">Camp day at nearly 5,000 ft. Easy walks around the loops, overlooks, and recovery before the early Sunday start. Second night in the rooftop tent.</p>
-        <ol class="steps">
-          <li>Morning at camp · optional short walk</li>
-          <li>Charge check / Camp Mode reserve</li>
-          <li>Early lights-out for sunrise</li>
-        </ol>
-      </div>
-      <div class="card">
-        <span class="tag">Sunday 2026-10-04</span>
-        <p class="prose" style="margin-bottom:8px">Pre-dawn hike from camp to the deck for sunrise, return to the truck, pack, and checkout. Top SOC if needed, then I-40 east with a Greensboro drop and home to Mebane.</p>
-        <ol class="steps">
-          <li>Pre-dawn hike for sunrise</li>
-          <li>Pack · checkout</li>
-          <li>I-40 E → Greensboro → Mebane</li>
-        </ol>
-      </div>
-    </div>
-
-    <h2 class="section">Truck and charge</h2>
-    <div class="card">
-      <div class="prose">
-        <p>Vehicle is the Rivian R1T Dual Large with rooftop tent. Primary charge is Asheville RAN (<a href="https://www.plugshare.com/location/831433">PlugShare</a>). Backup is EA Old Fort (<a href="https://www.plugshare.com/location/622897">PlugShare</a>). Keep overnight reserve for Camp Mode and avoid arriving thin on the Parkway.</p>
-      </div>
-    </div>
-
-    <h2 class="section">Gear checklist</h2>
-    <div class="card">
+      <h3>Hike rules</h3>
       <ul class="clean">
-        <li><strong>Camp:</strong> RTT, bedding, bear-safe food storage, headlamps, layers for ~5,000 ft nights</li>
-        <li><strong>Hike:</strong> headlamps, water, breakfast bars, trail shoes, warm summit layer</li>
-        <li><strong>Drive:</strong> near-full SOC leaving Mebane, Asheville RAN stop before BRP</li>
+        <li><strong>Stay together.</strong> Stay within sight of each other the whole time, especially in the dark.</li>
+        <li><strong>Headlamp + backup.</strong> Charge it the day before. A phone light works as backup, but it drains the battery fast.</li>
+        <li><strong>Walk on the trail, not the road.</strong> The Parkway has no shoulder, and cars can't see you in the dark.</li>
+        <li><strong>Wet rocks are slippery.</strong> Take it slow on the steep part, and use hiking poles if you want them.</li>
+        <li><strong>It's windy and cold on top.</strong> Wear a warm layer and a beanie, and bring water and a protein bar.</li>
+        <li><strong>Plan B:</strong> if it's pouring or stormy, we'll sleep in and hike after breakfast instead. Being "in the cloud" on top is still pretty cool.</li>
+      </ul>
+    </div>
+
+    <!-- ============ SCHEDULE ============ -->
+    <h2 class="section" id="schedule">The schedule</h2>
+    <img class="scene" src="images/mt-oct.jpg" alt="Mount Pisgah ridgeline in October" loading="lazy"/>
+    <div class="two-col">
+      <div class="card">
+        <div class="day-h"><span class="tag accent" data-day="1">Day 1</span><strong>Drive, camp, fire</strong></div>
+        <div class="timeline">
+          <div class="tl-item"><div class="tl-time">Late morning</div><div class="tl-body"><strong>Pickup in Greensboro</strong>, then I-40 west.</div></div>
+          <div class="tl-item"><div class="tl-time">~2½ hr later</div><div class="tl-body"><strong>Old Fort Supercharger</strong>: snack, bathroom, and ice while Grivvy charges (~25 min).</div></div>
+          <div class="tl-item"><div class="tl-time">Mid/late afternoon</div><div class="tl-body"><strong>Arrive at camp</strong> (check-in starts at 3 PM). Stop at the kiosk, then find B26.</div></div>
+          <div class="tl-item"><div class="tl-time">Before dark</div><div class="tl-body"><strong>Set up camp:</strong> your tent and air mattress, Martin's truck-bed tent, and the electric blanket cord. Get firewood.</div></div>
+          <div class="tl-item sunrise"><div class="tl-time">~7:13 PM</div><div class="tl-body"><strong>Sunset.</strong> The overlooks near the campground have great sunset views.</div></div>
+          <div class="tl-item"><div class="tl-time">Evening</div><div class="tl-body"><strong>Dinner, campfire, s'mores.</strong> Lay out hike clothes and headlamps before bed.</div></div>
+          <div class="tl-item"><div class="tl-time">~9:30 PM</div><div class="tl-body"><strong>Food in the truck, lights out.</strong> Wake-up is early.</div></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="day-h"><span class="tag" data-day="2">Day 2</span><strong>Sunrise, breakfast, home</strong></div>
+        <div class="timeline">
+          <div class="tl-item"><div class="tl-time">~4:45 AM</div><div class="tl-body"><strong>Wake up.</strong> Layers on, headlamps on, water and bars in the pack.</div></div>
+          <div class="tl-item"><div class="tl-time">5:00–5:30 AM</div><div class="tl-body"><strong>Leave camp</strong>, then Buck Spring Trail to the Mount Pisgah Trail.</div></div>
+          <div class="tl-item"><div class="tl-time">~7:00 AM</div><div class="tl-body"><strong>On the summit deck.</strong> First light starts around 7:02.</div></div>
+          <div class="tl-item sunrise"><div class="tl-time">~7:26 AM</div><div class="tl-body"><strong>SUNRISE.</strong> This is the moment.</div></div>
+          <div class="tl-item"><div class="tl-time">~9:30 AM</div><div class="tl-body"><strong>Back at camp.</strong> Breakfast, coffee for Martin, and a hot shower at the Loop B shower house.</div></div>
+          <div class="tl-item"><div class="tl-time">By noon</div><div class="tl-body"><strong>Pack up</strong> (checkout is at 12 PM).</div></div>
+          <div class="tl-item"><div class="tl-time">Afternoon</div><div class="tl-body"><strong>Drive home</strong>, about 4–4½ hours with a charging stop at Asheville or Old Fort.</div></div>
+        </div>
+      </div>
+    </div>
+    <p class="note">Sunrise is about 7:26 AM on Sat Oct 3 and 7:27 AM on Sun Oct 4. Sunset is about 7:14 PM on Fri Oct 2 and 7:13 PM on Sat Oct 3. Parkway road status: <a href="https://www.nps.gov/blri/planyourvisit/roadclosures.htm">NPS closures</a>.</p>
+
+    <!-- ============ WEATHER ============ -->
+    <h2 class="section" id="weather">Weather forecast</h2>
+    <p class="asof">National Weather Service forecast for the Mount Pisgah area (~4,900 ft), as of <strong>Mon Sep 28, 2026, 10:02 AM ET</strong>. It will change, so check the <a href="https://forecast.weather.gov/MapClick.php?lat=35.40&amp;lon=-82.75">live forecast</a> before we go.</p>
+    <table class="wx">
+      <tr><th>Fri Oct 2</th><td><span class="t">High 68°</span> · Mostly sunny, then a chance of showers after 8 AM · <span class="pop">40%</span></td></tr>
+      <tr><th>Fri night</th><td><span class="t">Low 58°</span> · Mostly cloudy, chance of showers · <span class="pop">40%</span></td></tr>
+      <tr><th>Sat Oct 3</th><td><span class="t">High 62°</span> · Partly sunny, chance of showers · <span class="pop">50%</span></td></tr>
+      <tr><th>Sat night</th><td><span class="t">Low 55°</span> · Mostly cloudy, chance of showers · <span class="pop">50%</span></td></tr>
+      <tr><th>Sun Oct 4</th><td><span class="t">High 57°</span> · Mostly cloudy, showers likely · <span class="pop">60%</span></td></tr>
+    </table>
+    <div class="callout"><strong>What this means for us:</strong> right now it looks mild for October (lows in the mid-50s) but damp, with a chance of showers all weekend and a lot of cloud around sunrise. We might hike up into the clouds instead of a clear view. Pack the rain jacket either way. A mountain forecast 4–6 days out can change a lot, so we'll check again the day before.</div>
+    <div class="card">
+      <h3>What October nights at 5,000 ft feel like</h3>
+      <div class="prose">
+        <p>Normal for the first week of October up here: days in the <strong>low 60s</strong> and nights in the <strong>mid-40s</strong>. About 1 night in 10 drops into the <strong>30s</strong>, and a frosty night near freezing can happen (based on 20 years of weather data for this spot). It feels colder than the number because of the damp air, the wind on the summit, and sitting still at 5 AM.</p>
+        <p>So bring warm layers even if the forecast looks mild, keep the sleeping bag zipped, and let the electric blanket do its job.</p>
+      </div>
+    </div>
+
+    <!-- ============ PHOTOS ============ -->
+    <h2 class="section" id="photos">More photos</h2>
+    <div class="gallery">
+      <figure class="wide"><img src="images/cg-fall-road.jpg" alt="Fall color along a Mount Pisgah Campground road with Mount Pisgah behind" loading="lazy"/><figcaption><b>The campground in fall</b>, with Mount Pisgah poking up behind.</figcaption></figure>
+      <figure><img src="images/cg-road.jpg" alt="Tall shady trees along a campground loop road" loading="lazy"/><figcaption><b>Campground loops:</b> big shady trees, paved roads.</figcaption></figure>
+      <figure><img src="images/cloud-sea.jpg" alt="Clouds filling the valleys below the ridges at sunrise" loading="lazy"/><figcaption><b>Morning clouds</b> filling the valleys below. Common up here.</figcaption></figure>
+      <figure><img src="images/sunset.jpg" alt="Sunset over layered mountain ridges near Mount Pisgah" loading="lazy"/><figcaption><b>Sunset</b> from the overlooks by camp.</figcaption></figure>
+      <figure><img src="images/fall-view.jpg" alt="Autumn color view of mountains near the campground" loading="lazy"/><figcaption><b>Fall view</b> from near the campground.</figcaption></figure>
+      <figure><img src="images/pisgah-fall-2008.jpg" alt="Mount Pisgah and its tower surrounded by red and orange October leaves" loading="lazy"/><figcaption><b>Mount Pisgah in October</b>. The tower marks the summit.</figcaption></figure>
+      <figure><img src="images/mt-from-151.jpg" alt="Mount Pisgah seen from NC 151" loading="lazy"/><figcaption><b>Mount Pisgah</b> seen from the valley.</figcaption></figure>
+      <figure class="wide"><img src="images/ridge.jpg" alt="Mount Pisgah summit and tower from the Blue Ridge Parkway" loading="lazy"/><figcaption><b>The summit</b> from the Parkway.</figcaption></figure>
+    </div>
+
+    <!-- ============ BRING ============ -->
+    <h2 class="section" id="bring">What to bring</h2>
+    <div class="card">
+      <p class="prose">The full checklist lives here. You can tap items to check them off on your phone:</p>
+      <div class="link-row"><a class="btn solid" href="https://martingnystrom.github.io/sharing/camping/packing-list/">What to bring →</a></div>
+      <ul class="clean" style="margin-top:12px">
+        <li><strong>Your stuff:</strong> sleeping bag, pillow, warm layers (fleece, jacket, beanie, warm socks), long pants, rain jacket, hiking shoes, and a phone charger cable.</li>
+        <li><strong>For the hike:</strong> headlamp (charged!), water bottle, a snack, and a warm layer for the summit.</li>
+        <li><strong>Before you leave:</strong> download music and shows, since there's little or no cell service at camp.</li>
       </ul>
     </div>
 
     <p class="foot">
-      Mount Pisgah camping weekend 2026-10-02 to 2026-10-04 · site B26 · Martin + Eli.<br/>
-      Updated 2026-09-09.
+      Mount Pisgah camping · weekend of Oct 2–4, 2026 · site B26, Loop B · Martin + Eli.<br/>
+      Updated Sep 28, 2026.
     </p>
     <p class="credits">
-      Photos: Wikimedia Commons · Mt-Pisgah-Fall.jpg; Mount Pisgah from NC 151, Oct 2016; Observation Platform Mount Pisgah (Blue Ridge Parkway); Buck Spring Lodge Ruins; Mount Pisgah BRP views; Mount Pisgah (North Carolina) Oct 2016. Freely usable (CC0 / CC licenses on Commons). Hosted with the trip page on GitHub Pages.
+      <strong>Photos.</strong> Site B26 (3 photos), tent setup: NPS via <a href="https://www.recreation.gov/camping/campsites/9717">Recreation.gov</a>. Campground in fall: Jim Joly via <a href="https://www.recreation.gov/camping/campgrounds/234182">Recreation.gov</a>. Campground road, morning clouds, sunset, fall view: NPS photos (public domain), <a href="https://www.nps.gov/blri/planyourvisit/mt-pisgah-cg.htm">nps.gov</a>. Mount Pisgah in October 2008: Kewp, <a href="https://commons.wikimedia.org/wiki/File:Mount_Pisgah,_NC_October_2008.jpg">Wikimedia Commons</a>, CC BY-SA 3.0. Hero: PBarn424, <a href="https://commons.wikimedia.org/wiki/File:Mt-Pisgah-Fall.jpg">Mt-Pisgah-Fall.jpg</a>, CC BY-SA 4.0. Mount Pisgah from NC 151 and in Oct 2016: Thomson200, Wikimedia Commons, CC0. Observation platform, Buck Spring Lodge ruins, Parkway view: w_lemay, <a href="https://commons.wikimedia.org/wiki/Category:Mount_Pisgah_(North_Carolina)">Wikimedia Commons</a>, CC BY-SA 2.0. Map: NPS Mount Pisgah Campground map via Recreation.gov, annotated.<br/>
+      <strong>Data.</strong> Drive times: OSRM and Valhalla (OpenStreetMap) routing. Forecast: National Weather Service (api.weather.gov). October normals: Open-Meteo ERA5 history, 2006–2025. Sun times: sunrise-sunset.org. Trails: NPS Blue Ridge Parkway, AllTrails. Campground info: NPS and Recreation.gov.
     </p>
   </div>
 

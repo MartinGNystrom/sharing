@@ -1,10 +1,19 @@
-Photos (Wikimedia Commons / public domain where noted) used on the Mount Pisgah weekend share page:
-- hero-fall.jpg — Mount Pisgah autumn scene (optimized from source)
-- mt-from-151.jpg — Mount Pisgah summit / tower from NC 151
-- observation.jpg — Wooden observation deck at Mount Pisgah summit
-- ridge.jpg — Mount Pisgah summit and tower from Blue Ridge Parkway
-- buck-spring.jpg — Buck Spring Lodge ruins near Mount Pisgah
-- summit-deck.jpg — Observation platform stairs at Mount Pisgah summit
-- mt-oct.jpg — Mount Pisgah ridgeline in October
+Photos used on the Mount Pisgah trip page (pisgah-weekend/index.html)
 
-These are optimized JPEGs for GitHub Pages. Source backup also lives in gist MartinGNystrom/1d916a2882278196cc75c7e6c1ebe5e0.
+Existing (Wikimedia Commons):
+- hero-fall.jpg: "Mt-Pisgah-Fall.jpg" by PBarn424, CC BY-SA 4.0
+- mt-from-151.jpg: "Mount Pisgah from NC 151, Oct 2016" by Thomson200, CC0
+- mt-oct.jpg: "Mount Pisgah (North Carolina) Oct 2016" by Thomson200, CC0
+- observation.jpg, summit-deck.jpg: "Observation Platform, Mount Pisgah, Blue Ridge Parkway" by w_lemay, CC BY-SA 2.0
+- buck-spring.jpg: "Buck Spring Lodge Ruins, Blue Ridge Parkway, Mount Pisgah, NC" by w_lemay, CC BY-SA 2.0
+- ridge.jpg: "Mount Pisgah, Blue Ridge Parkway, Mount Pisgah, NC" by w_lemay, CC BY-SA 2.0
+
+Added 2026-09-28:
+- b26-view.jpg, b26-pad.jpg, b26-table.jpg: Recreation.gov campsite B26 (campsite 9717) listing photos, credit NPS
+- cg-tent.jpg: Recreation.gov Mount Pisgah Campground listing photo "A cozy tent set-up at Mt. Pisgah", credit NPS
+- cg-fall-road.jpg: Recreation.gov Mount Pisgah Campground listing photo, credit Jim Joly
+- cg-road.jpg, cloud-sea.jpg, sunset.jpg, fall-view.jpg: NPS photos (public domain), NPS campground data for Mount Pisgah
+- pisgah-fall-2008.jpg: "Mount Pisgah, NC October 2008.jpg" by Kewp, Wikimedia Commons, CC BY-SA 3.0
+- bathroom-map.png: crop of the NPS Mount Pisgah Campground map (Recreation.gov PDF), annotated
+
+The images were resized and recompressed for the web.
