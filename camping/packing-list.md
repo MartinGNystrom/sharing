@@ -47,6 +47,7 @@ Martin + Eli overnight camping trip. Tap to check items off.
 ## Camp
 - [ ] Trash bag
 - [ ] Bag for muddy shoes and gear
+- [ ] Dry bag or 2 extra heavy-duty trash bags (for packing a wet tent and rain fly)
 
 ## Before you leave
 - [ ] Inflate Eli's air mattress and leave it overnight to check for leaks
