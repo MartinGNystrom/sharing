@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Doughton Park camping · Fri Oct 2 – Sat Oct 3 · Martin + Eli</title>
+<meta name="description" content="One night at Doughton Park Campground (site B52) on the Blue Ridge Parkway, with a headlamp sunrise hike on the Bluff Mountain Trail. Fri Oct 2 – Sat Oct 3."/>
+<meta property="og:title" content="Sunrise on the Bluffs · Doughton Park"/>
+<meta property="og:description" content="Camp at Doughton Park on the Blue Ridge Parkway, then an early sunrise hike on the Bluff Mountain Trail. Fri Oct 2 – Sat Oct 3."/>
+<meta property="og:image" content="https://martingnystrom.github.io/sharing/doughton-weekend/images/bluff-mtn.jpg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #f4f6fb;
+    --bg-elev: #eef2f9;
+    --card: #ffffff;
+    --ink: #1a1d26;
+    --muted: #5b6475;
+    --line: #e0e5ef;
+    --accent: #2C5FD1;
+    --accent-soft: #e8effc;
+    --accent-glow: rgba(44, 95, 209, 0.14);
+    --good: #0f7a4a;
+    --good-soft: #e8f6ef;
+    --warn: #9a6700;
+    --warn-soft: #fff6e0;
+    --shadow: 0 1px 2px rgba(26, 29, 38, 0.04), 0 8px 24px rgba(26, 29, 38, 0.06);
+    --radius: 14px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0d1016;
+      --bg-elev: #131820;
+      --card: #171b24;
+      --ink: #eef1f7;
+      --muted: #9aa3b5;
+      --line: #2a3140;
+      --accent: #6C97F2;
+      --accent-soft: #1c2740;
+      --accent-glow: rgba(108, 151, 242, 0.16);
+      --good: #3ecf8e;
+      --good-soft: #163226;
+      --warn: #e5a73b;
+      --warn-soft: #2e2410;
+      --shadow: 0 1px 2px rgba(0,0,0,0.25), 0 10px 28px rgba(0,0,0,0.35);
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:hover { text-decoration-thickness: 2px; }
+  p { margin: 0 0 12px; }
+  p:last-child { margin-bottom: 0; }
+
+  .hero {
+    background:
+      linear-gradient(160deg, rgba(12,22,40,0.72) 0%, rgba(26,58,138,0.55) 45%, rgba(44,95,209,0.45) 100%),
+      url("images/bluff-mtn.jpg") center/cover no-repeat;
+    color: #f4f7ff;
+    padding: 48px 20px 64px;
+    position: relative;
+    overflow: hidden;
+    min-height: 360px;
+  }
+  .hero::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 56px;
+    background: linear-gradient(to bottom, transparent, var(--bg));
+  }
+  .hero-inner { max-width: 920px; margin: 0 auto; position: relative; z-index: 1; }
+  .pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+  .pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;
+    padding: 5px 11px; border-radius: 999px;
+    background: rgba(255,255,255,0.14); color: #fff; border: 1px solid rgba(255,255,255,0.22);
+  }
+  .hero h1 {
+    font-size: clamp(1.8rem, 4.5vw, 2.45rem);
+    font-weight: 700; margin: 0 0 10px; letter-spacing: -0.025em; line-height: 1.15;
+    text-shadow: 0 2px 16px rgba(0,0,0,0.35);
+  }
+  .hero .lede {
+    margin: 0 0 22px; opacity: 0.92; font-size: 1.05rem; max-width: 40em;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.3);
+  }
+  .bluf {
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.22);
+    border-left: 4px solid #fff;
+    padding: 16px 18px;
+    border-radius: 0 12px 12px 0;
+    font-size: 0.98rem;
+  }
+  .bluf strong { color: #fff; }
+
+  .wrap { max-width: 920px; margin: 0 auto; padding: 8px 20px 80px; }
+
+  .glance-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 14px;
+    margin: -28px 0 28px;
+    position: relative;
+    z-index: 2;
+  }
+  @media (max-width: 720px) {
+    .glance-grid { grid-template-columns: 1fr; margin-top: -20px; }
+  }
+  .glance-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 22px 22px 18px;
+    box-shadow: var(--shadow);
+  }
+  .glance-card.primary { border-color: color-mix(in srgb, var(--accent) 35%, var(--line)); }
+  .glance-card h2 {
+    margin: 0 0 4px; font-size: 0.78rem; font-weight: 600;
+    letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent);
+  }
+  .mission {
+    font-size: 1.35rem; font-weight: 700; letter-spacing: -0.02em;
+    line-height: 1.25; margin: 10px 0 12px;
+  }
+  .glance-lines { list-style: none; margin: 0; padding: 0; }
+  .glance-lines li {
+    display: flex; justify-content: space-between; gap: 12px;
+    padding: 9px 0; border-top: 1px solid var(--line); font-size: 0.92rem;
+  }
+  .glance-lines li span:last-child { font-weight: 600; white-space: nowrap; text-align: right; }
+  .note {
+    margin: 12px 0 0; font-size: 0.82rem; color: var(--muted); line-height: 1.45;
+  }
+
+  h2.section {
+    font-size: 1.12rem; font-weight: 700; margin: 36px 0 14px;
+    letter-spacing: -0.015em; display: flex; align-items: center; gap: 10px;
+  }
+  h2.section::before {
+    content: ""; width: 8px; height: 8px; border-radius: 50%;
+    background: var(--accent); flex-shrink: 0;
+  }
+  h3 { font-size: 1rem; font-weight: 700; margin: 0 0 8px; }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 18px 18px 16px;
+    margin-bottom: 12px;
+    box-shadow: 0 1px 2px rgba(26,29,38,0.03);
+  }
+  .card .prose { color: var(--muted); font-size: 0.95rem; }
+  .card .prose strong { color: var(--ink); }
+
+  .scene {
+    display: block; width: 100%; height: 200px; object-fit: cover;
+    border-radius: var(--radius); margin: 0 0 14px;
+    border: 1px solid var(--line);
+  }
+  .scene.tall { height: 240px; }
+  .scene-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px;
+  }
+  @media (max-width: 640px) { .scene-grid { grid-template-columns: 1fr; } }
+  .scene-card {
+    position: relative; border-radius: var(--radius); overflow: hidden;
+    border: 1px solid var(--line); min-height: 160px;
+  }
+  .scene-card img { width: 100%; height: 160px; object-fit: cover; display: block; }
+  .scene-card .cap {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    padding: 10px 12px;
+    background: linear-gradient(transparent, rgba(10,14,22,0.78));
+    color: #fff; font-size: 0.82rem; font-weight: 600;
+  }
+
+  .tag {
+    display: inline-block; font-size: 0.7rem; font-weight: 600;
+    letter-spacing: 0.05em; text-transform: uppercase;
+    padding: 3px 9px; border-radius: 999px;
+    background: var(--good-soft); color: var(--good); margin-bottom: 10px;
+  }
+  .tag.warn { background: var(--warn-soft); color: var(--warn); }
+  .tag.accent { background: var(--accent-soft); color: var(--accent); }
+
+  table {
+    width: 100%; border-collapse: collapse;
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: var(--radius); overflow: hidden;
+    font-size: 0.92rem; margin-bottom: 12px;
+  }
+  th, td { padding: 11px 14px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+  th { background: var(--accent-soft); font-weight: 600; width: 30%; }
+  tr:last-child th, tr:last-child td { border-bottom: none; }
+  @media (max-width: 560px) {
+    table, thead, tbody, th, td, tr { display: block; }
+    th { width: auto; border-bottom: none; padding-bottom: 4px; }
+    td { padding-top: 0; border-bottom: 1px solid var(--line); }
+    tr { padding: 8px 0; }
+    tr:last-child td { border-bottom: none; }
+  }
+
+  ul.clean { margin: 6px 0 0; padding-left: 18px; color: var(--muted); }
+  ul.clean li { margin: 6px 0; }
+  ul.clean strong { color: var(--ink); }
+  ol.steps { margin: 6px 0 0; padding-left: 20px; color: var(--muted); }
+  ol.steps li { margin: 7px 0; }
+  ol.steps strong { color: var(--ink); }
+
+  .sites {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 8px;
+    margin-top: 12px;
+  }
+  .site {
+    display: flex; flex-direction: column; gap: 2px;
+    padding: 12px 12px 10px;
+    border-radius: 10px;
+    border: 1px solid var(--line);
+    background: var(--bg-elev);
+    text-decoration: none; color: inherit;
+    transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s;
+  }
+  .site:hover {
+    border-color: var(--accent);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow);
+    text-decoration: none;
+  }
+  .site.prefer { border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); background: var(--accent-soft); }
+  .site.avoid { opacity: 0.55; }
+  .site .name { font-weight: 700; font-size: 1.02rem; color: var(--accent); }
+  .site .meta { font-size: 0.75rem; color: var(--muted); }
+  .site .status {
+    font-size: 0.68rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;
+    color: var(--good); margin-top: 4px;
+  }
+  .site.avoid .status { color: var(--warn); }
+
+  .timeline { position: relative; padding-left: 22px; margin: 8px 0 0; }
+  .timeline::before {
+    content: ""; position: absolute; left: 5px; top: 6px; bottom: 6px;
+    width: 2px; background: var(--line);
+  }
+  .tl-item { position: relative; padding: 0 0 18px; }
+  .tl-item:last-child { padding-bottom: 0; }
+  .tl-item::before {
+    content: ""; position: absolute; left: -22px; top: 6px;
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--card); border: 2px solid var(--accent); box-sizing: border-box;
+  }
+  .tl-item.sunrise::before { background: var(--accent); border-color: var(--accent); }
+  .tl-time { font-size: 0.78rem; font-weight: 600; color: var(--accent); letter-spacing: 0.02em; }
+  .tl-body { font-size: 0.94rem; color: var(--muted); margin-top: 2px; }
+  .tl-body strong { color: var(--ink); }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 640px) { .two-col { grid-template-columns: 1fr; } }
+  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+  @media (max-width: 820px) { .three-col { grid-template-columns: 1fr; } }
+  .site.booked { border-color: color-mix(in srgb, var(--good) 55%, var(--line)); background: var(--good-soft); }
+  .site.booked .name { color: var(--good); }
+  .site.booked .status { color: var(--good); }
+
+  .link-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 8px 14px; border-radius: 999px;
+    background: var(--accent-soft); color: var(--accent);
+    font-size: 0.88rem; font-weight: 600; text-decoration: none;
+    border: 1px solid color-mix(in srgb, var(--accent) 25%, var(--line));
+  }
+  .btn:hover { text-decoration: none; filter: brightness(1.05); }
+  .btn.solid { background: var(--accent); color: #fff; border-color: transparent; }
+  @media (prefers-color-scheme: dark) { .btn.solid { color: #0d1016; } }
+
+  .panel {
+    background: var(--accent-soft);
+    border: 1px solid color-mix(in srgb, var(--accent) 30%, var(--line));
+    border-radius: var(--radius);
+    padding: 18px;
+    margin-bottom: 12px;
+  }
+  .panel h3 { color: var(--accent); margin-bottom: 8px; }
+  .panel p { color: var(--ink); font-size: 0.95rem; }
+
+  .foot {
+    margin-top: 36px; padding-top: 18px; border-top: 1px solid var(--line);
+    color: var(--muted); font-size: 0.84rem;
+  }
+  .credits { font-size: 0.75rem; color: var(--muted); margin-top: 10px; }
+  /* --- additions (Sep 2026 rebuild) --- */
+  .toc { display:flex; gap:8px; overflow-x:auto; padding:4px 0 10px; margin:0 0 4px; scrollbar-width:none; }
+  .toc::-webkit-scrollbar { display:none; }
+  .toc a { flex:none; font-size:.82rem; font-weight:600; padding:6px 12px; border-radius:999px;
+    background:var(--card); border:1px solid var(--line); color:var(--ink); text-decoration:none; }
+  .toc a:hover { border-color:var(--accent); color:var(--accent); }
+  h2.section { scroll-margin-top: 12px; }
+  .stat-row { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin:0 0 12px; }
+  @media (max-width:520px){ .stat-row { grid-template-columns:repeat(2,1fr); } }
+  .stat { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 12px 10px; }
+  .stat .big { font-size:1.35rem; font-weight:700; letter-spacing:-.02em; color:var(--accent); line-height:1.15; }
+  .stat .lbl { font-size:.78rem; color:var(--muted); margin-top:2px; }
+  .leg { display:flex; gap:12px; padding:12px 0; border-top:1px solid var(--line); }
+  .leg:first-child { border-top:0; padding-top:2px; }
+  .leg .ico { flex:none; width:34px; height:34px; border-radius:50%; display:grid; place-items:center;
+    background:var(--accent-soft); color:var(--accent); font-weight:700; font-size:.95rem; }
+  .leg.charge .ico { background:var(--good-soft); color:var(--good); }
+  .leg .what { font-weight:600; }
+  .leg .meta { font-size:.86rem; color:var(--muted); }
+  .gallery { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:12px; }
+  @media (min-width:760px){ .gallery { grid-template-columns:1fr 1fr 1fr; } }
+  .gallery figure { margin:0; background:var(--card); border:1px solid var(--line); border-radius:12px; overflow:hidden; }
+  .gallery figure.wide { grid-column:1 / -1; }
+  .gallery img { display:block; width:100%; height:150px; object-fit:cover; }
+  .gallery figure.wide img { height:210px; }
+  .gallery figcaption { font-size:.78rem; color:var(--muted); padding:8px 10px 9px; line-height:1.35; }
+  .gallery figcaption b { color:var(--ink); font-weight:600; }
+  .mapfig { margin:0 0 12px; background:#fff; border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; }
+  .mapfig img { display:block; width:100%; height:auto; }
+  .mapfig figcaption { background:var(--card); font-size:.78rem; color:var(--muted); padding:9px 12px; border-top:1px solid var(--line); }
+  .wx { width:100%; }
+  .wx td, .wx th { font-size:.88rem; }
+  .wx .t { font-weight:700; white-space:nowrap; }
+  .wx .pop { color:var(--accent); font-weight:600; white-space:nowrap; }
+  @media (max-width:560px){ .wx th { background:var(--accent-soft); padding-top:9px; } }
+  .asof { font-size:.78rem; color:var(--muted); margin:-4px 0 10px; }
+  .day-h { display:flex; align-items:baseline; gap:10px; margin:0 0 6px; }
+  .day-h .tag { margin:0; }
+  .callout { border-left:4px solid var(--accent); background:var(--accent-soft); padding:12px 14px; border-radius:0 12px 12px 0; margin:0 0 12px; font-size:.93rem; }
+  .callout.warn { border-left-color:var(--warn); background:var(--warn-soft); }
+  .callout strong { color:var(--ink); }
+  .kv { list-style:none; padding:0; margin:6px 0 0; }
+  .kv li { display:flex; justify-content:space-between; gap:12px; padding:8px 0; border-top:1px solid var(--line); font-size:.9rem; }
+  .kv li:first-child { border-top:0; }
+  .kv li span:first-child { color:var(--muted); }
+  .kv li span:last-child { font-weight:600; text-align:right; }
+  .credits a { color:var(--muted); }
+  .trail { border-left:4px solid var(--line); }
+  .trail.planned { border-left-color: var(--accent); }
+  .trail .stats { font-size:.86rem; color:var(--muted); margin:2px 0 8px; }
+  .trail .stats b { color:var(--ink); }
+</style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="pill-row">
+        <span class="pill">Blue Ridge Parkway · MP 239</span>
+        <span class="pill">Fri Oct 2 – Sat Oct 3</span>
+        <span class="pill">Site B52 · Loop B</span>
+        <span class="pill">Sunrise 7:20 AM</span>
+        <span class="pill">Martin + Eli</span>
+      </div>
+      <h1>Sunrise on the Bluffs</h1>
+      <p class="lede">One night camping at Doughton Park, way up on the Blue Ridge Parkway, with big grassy meadows, deer and long views. Campfire and s'mores Friday, then an early headlamp hike to catch the sunrise before the rain shows up.</p>
+      <div class="bluf">
+        <strong>The plan, fast:</strong> Martin picks you up in Winston-Salem around <strong>12:30 PM Friday</strong>. About 2 hours to camp, plus a lunch stop while Grivvy charges. We get to camp around <strong>3:40</strong>, with plenty of daylight to set up. You get your <strong>own tent</strong>. Saturday: up at <strong>6:00</strong>, sunrise hike <strong>6:30 to 8:30</strong>, pack up, and you're home around <strong>noon to 12:30</strong>.
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap">
+
+    <div class="glance-grid">
+      <section class="glance-card primary" aria-labelledby="mission-title">
+        <h2 id="mission-title">The mission</h2>
+        <div class="mission">Set up camp, build a fire, sleep on the mountain, and be on the trail with headlamps before the sun comes up.</div>
+        <div class="link-row">
+          <a class="btn solid" href="https://martingnystrom.github.io/sharing/camping/packing-list/">What to bring</a>
+          <a class="btn" href="#bathrooms">Where are the bathrooms?</a>
+          <a class="btn" href="#hike">Hikes</a>
+          <a class="btn" href="#weather">Weather</a>
+        </div>
+      </section>
+      <section class="glance-card">
+        <h2>At a glance</h2>
+        <ul class="glance-lines">
+          <li><span>Who</span><span>Martin + Eli</span></li>
+          <li><span>When</span><span>Fri Oct 2 · home Sat Oct 3</span></li>
+          <li><span>Camp</span><span>Doughton Park · site B52</span></li>
+          <li><span>Car time (you)</span><span>~2 hr there · ~1¾ hr back</span></li>
+          <li><span>Camp elevation</span><span>~3,600 ft</span></li>
+          <li><span>Sunset Fri</span><span>7:08 PM</span></li>
+          <li><span>Sunrise Sat</span><span>7:20 AM</span></li>
+          <li><span>Nearest bathroom</span><span>~1 min walk</span></li>
+        </ul>
+      </section>
+    </div>
+
+    <nav class="toc" aria-label="Sections">
+      <a href="#schedule">Schedule</a><a href="#drive">Drive</a><a href="#charging">Charging</a><a href="#camp">Camp setup</a><a href="#bathrooms">Bathrooms</a>
+      <a href="#hike">Hikes</a><a href="#weather">Weather</a><a href="#photos">Photos</a><a href="#bring">What to bring</a>
+    </nav>
+
+    <div class="scene-grid">
+      <div class="scene-card">
+        <img src="images/b52-1.jpg" alt="Campsite B52 at Doughton Park Campground: grassy site under big trees with a picnic table" loading="lazy"/>
+        <div class="cap">Our site, B52: grass, shade and a picnic table</div>
+      </div>
+      <div class="scene-card">
+        <img src="images/doughton.jpg" alt="Rolling green meadows and mountains in Doughton Park" loading="lazy"/>
+        <div class="cap">The Doughton Park meadows, near the trail</div>
+      </div>
+    </div>
+
+    <!-- ============ SCHEDULE ============ -->
+    <h2 class="section" id="schedule">The schedule</h2>
+    <div class="two-col">
+      <div class="card">
+        <div class="day-h"><span class="tag accent">Fri Oct 2</span><strong>Drive, camp, fire</strong></div>
+        <div class="timeline">
+          <div class="tl-item"><div class="tl-time">11:00 AM</div><div class="tl-body">Martin leaves Mebane.</div></div>
+          <div class="tl-item"><div class="tl-time">~12:30 PM</div><div class="tl-body"><strong>Pick up Eli in Winston-Salem.</strong> Bags, pillow and sleeping bag in the truck.</div></div>
+          <div class="tl-item"><div class="tl-time">~1:55–2:30 PM</div><div class="tl-body"><strong>Lunch stop in Mount Airy</strong> at the Flying J while Grivvy charges. Snacks, bathroom, and ice for the cooler.</div></div>
+          <div class="tl-item"><div class="tl-time">~3:40 PM</div><div class="tl-body"><strong>Arrive at Doughton Park Campground, site B52.</strong></div></div>
+          <div class="tl-item"><div class="tl-time">By ~5:30 PM</div><div class="tl-body"><strong>Tents up, fire built.</strong> Your tent and air mattress, Martin's truck-bed tent, firewood stacked.</div></div>
+          <div class="tl-item sunrise"><div class="tl-time">7:08 PM</div><div class="tl-body"><strong>Sunset.</strong> Gets dark around 7:30.</div></div>
+          <div class="tl-item"><div class="tl-time">Evening</div><div class="tl-body"><strong>Dinner, campfire, s'mores.</strong> Lay out hike clothes and headlamps before bed.</div></div>
+          <div class="tl-item"><div class="tl-time">~10:00 PM</div><div class="tl-body"><strong>Food in the truck, lights out.</strong> Wake-up is early.</div></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="day-h"><span class="tag">Sat Oct 3</span><strong>Sunrise hike, pack, home</strong></div>
+        <div class="timeline">
+          <div class="tl-item"><div class="tl-time">~6:00 AM</div><div class="tl-body"><strong>Wake up.</strong> Sleeping bag, pillow and pad go into the truck so they stay dry.</div></div>
+          <div class="tl-item"><div class="tl-time">6:30 AM</div><div class="tl-body"><strong>Sunrise hike</strong> on the Bluff Mountain Trail, right from camp. Headlamps on, it's still dark.</div></div>
+          <div class="tl-item sunrise"><div class="tl-time">7:20 AM</div><div class="tl-body"><strong>SUNRISE.</strong> The sky starts glowing around 6:56.</div></div>
+          <div class="tl-item"><div class="tl-time">7:30 AM</div><div class="tl-body">Turn around wherever we are and head back.</div></div>
+          <div class="tl-item"><div class="tl-time">8:30 AM</div><div class="tl-body"><strong>Back at camp.</strong> Breakfast, then pack the tents fast, even if they're wet. Rain is likely after 8.</div></div>
+          <div class="tl-item"><div class="tl-time">~10:00 AM</div><div class="tl-body"><strong>Leave camp.</strong></div></div>
+          <div class="tl-item"><div class="tl-time">Noon to 12:30 PM</div><div class="tl-body"><strong>Eli home in Winston-Salem.</strong></div></div>
+        </div>
+      </div>
+    </div>
+    <p class="note">All times Eastern. Times are targets, not promises; rain or Parkway fog can slow us a little. Parkway road status: <a href="https://www.nps.gov/blri/planyourvisit/roadclosures.htm">NPS closures</a>.</p>
+
+    <!-- ============ DRIVE ============ -->
+    <h2 class="section" id="drive">Time in the car</h2>
+    <div class="stat-row">
+      <div class="stat"><div class="big">~1 hr</div><div class="lbl">Winston-Salem to Mount Airy</div></div>
+      <div class="stat"><div class="big">~35 min</div><div class="lbl">lunch + charging</div></div>
+      <div class="stat"><div class="big">~1 hr</div><div class="lbl">Mount Airy up to camp</div></div>
+    </div>
+    <div class="card">
+      <h3>Getting there (Fri Oct 2)</h3>
+      <div class="leg"><div class="ico">1</div><div><div class="what">Pickup in Winston-Salem · ~12:30</div><div class="meta">Martin drives over from Mebane and picks you up.</div></div></div>
+      <div class="leg"><div class="ico">2</div><div><div class="what">North on US-52 to Mount Airy · ~50 mi, ~1 hr</div><div class="meta">Easy highway. You'll see Pilot Mountain's knob on the left on the way.</div></div></div>
+      <div class="leg charge"><div class="ico">⚡</div><div><div class="what">Lunch stop while Grivvy charges · ~35 min</div><div class="meta">Details <a href="#charging">below</a>.</div></div></div>
+      <div class="leg"><div class="ico">3</div><div><div class="what">Up the mountain to camp · ~36 mi, ~1 hr</div><div class="meta">NC-89 climbs up to the Blue Ridge Parkway, then about 22 miles south on the Parkway. Camp is about 2,500 ft higher than Mount Airy, so your ears might pop.</div></div></div>
+      <p class="note"><strong>Going home Saturday:</strong> straight from camp to Winston-Salem, about 1¾ hours, down the mountain on US-21. Cell service at camp is weak, so download music and shows before you leave.</p>
+    </div>
+
+    <!-- ============ CHARGING ============ -->
+    <h2 class="section" id="charging">Charging Grivvy (the simple version)</h2>
+    <div class="callout">Grivvy is Martin's electric Rivian truck. Climbing up to the Parkway uses a lot of battery, so we fill up at a fast charger at the <strong>Flying J truck stop in Mount Airy</strong>, the last good charger before the mountains. It takes about <strong>25–35 minutes</strong>, which is exactly lunch: food, bathroom, snacks, ice for the cooler. Martin handles the rest. There's no charging stop on your ride home.</div>
+
+    <!-- ============ CAMP SETUP ============ -->
+    <h2 class="section" id="camp">The camp setup</h2>
+    <div class="gallery">
+      <figure class="wide"><img src="images/b52-2.jpg" alt="Grassy campsite B52 with a picnic table and lantern post under tall trees" loading="lazy"/><figcaption><b>Site B52:</b> picnic table, lantern post and fire ring with a grill, under big shady trees.</figcaption></figure>
+      <figure><img src="images/bloop-site.jpg" alt="A wooded tent site on Loop B" loading="lazy"/><figcaption><b>Loop B</b> is the tent loop: wooded and quiet.</figcaption></figure>
+      <figure><img src="images/cg-loop.jpg" alt="Paved campground loop road forking around grass and picnic tables" loading="lazy"/><figcaption><b>Campground roads:</b> paved loops, grass, trees.</figcaption></figure>
+    </div>
+    <div class="two-col">
+      <div class="card">
+        <span class="tag accent">Your spot</span>
+        <h3>Eli's own tent</h3>
+        <div class="prose">
+          <p>You get your <strong>own tent</strong> set up right next to the truck, with:</p>
+          <ul class="clean">
+            <li><strong>Your own air mattress</strong> (tested for leaks the night before)</li>
+            <li><strong>Sleeping bag</strong> and <strong>pillow</strong></li>
+            <li><strong>Electric blanket</strong> powered by the truck</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card">
+        <span class="tag">Martin's spot</span>
+        <h3>Truck-bed tent</h3>
+        <div class="prose">
+          <p>Martin sleeps in Grivvy's bed on an air mattress under a truck-bed tent, a few feet from you.</p>
+          <p>Friday night should be mild, around <strong>61°</strong>, so it won't be a freezing night. Still bring a hoodie: it's breezy up on the ridge.</p>
+        </div>
+      </div>
+    </div>
+    <div class="callout warn"><strong>Bears live here. Normal, just be smart.</strong> All food, drinks, the cooler, trash, and anything that smells (toothpaste, snacks) go in the locked truck at night and whenever we leave camp. Never keep food in your tent.</div>
+
+    <!-- ============ BATHROOMS ============ -->
+    <h2 class="section" id="bathrooms">Where are the bathrooms?</h2>
+    <div class="panel">
+      <h3>Short answer: about a 1-minute walk</h3>
+      <p>B52 is on the inside of Loop B, and there's a <strong>restroom building in the middle of that same inner loop</strong>, roughly 120–150 ft from our site, with a water faucet right next to us. It has <strong>flush toilets and sinks</strong>. There are <strong>no showers</strong> anywhere in the campground, so it's a no-shower trip.</p>
+    </div>
+    <figure class="mapfig">
+      <img src="images/bathroom-map.png" alt="Campground map of Loop B with site B52 circled in blue and the restroom building in the middle of the inner loop circled in orange" loading="lazy"/>
+      <figcaption>Part of the official NPS Doughton Park Campground map, marked up for us. Distance is an estimate. Another restroom sits by sites 4 and 23, near the entrance.</figcaption>
+    </figure>
+    <p class="note">Take your headlamp at night. There are no streetlights on the loop.</p>
+
+    <!-- ============ HIKE ============ -->
+    <h2 class="section" id="hike">Hikes</h2>
+    <div class="stat-row">
+      <div class="stat"><div class="big">6:30–8:30</div><div class="lbl">sunrise hike window</div></div>
+      <div class="stat"><div class="big">~3–4 mi</div><div class="lbl">round trip, our pace</div></div>
+      <div class="stat"><div class="big">7:20 AM</div><div class="lbl">sunrise</div></div>
+    </div>
+    <img class="scene" src="images/pasture.jpg" alt="A mown path through golden grass meadows in Doughton Park" loading="lazy"/>
+    <div class="card trail planned">
+      <span class="tag accent">★ Our sunrise hike</span>
+      <h3>Bluff Mountain Trail, right from camp</h3>
+      <p class="stats">NPS: <b>7.5 mi</b> one way from Brinegar Cabin to Basin Cove Overlook, mostly level. We do a piece of it: out from camp until <b>7:30</b>, then back. That's about <b>1½–2 mi</b> each way.</p>
+      <div class="prose">
+        <p>The trail runs right past the campground. We head toward the open meadows of the Bluffs, starting in the dark with headlamps. The sky gets light around 6:56 and the sun comes up at 7:20. It's mostly gentle, grassy and wooded, and you might see deer in the fields.</p>
+        <p>This piece of trail is part of the AllTrails route below, which starts at Brinegar Cabin, goes past the campground, and runs out to Fodder Stack.</p>
+      </div>
+      <div class="link-row">
+        <a class="btn solid" href="https://www.alltrails.com/trail/us/north-carolina/fodder-stack-via-bluff-mountain-trail">AllTrails: Fodder Stack via Bluff Mountain Trail</a>
+        <a class="btn" href="https://www.nps.gov/blri/planyourvisit/doughton-park-trails.htm">NPS: Doughton Park trails</a>
+      </div>
+      <p class="note">AllTrails full route: <b>8.2 mi</b> out-and-back, <b>~1,164 ft</b> gain, moderate, about 3½–4 hr. We do a shorter piece of it.</p>
+    </div>
+    <div class="two-col">
+      <div class="card trail">
+        <span class="tag">The long version</span>
+        <h3>Bluff Mountain Trail (Basin Cove ↔ Bluffs)</h3>
+        <p class="stats">AllTrails: <b>8.1 mi</b> out-and-back, <b>~1,050 ft</b> gain, moderate, about 3½ hr.</p>
+        <p class="prose">The southern part of the trail, from Basin Cove Overlook to the Bluffs Picnic Area. Too long for this trip, but a good one for next time.</p>
+        <div class="link-row"><a class="btn" href="https://www.alltrails.com/trail/us/north-carolina/bluff-mountain-trail--4">AllTrails: Bluff Mountain Trail</a></div>
+      </div>
+      <div class="card trail">
+        <span class="tag">Short + steep start</span>
+        <h3>Fodder Stack Trail</h3>
+        <p class="stats">NPS: <b>2 mi</b> round trip, easy to moderate, short steep section at the start. AllTrails: <b>1.2 mi</b>, <b>~350 ft</b> gain.</p>
+        <p class="prose">Starts at the old Bluffs Lodge parking lot (a short drive from camp) and drops through pine and hardwood forest to a little knob called Fodder Stack. Some hikers say it's overgrown with few views.</p>
+        <div class="link-row"><a class="btn" href="https://www.alltrails.com/trail/us/north-carolina/wildcat-rock-water-tower-and-fodder-stack-trail">AllTrails: Fodder Stack Trail</a></div>
+      </div>
+      <div class="card trail">
+        <span class="tag">Big view, tiny walk</span>
+        <h3>Wildcat Rocks Overlook</h3>
+        <p class="stats">AllTrails: <b>0.2 mi</b> out-and-back, <b>~22 ft</b> gain, easy.</p>
+        <p class="prose">A short paved path from the same parking lot to a platform looking straight down into Basin Cove. Best view for the least effort, and a good backup if the rain comes early.</p>
+        <div class="link-row"><a class="btn" href="https://www.alltrails.com/trail/us/north-carolina/wildcat-rocks-overlook">AllTrails: Wildcat Rocks Overlook</a></div>
+      </div>
+      <div class="card trail">
+        <span class="tag">History stop</span>
+        <h3>Brinegar Cabin area</h3>
+        <p class="stats">About 1 mi north of camp on the Bluff Mountain Trail (Parkway MP 238.5). Cabin built in 1889.</p>
+        <p class="prose">An old mountain family's log cabin, springhouse and garden. The Bluff Mountain Trail officially starts here. It's the short northern option if we want an easy walk.</p>
+        <div class="link-row"><a class="btn" href="https://www.alltrails.com/en-gb/poi/us/north-carolina/hays/brinegar-cabin">AllTrails: trails near Brinegar Cabin</a></div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Hike rules</h3>
+      <ul class="clean">
+        <li><strong>Stay together</strong>, in sight of each other the whole time, especially in the dark.</li>
+        <li><strong>Headlamp, charged the day before.</strong> A phone light is backup only.</li>
+        <li><strong>Rain jacket in the pack.</strong> If it's already raining at 6:15, we shorten the hike or skip it.</li>
+        <li><strong>Stay on the trail.</strong> If we're near the Parkway, cars can't see you in the dark.</li>
+        <li>AllTrails notes a partial closure somewhere along the Mountains-to-Sea Trail in this area. If we see a closed sign, we turn around.</li>
+      </ul>
+      <div class="link-row"><a class="btn" href="https://www.alltrails.com/poi/us/north-carolina/sparta/doughton-park-campground">AllTrails: all trails near the campground</a></div>
+    </div>
+
+    <!-- ============ WEATHER ============ -->
+    <h2 class="section" id="weather">Weather</h2>
+    <table class="wx">
+      <tr><th>Fri Oct 2</th><td><span class="t">High ~75°</span> · Sunny. Great setup weather.</td></tr>
+      <tr><th>Fri night</th><td><span class="t">Low ~61°</span> · Clouds move in, mild. Small chance of showers late (after 2 AM).</td></tr>
+      <tr><th>Sat Oct 3</th><td><span class="t">High ~62°</span> · Rain likely, mostly <strong>from about 8 AM on</strong>. <span class="pop">~25% before 8, 55–70% after</span></td></tr>
+    </table>
+    <div class="callout"><strong>What this means for us:</strong> Friday is perfect. Saturday, the rain probably holds off until around 8, so the hike goes <strong>early</strong>, and we pack the tents right after, <strong>even if they're wet</strong>. Wet tents go in a dry bag or trash bags and get dried at home. Keep your rain jacket in the cab, not packed away. Check the <a href="https://forecast.weather.gov/MapClick.php?lat=36.4301&amp;lon=-81.1550">live forecast</a> the night before.</div>
+
+    <!-- ============ PHOTOS ============ -->
+    <h2 class="section" id="photos">More photos</h2>
+    <div class="gallery">
+      <figure class="wide"><img src="images/parkway-view.jpg" alt="View from the Blue Ridge Parkway in Doughton Park over layered blue ridges" loading="lazy"/><figcaption><b>The view from the Parkway</b> in Doughton Park.</figcaption></figure>
+      <figure><img src="images/pastoral.jpg" alt="Parkway road curving past grassy fields in Doughton Park" loading="lazy"/><figcaption><b>The road in:</b> fields along the Parkway near camp.</figcaption></figure>
+      <figure><img src="images/brinegar.jpg" alt="Brinegar Cabin and a small shed under a big tree" loading="lazy"/><figcaption><b>Brinegar Cabin</b> (1889), a mile up the trail.</figcaption></figure>
+      <figure><img src="images/trail.jpg" alt="A trail through tall golden grass in Doughton Park" loading="lazy"/><figcaption><b>Meadow trail</b> in Doughton Park.</figcaption></figure>
+      <figure><img src="images/trees.jpg" alt="Bare trees on a grassy hillside in Doughton Park" loading="lazy"/><figcaption><b>Up on the Bluffs.</b></figcaption></figure>
+      <figure><img src="images/brinegar-view.jpg" alt="Hazy blue ridgelines seen from the Brinegar Cabin parking lot" loading="lazy"/><figcaption><b>Blue ridges</b> from the Brinegar Cabin lot.</figcaption></figure>
+      <figure><img src="images/brinegar-recgov.jpg" alt="Front porch and stone chimney of Brinegar Cabin" loading="lazy"/><figcaption><b>Brinegar Cabin</b> porch.</figcaption></figure>
+    </div>
+
+    <!-- ============ BRING ============ -->
+    <h2 class="section" id="bring">What to bring</h2>
+    <div class="card">
+      <p class="prose">The full checklist lives here. You can tap items to check them off on your phone:</p>
+      <div class="link-row"><a class="btn solid" href="https://martingnystrom.github.io/sharing/camping/packing-list/">What to bring →</a></div>
+      <ul class="clean" style="margin-top:12px">
+        <li><strong>Your stuff:</strong> sleeping bag, pillow, a hoodie or fleece, long pants, <strong>rain jacket</strong>, hiking shoes, a change of socks, and a phone charger cable.</li>
+        <li><strong>For the hike:</strong> headlamp (charged!), water bottle, a snack.</li>
+        <li><strong>Before you leave:</strong> download music and shows, since cell service at camp is weak.</li>
+      </ul>
+    </div>
+
+    <p class="foot">
+      Doughton Park camping · Fri Oct 2 – Sat Oct 3, 2026 · site B52, Loop B · Martin + Eli.<br/>
+      Updated Oct 1, 2026.
+    </p>
+    <p class="credits">
+      <strong>Photos.</strong> Site B52 (2 photos): NPS via <a href="https://www.recreation.gov/camping/campsites/91513">Recreation.gov</a>. Hero (Bluff Mountain view): Debbie Webber via <a href="https://www.recreation.gov/camping/campgrounds/233369">Recreation.gov</a>. Loop B site, Parkway fields, Brinegar Cabin porch: Elizabeth Thompson via <a href="https://www.recreation.gov/camping/campgrounds/233369">Recreation.gov</a>. Campground loop road and Brinegar Cabin view: NPS, public domain, <a href="https://commons.wikimedia.org/wiki/Category:Doughton_Park_Campground">Wikimedia Commons</a>. Doughton Park meadows: Indy beetle, <a href="https://commons.wikimedia.org/wiki/File:Doughton_Park.jpg">Wikimedia Commons</a>, CC BY-SA 4.0. Parkway view: Charlottewitch1, <a href="https://commons.wikimedia.org/wiki/File:Doughton_Park_on_the_Blue_Ridge_Parkway.jpg">Wikimedia Commons</a>, CC BY-SA 4.0. Meadow path, meadow trail, Bluffs trees: Willthacheerleader18, <a href="https://commons.wikimedia.org/wiki/File:Pasture_in_Doughton_Park.jpg">Wikimedia Commons</a>, CC BY-SA 4.0. Brinegar Cabin and shed: Acroterion, <a href="https://commons.wikimedia.org/wiki/File:Brinegar_Cabinb_BRP_NC1.jpg">Wikimedia Commons</a>, CC BY-SA 4.0. Map: NPS Doughton Park Campground map, annotated.<br/>
+      <strong>Data.</strong> Drive times: OSRM (OpenStreetMap) routing. Forecast: National Weather Service. Sun times: sunrise-sunset.org. Trails: NPS Blue Ridge Parkway and AllTrails. Campground info: NPS and Recreation.gov.
+    </p>
+  </div>
+
+</body>
+</html>
